@@ -90,7 +90,7 @@
       ]
     },
     "maxBlocks": 21,
-    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_repeat\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"DO\"><block type=\"maze_repeat\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></statement><next><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_turn\"><field name=\"DIR\">turnRight</field></block></next></block></next></block></next></block></statement><next><block type=\"maze_repeat\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">3</field></shadow></value><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></statement><next><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_moveForward\" /></next></block></next></block></next></block></next></block></next></block></next></block></statement></block></xml>"
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_repeat\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"DO\"><block type=\"maze_repeat\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">3</field></shadow></value><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></statement><next><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_turn\"><field name=\"DIR\">turnRight</field></block></next></block></next></block></next></block></statement><next><block type=\"maze_repeat\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></statement><next><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_moveForward\" /></next></block></next></block></next></block></next></block></next></block></next></block></statement></block></xml>"
   },
   "gameConfig": {
     "type": "maze",
@@ -101,7 +101,7 @@
         "position": {
           "x": 2,
           "y": 0,
-          "z": 5
+          "z": 1
         }
       },
       {
@@ -109,7 +109,7 @@
         "position": {
           "x": 2,
           "y": 0,
-          "z": 10
+          "z": 6
         }
       },
       {
@@ -117,7 +117,7 @@
         "position": {
           "x": 3,
           "y": 0,
-          "z": 5
+          "z": 1
         }
       },
       {
@@ -125,7 +125,7 @@
         "position": {
           "x": 3,
           "y": 0,
-          "z": 10
+          "z": 6
         }
       },
       {
@@ -133,7 +133,7 @@
         "position": {
           "x": 4,
           "y": 0,
-          "z": 5
+          "z": 1
         }
       },
       {
@@ -141,7 +141,7 @@
         "position": {
           "x": 4,
           "y": 0,
-          "z": 10
+          "z": 6
         }
       },
       {
@@ -149,7 +149,7 @@
         "position": {
           "x": 5,
           "y": 0,
-          "z": 5
+          "z": 1
         }
       },
       {
@@ -157,7 +157,7 @@
         "position": {
           "x": 5,
           "y": 0,
-          "z": 10
+          "z": 6
         }
       },
       {
@@ -165,7 +165,7 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 5
+          "z": 1
         }
       },
       {
@@ -173,7 +173,7 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 10
+          "z": 6
         }
       },
       {
@@ -181,7 +181,7 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 5
+          "z": 1
         }
       },
       {
@@ -189,7 +189,39 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 10
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 4
         }
       },
       {
@@ -207,38 +239,6 @@
           "y": 0,
           "z": 6
         }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 10
-        }
       }
     ],
     "players": [
@@ -247,7 +247,7 @@
         "start": {
           "x": 2,
           "y": 1,
-          "z": 5,
+          "z": 1,
           "direction": 1
         }
       }
@@ -259,7 +259,7 @@
         "position": {
           "x": 3,
           "y": 1,
-          "z": 5
+          "z": 1
         }
       },
       {
@@ -268,7 +268,7 @@
         "position": {
           "x": 8,
           "y": 1,
-          "z": 5
+          "z": 1
         }
       },
       {
@@ -277,7 +277,7 @@
         "position": {
           "x": 8,
           "y": 1,
-          "z": 10
+          "z": 6
         }
       },
       {
@@ -286,7 +286,7 @@
         "position": {
           "x": 3,
           "y": 1,
-          "z": 10
+          "z": 6
         }
       }
     ],
@@ -294,7 +294,7 @@
     "finish": {
       "x": 2,
       "y": 1,
-      "z": 10
+      "z": 6
     }
   },
   "solution": {
@@ -401,7 +401,7 @@
           "body": [
             {
               "type": "maze_repeat",
-              "times": 2,
+              "times": 3,
               "body": [
                 {
                   "type": "moveForward"
@@ -425,7 +425,7 @@
         },
         {
           "type": "maze_repeat",
-          "times": 3,
+          "times": 2,
           "body": [
             {
               "type": "moveForward"

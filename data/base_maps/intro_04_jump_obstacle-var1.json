@@ -6,33 +6,41 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 0,
+          "x": 4,
           "y": 0,
-          "z": 12
+          "z": 7
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 1,
+          "x": 4,
           "y": 0,
-          "z": 12
+          "z": 8
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 2,
+          "x": 4,
           "y": 0,
-          "z": 12
+          "z": 9
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 0,
-          "z": 12
+          "z": 10
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 11
         }
       },
       {
@@ -46,25 +54,17 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 5,
+          "x": 4,
           "y": 0,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 12
+          "z": 13
         }
       },
       {
         "modelKey": "wall.brick01",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 1,
-          "z": 12
+          "z": 9
         }
       }
     ],
@@ -72,9 +72,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 6,
+          "x": 4,
           "y": 1,
-          "z": 12,
+          "z": 13,
           "direction": 1
         }
       }
@@ -82,18 +82,18 @@
     "collectibles": [],
     "interactibles": [],
     "finish": {
-      "x": 0,
+      "x": 4,
       "y": 1,
-      "z": 12
+      "z": 7
     },
     "obstacles": [
       {
         "id": "o1",
         "type": "wall",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 1,
-          "z": 12
+          "z": 9
         }
       }
     ]

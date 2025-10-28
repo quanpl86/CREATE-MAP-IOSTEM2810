@@ -74,33 +74,9 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": -2,
-          "y": 0,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": -1,
-          "y": 0,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 0,
-          "y": 0,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
           "x": 1,
           "y": 0,
-          "z": 10
+          "z": 0
         }
       },
       {
@@ -108,7 +84,7 @@
         "position": {
           "x": 2,
           "y": 0,
-          "z": 10
+          "z": 0
         }
       },
       {
@@ -116,47 +92,71 @@
         "position": {
           "x": 3,
           "y": 0,
-          "z": 6
+          "z": 0
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 0,
-          "z": 7
+          "z": 0
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 3,
+          "x": 5,
           "y": 0,
-          "z": 8
+          "z": 0
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 3,
+          "x": 6,
           "y": 0,
-          "z": 9
+          "z": 0
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 3,
+          "x": 6,
           "y": 0,
-          "z": 10
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 4
         }
       },
       {
         "modelKey": "wall.brick01",
         "position": {
-          "x": 3,
+          "x": 2,
           "y": 1,
-          "z": 10
+          "z": 0
         }
       }
     ],
@@ -164,9 +164,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 3,
+          "x": 6,
           "y": 1,
-          "z": 6,
+          "z": 4,
           "direction": 1
         }
       }
@@ -176,35 +176,35 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 3,
+          "x": 5,
           "y": 1,
-          "z": 8
+          "z": 0
         }
       },
       {
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 3,
+          "x": 6,
           "y": 1,
-          "z": 9
+          "z": 0
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": -2,
+      "x": 1,
       "y": 1,
-      "z": 10
+      "z": 0
     },
     "obstacles": [
       {
         "id": "o1",
         "type": "wall",
         "position": {
-          "x": 3,
+          "x": 2,
           "y": 1,
-          "z": 10
+          "z": 0
         }
       }
     ]
@@ -217,25 +217,31 @@
     "optimalBlocks": 14,
     "optimalLines": 13,
     "rawActions": [
-      "turnRight",
+      "turnLeft",
+      "moveForward",
+      "moveForward",
       "moveForward",
       "moveForward",
       "collect",
+      "turnLeft",
       "moveForward",
       "collect",
+      "moveForward",
+      "moveForward",
       "jump",
-      "turnRight",
-      "moveForward",
-      "moveForward",
-      "moveForward",
-      "moveForward",
       "moveForward"
     ],
     "structuredSolution": {
       "main": [
         {
           "type": "maze_turn",
-          "direction": "turnRight"
+          "direction": "turnLeft"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
         },
         {
           "type": "moveForward"
@@ -245,19 +251,16 @@
         },
         {
           "type": "collect"
-        },
-        {
-          "type": "moveForward"
-        },
-        {
-          "type": "collect"
-        },
-        {
-          "type": "jump"
         },
         {
           "type": "maze_turn",
-          "direction": "turnRight"
+          "direction": "turnLeft"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
         },
         {
           "type": "moveForward"
@@ -266,10 +269,7 @@
           "type": "moveForward"
         },
         {
-          "type": "moveForward"
-        },
-        {
-          "type": "moveForward"
+          "type": "jump"
         },
         {
           "type": "moveForward"

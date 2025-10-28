@@ -6,71 +6,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 5,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 1
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
+          "x": 9,
           "y": 0,
           "z": 8
         }
@@ -78,9 +14,73 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 10,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
           "y": 0,
           "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 11,
+          "y": 0,
+          "z": 8
         }
       }
     ],
@@ -88,9 +88,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 6,
+          "x": 10,
           "y": 1,
-          "z": 1,
+          "z": 2,
           "direction": 1
         }
       }
@@ -100,16 +100,16 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 9,
           "y": 1,
-          "z": 6
+          "z": 8
         }
       },
       {
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 10,
           "y": 1,
           "z": 4
         }
@@ -118,44 +118,44 @@
         "id": "c3",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 10,
           "y": 1,
-          "z": 3
+          "z": 7
         }
       },
       {
         "id": "c4",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 10,
           "y": 1,
-          "z": 2
+          "z": 8
         }
       },
       {
         "id": "c5",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 10,
           "y": 1,
-          "z": 5
+          "z": 6
         }
       },
       {
         "id": "c6",
         "type": "crystal",
         "position": {
-          "x": 7,
+          "x": 10,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 6,
+      "x": 10,
       "y": 1,
-      "z": 8
+      "z": 9
     }
   }
 }

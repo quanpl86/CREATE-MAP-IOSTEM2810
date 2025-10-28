@@ -8,23 +8,23 @@
         "position": {
           "x": 4,
           "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
           "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 7
         }
       },
       {
@@ -32,7 +32,7 @@
         "position": {
           "x": 5,
           "y": 0,
-          "z": 6
+          "z": 4
         }
       },
       {
@@ -40,7 +40,7 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 6
+          "z": 4
         }
       },
       {
@@ -48,7 +48,7 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 6
+          "z": 4
         }
       },
       {
@@ -56,7 +56,23 @@
         "position": {
           "x": 8,
           "y": 0,
-          "z": 6
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 4
         }
       },
       {
@@ -65,22 +81,6 @@
           "x": 9,
           "y": 0,
           "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 9,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 9,
-          "y": 0,
-          "z": 7
         }
       }
     ],
@@ -90,7 +90,7 @@
         "start": {
           "x": 4,
           "y": 1,
-          "z": 5,
+          "z": 3,
           "direction": 1
         }
       }
@@ -100,54 +100,54 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 4,
+          "x": 9,
           "y": 1,
-          "z": 7
+          "z": 5
         }
       },
       {
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 7,
           "y": 1,
-          "z": 6
+          "z": 4
         }
       },
       {
         "id": "c3",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 5,
           "y": 1,
-          "z": 6
+          "z": 4
         }
       },
       {
         "id": "c4",
         "type": "crystal",
         "position": {
-          "x": 4,
+          "x": 9,
           "y": 1,
-          "z": 6
+          "z": 4
         }
       },
       {
         "id": "c5",
         "type": "crystal",
         "position": {
-          "x": 7,
+          "x": 4,
           "y": 1,
-          "z": 6
+          "z": 4
         }
       },
       {
         "id": "c6",
         "type": "crystal",
         "position": {
-          "x": 5,
+          "x": 4,
           "y": 1,
-          "z": 6
+          "z": 5
         }
       }
     ],
@@ -155,7 +155,7 @@
     "finish": {
       "x": 9,
       "y": 1,
-      "z": 5
+      "z": 3
     }
   }
 }

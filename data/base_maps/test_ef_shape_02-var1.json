@@ -6,7 +6,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 9,
           "y": 0,
           "z": 4
         }
@@ -14,7 +14,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 9,
           "y": 0,
           "z": 5
         }
@@ -22,7 +22,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 9,
           "y": 0,
           "z": 6
         }
@@ -30,7 +30,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 9,
           "y": 0,
           "z": 7
         }
@@ -38,7 +38,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 9,
           "y": 0,
           "z": 8
         }
@@ -46,7 +46,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 9,
           "y": 0,
           "z": 9
         }
@@ -54,54 +54,6 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
-          "y": 0,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 9,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 9,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
           "x": 9,
           "y": 0,
           "z": 10
@@ -127,6 +79,54 @@
         "modelKey": "ground.normal",
         "position": {
           "x": 10,
+          "y": 0,
+          "z": 10
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 11,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 11,
+          "y": 0,
+          "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 11,
+          "y": 0,
+          "z": 10
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 12,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 12,
+          "y": 0,
+          "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 12,
           "y": 0,
           "z": 10
         }
@@ -136,7 +136,7 @@
       {
         "id": "player1",
         "start": {
-          "x": 7,
+          "x": 9,
           "y": 1,
           "z": 4,
           "direction": 1
@@ -148,78 +148,78 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 7,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "id": "c2",
-        "type": "crystal",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "id": "c3",
-        "type": "crystal",
-        "position": {
-          "x": 7,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "id": "c4",
-        "type": "crystal",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 7
-        }
-      },
-      {
-        "id": "c5",
-        "type": "crystal",
-        "position": {
-          "x": 9,
-          "y": 1,
-          "z": 10
-        }
-      },
-      {
-        "id": "c6",
-        "type": "crystal",
-        "position": {
           "x": 10,
           "y": 1,
           "z": 7
         }
       },
       {
-        "id": "c7",
+        "id": "c2",
+        "type": "crystal",
+        "position": {
+          "x": 11,
+          "y": 1,
+          "z": 7
+        }
+      },
+      {
+        "id": "c3",
+        "type": "crystal",
+        "position": {
+          "x": 10,
+          "y": 1,
+          "z": 4
+        }
+      },
+      {
+        "id": "c4",
+        "type": "crystal",
+        "position": {
+          "x": 10,
+          "y": 1,
+          "z": 10
+        }
+      },
+      {
+        "id": "c5",
+        "type": "crystal",
+        "position": {
+          "x": 12,
+          "y": 1,
+          "z": 4
+        }
+      },
+      {
+        "id": "c6",
         "type": "crystal",
         "position": {
           "x": 9,
           "y": 1,
-          "z": 7
+          "z": 9
+        }
+      },
+      {
+        "id": "c7",
+        "type": "crystal",
+        "position": {
+          "x": 11,
+          "y": 1,
+          "z": 4
         }
       },
       {
         "id": "c8",
         "type": "crystal",
         "position": {
-          "x": 7,
+          "x": 9,
           "y": 1,
-          "z": 10
+          "z": 8
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 10,
+      "x": 12,
       "y": 1,
       "z": 10
     }

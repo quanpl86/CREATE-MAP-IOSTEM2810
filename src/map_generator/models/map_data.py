@@ -130,8 +130,13 @@ class MapData:
 
         # (CẢI TIẾN) Thêm tọa độ của tất cả các chướng ngại vật (wall, pit)
         # vào danh sách cần có ground để đảm bảo chúng có nền móng.
+        # [REFACTORED] Xử lý ground cho chướng ngại vật.
+        # - Tường (wall/obstacle) cần có ground bên dưới.
+        # - Hố (pit) thì KHÔNG được có ground.
         for obs in self.obstacles:
-            potential_ground_coords.add(tuple(obs['pos']))
+            obs_pos = tuple(obs['pos'])
+            if obs.get('type') != 'pit':
+                potential_ground_coords.add(obs_pos)
 
         # --- (CẢI TIẾN) Xử lý trường hợp đặc biệt cho map maze ---
         if not self.path_coords and self.map_type == 'complex_maze_2d':
@@ -196,15 +201,20 @@ class MapData:
                 })
 
         # [REFACTORED] Đặt chướng ngại vật với logic rõ ràng hơn
+        # [REFACTORED] Đặt chướng ngại vật với logic rõ ràng hơn, xử lý 'pit'
         for obs in self.obstacles:
             obs_type = obs.get('type')
+            # Bỏ qua 'pit' vì nó chỉ đơn giản là không có ground, không cần thêm block
+            if obs_type == 'pit':
+                continue
+
             # Nếu chướng ngại vật đã có modelKey (ví dụ: tường từ mê cung), sử dụng nó.
             if 'modelKey' in obs:
                 model_key = obs['modelKey']
             # Nếu không, gán modelKey mặc định dựa trên loại. [SỬA LỖI]
-            elif obs_type == 'obstacle': # Vật cản có thể nhảy qua
+            elif obs_type == 'obstacle': # Vật cản có thể nhảy qua (wall.brick01)
                 model_key = 'wall.brick01'
-            else: # Các loại khác, mặc định là tường gạch
+            else: # Các loại khác (ví dụ: 'wall' từ placer), mặc định là tường gạch
                 model_key = 'wall.brick01'
             
             game_blocks.append({ "modelKey": model_key, "position": coord_to_obj(obs['pos'], y_offset=1) })

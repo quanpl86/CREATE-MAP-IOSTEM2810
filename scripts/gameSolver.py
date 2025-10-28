@@ -282,8 +282,8 @@ def solve_level(world: GameWorld) -> Optional[List[Action]]:
                         is_valid_move = True
 
                 elif action == 'jump':
-                    # [SỬA] Logic Jump mới: Nhảy lên trên đỉnh của vật cản.
-                    # Đây là bước 1 của quy trình vượt chướng ngại vật.
+                    # [REVERTED] Logic Jump: Chỉ nhảy lên trên đỉnh của vật cản.
+                    # Không cho phép nhảy qua hố.
                     obstacle_x, obstacle_y, obstacle_z = state.x + dx, state.y, state.z + dz
 
                     # 1. Phải có vật cản ở ô phía trước, ngang tầm mắt.

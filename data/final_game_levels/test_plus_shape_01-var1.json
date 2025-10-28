@@ -188,7 +188,7 @@
         }
       ]
     },
-    "maxBlocks": 23,
+    "maxBlocks": 16,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -198,25 +198,9 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 2,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
           "x": 3,
           "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 2
+          "z": 3
         }
       },
       {
@@ -230,25 +214,25 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 4,
+          "x": 5,
           "y": 0,
-          "z": 4
+          "z": 1
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 4,
+          "x": 5,
           "y": 0,
-          "z": 5
+          "z": 2
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 4,
+          "x": 5,
           "y": 0,
-          "z": 6
+          "z": 3
         }
       },
       {
@@ -262,9 +246,25 @@
       {
         "modelKey": "ground.normal",
         "position": {
+          "x": 5,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
           "x": 6,
           "y": 0,
-          "z": 4
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 7,
+          "y": 0,
+          "z": 3
         }
       }
     ],
@@ -272,9 +272,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 4,
+          "x": 3,
           "y": 1,
-          "z": 2,
+          "z": 3,
           "direction": 1
         }
       }
@@ -293,26 +293,26 @@
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 2,
+          "x": 5,
           "y": 1,
-          "z": 4
+          "z": 3
         }
       },
       {
         "id": "c3",
         "type": "crystal",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 1,
-          "z": 4
+          "z": 3
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 6,
+      "x": 5,
       "y": 1,
-      "z": 4
+      "z": 1
     }
   },
   "solution": {
@@ -320,25 +320,18 @@
     "itemGoals": {
       "crystal": 3
     },
-    "optimalBlocks": 18,
-    "optimalLines": 17,
+    "optimalBlocks": 11,
+    "optimalLines": 10,
     "rawActions": [
+      "moveForward",
+      "collect",
+      "moveForward",
+      "collect",
       "turnRight",
       "moveForward",
-      "moveForward",
-      "turnLeft",
-      "moveForward",
       "collect",
       "turnLeft",
       "turnLeft",
-      "moveForward",
-      "moveForward",
-      "collect",
-      "moveForward",
-      "collect",
-      "turnLeft",
-      "turnLeft",
-      "moveForward",
       "moveForward",
       "moveForward",
       "moveForward"
@@ -346,18 +339,20 @@
     "structuredSolution": {
       "main": [
         {
+          "type": "maze_repeat",
+          "times": 2,
+          "body": [
+            {
+              "type": "moveForward"
+            },
+            {
+              "type": "collect"
+            }
+          ]
+        },
+        {
           "type": "maze_turn",
           "direction": "turnRight"
-        },
-        {
-          "type": "moveForward"
-        },
-        {
-          "type": "moveForward"
-        },
-        {
-          "type": "maze_turn",
-          "direction": "turnLeft"
         },
         {
           "type": "moveForward"
@@ -374,35 +369,9 @@
           "direction": "turnLeft"
         },
         {
-          "type": "moveForward"
-        },
-        {
           "type": "maze_repeat",
-          "times": 2,
+          "times": 3,
           "body": [
-            {
-              "type": "moveForward"
-            },
-            {
-              "type": "collect"
-            }
-          ]
-        },
-        {
-          "type": "maze_turn",
-          "direction": "turnLeft"
-        },
-        {
-          "type": "maze_turn",
-          "direction": "turnLeft"
-        },
-        {
-          "type": "maze_repeat",
-          "times": 2,
-          "body": [
-            {
-              "type": "moveForward"
-            },
             {
               "type": "moveForward"
             }

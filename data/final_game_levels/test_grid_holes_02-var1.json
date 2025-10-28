@@ -188,7 +188,7 @@
         }
       ]
     },
-    "maxBlocks": 24,
+    "maxBlocks": 23,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -216,38 +216,6 @@
         "position": {
           "x": 3,
           "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 3,
-          "y": 0,
           "z": 8
         }
       },
@@ -265,14 +233,6 @@
           "x": 3,
           "y": 0,
           "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 11
         }
       },
       {
@@ -328,23 +288,7 @@
         "position": {
           "x": 4,
           "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
           "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 10
         }
       },
       {
@@ -384,39 +328,7 @@
         "position": {
           "x": 5,
           "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 5,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 5,
-          "y": 0,
           "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 5,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 5,
-          "y": 0,
-          "z": 9
         }
       },
       {
@@ -496,14 +408,6 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
           "z": 10
         }
       },
@@ -558,57 +462,9 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
           "x": 8,
           "y": 0,
           "z": 2
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 3
         }
       },
       {
@@ -649,22 +505,6 @@
           "x": 8,
           "y": 0,
           "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 10
         }
       },
       {
@@ -728,14 +568,6 @@
         "position": {
           "x": 9,
           "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 9,
-          "y": 0,
           "z": 9
         }
       },
@@ -776,14 +608,6 @@
         "position": {
           "x": 10,
           "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
           "z": 5
         }
       },
@@ -800,39 +624,7 @@
         "position": {
           "x": 10,
           "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
           "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 11
         }
       },
       {
@@ -993,206 +785,6 @@
           "x": 12,
           "y": 0,
           "z": 11
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 5,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 9,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 10,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 10,
-          "y": 1,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 3,
-          "y": 1,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 11,
-          "y": 1,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 3,
-          "y": 1,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 7,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 5,
-          "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 7,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 9,
-          "y": 1,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 10,
-          "y": 1,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 11,
-          "y": 1,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 3,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 3,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 9,
-          "y": 1,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 5,
-          "y": 1,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "wall.brick01",
-        "position": {
-          "x": 3,
-          "y": 1,
-          "z": 4
         }
       }
     ],
@@ -1212,7 +804,7 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 5,
+          "x": 11,
           "y": 1,
           "z": 2
         }
@@ -1221,7 +813,7 @@
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 8,
+          "x": 12,
           "y": 1,
           "z": 2
         }
@@ -1232,7 +824,7 @@
         "position": {
           "x": 12,
           "y": 1,
-          "z": 2
+          "z": 9
         }
       },
       {
@@ -1248,9 +840,9 @@
         "id": "c5",
         "type": "crystal",
         "position": {
-          "x": 12,
+          "x": 8,
           "y": 1,
-          "z": 3
+          "z": 2
         }
       }
     ],
@@ -1265,9 +857,9 @@
         "id": "o1",
         "type": "pit",
         "position": {
-          "x": 4,
+          "x": 3,
           "y": 1,
-          "z": 4
+          "z": 7
         }
       },
       {
@@ -1276,25 +868,25 @@
         "position": {
           "x": 6,
           "y": 1,
-          "z": 6
+          "z": 9
         }
       },
       {
         "id": "o3",
         "type": "pit",
         "position": {
-          "x": 6,
+          "x": 4,
           "y": 1,
-          "z": 3
+          "z": 10
         }
       },
       {
         "id": "o4",
         "type": "pit",
         "position": {
-          "x": 5,
+          "x": 7,
           "y": 1,
-          "z": 4
+          "z": 9
         }
       },
       {
@@ -1330,47 +922,20 @@
         "position": {
           "x": 3,
           "y": 1,
-          "z": 3
+          "z": 6
         }
       },
       {
         "id": "o9",
         "type": "pit",
         "position": {
-          "x": 11,
+          "x": 8,
           "y": 1,
-          "z": 11
+          "z": 10
         }
       },
       {
         "id": "o10",
-        "type": "pit",
-        "position": {
-          "x": 3,
-          "y": 1,
-          "z": 9
-        }
-      },
-      {
-        "id": "o11",
-        "type": "pit",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "id": "o12",
-        "type": "pit",
-        "position": {
-          "x": 7,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "id": "o13",
         "type": "pit",
         "position": {
           "x": 5,
@@ -1379,7 +944,7 @@
         }
       },
       {
-        "id": "o14",
+        "id": "o11",
         "type": "pit",
         "position": {
           "x": 7,
@@ -1388,97 +953,133 @@
         }
       },
       {
+        "id": "o12",
+        "type": "pit",
+        "position": {
+          "x": 5,
+          "y": 1,
+          "z": 9
+        }
+      },
+      {
+        "id": "o13",
+        "type": "pit",
+        "position": {
+          "x": 7,
+          "y": 1,
+          "z": 11
+        }
+      },
+      {
+        "id": "o14",
+        "type": "pit",
+        "position": {
+          "x": 10,
+          "y": 1,
+          "z": 7
+        }
+      },
+      {
         "id": "o15",
         "type": "pit",
         "position": {
-          "x": 9,
+          "x": 10,
           "y": 1,
-          "z": 10
+          "z": 4
         }
       },
       {
         "id": "o16",
         "type": "pit",
         "position": {
-          "x": 10,
+          "x": 3,
           "y": 1,
-          "z": 10
+          "z": 5
         }
       },
       {
         "id": "o17",
         "type": "pit",
         "position": {
-          "x": 11,
+          "x": 3,
           "y": 1,
-          "z": 7
+          "z": 11
         }
       },
       {
         "id": "o18",
         "type": "pit",
         "position": {
-          "x": 3,
+          "x": 8,
           "y": 1,
-          "z": 8
+          "z": 3
         }
       },
       {
         "id": "o19",
         "type": "pit",
         "position": {
-          "x": 3,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "id": "o20",
-        "type": "pit",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "id": "o21",
-        "type": "pit",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 7
-        }
-      },
-      {
-        "id": "o22",
-        "type": "pit",
-        "position": {
           "x": 4,
           "y": 1,
           "z": 8
         }
       },
       {
+        "id": "o20",
+        "type": "pit",
+        "position": {
+          "x": 8,
+          "y": 1,
+          "z": 9
+        }
+      },
+      {
+        "id": "o21",
+        "type": "pit",
+        "position": {
+          "x": 5,
+          "y": 1,
+          "z": 5
+        }
+      },
+      {
+        "id": "o22",
+        "type": "pit",
+        "position": {
+          "x": 7,
+          "y": 1,
+          "z": 7
+        }
+      },
+      {
         "id": "o23",
         "type": "pit",
         "position": {
-          "x": 9,
+          "x": 5,
           "y": 1,
-          "z": 3
+          "z": 8
         }
       },
       {
         "id": "o24",
         "type": "pit",
         "position": {
-          "x": 5,
+          "x": 7,
           "y": 1,
-          "z": 11
+          "z": 10
         }
       },
       {
         "id": "o25",
+        "type": "pit",
+        "position": {
+          "x": 10,
+          "y": 1,
+          "z": 9
+        }
+      },
+      {
+        "id": "o26",
         "type": "pit",
         "position": {
           "x": 3,
@@ -1493,13 +1094,12 @@
     "itemGoals": {
       "crystal": 5
     },
-    "optimalBlocks": 19,
-    "optimalLines": 18,
+    "optimalBlocks": 18,
+    "optimalLines": 17,
     "rawActions": [
       "moveForward",
       "collect",
       "moveForward",
-      "collect",
       "moveForward",
       "moveForward",
       "moveForward",
@@ -1507,17 +1107,18 @@
       "moveForward",
       "moveForward",
       "moveForward",
+      "collect",
       "moveForward",
       "collect",
       "turnRight",
       "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
       "collect",
-      "moveForward",
-      "moveForward",
-      "moveForward",
-      "moveForward",
-      "moveForward",
-      "moveForward",
       "moveForward",
       "moveForward"
     ],
@@ -1532,19 +1133,15 @@
             },
             {
               "type": "collect"
+            },
+            {
+              "type": "CALL",
+              "name": "PROCEDURE_1"
             }
           ]
         },
         {
-          "type": "CALL",
-          "name": "PROCEDURE_1"
-        },
-        {
           "type": "collect"
-        },
-        {
-          "type": "CALL",
-          "name": "PROCEDURE_1"
         },
         {
           "type": "moveForward"
@@ -1557,18 +1154,18 @@
           "direction": "turnRight"
         },
         {
+          "type": "CALL",
+          "name": "PROCEDURE_1"
+        },
+        {
+          "type": "CALL",
+          "name": "PROCEDURE_1"
+        },
+        {
           "type": "moveForward"
         },
         {
           "type": "collect"
-        },
-        {
-          "type": "CALL",
-          "name": "PROCEDURE_1"
-        },
-        {
-          "type": "CALL",
-          "name": "PROCEDURE_1"
         },
         {
           "type": "moveForward"

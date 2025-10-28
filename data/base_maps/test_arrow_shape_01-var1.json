@@ -6,55 +6,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 3,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
+          "x": 5,
           "y": 0,
           "z": 7
         }
@@ -62,7 +14,63 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 4,
+          "x": 6,
+          "y": 0,
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
           "y": 0,
           "z": 8
         }
@@ -70,17 +78,9 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 4,
+          "x": 7,
           "y": 0,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 5,
-          "y": 0,
-          "z": 8
+          "z": 7
         }
       }
     ],
@@ -88,9 +88,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 4,
+          "x": 6,
           "y": 1,
-          "z": 2,
+          "z": 1,
           "direction": 1
         }
       }
@@ -100,16 +100,16 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 4,
+          "x": 6,
           "y": 1,
-          "z": 5
+          "z": 6
         }
       },
       {
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 4,
+          "x": 6,
           "y": 1,
           "z": 4
         }
@@ -118,44 +118,44 @@
         "id": "c3",
         "type": "crystal",
         "position": {
-          "x": 3,
+          "x": 6,
           "y": 1,
-          "z": 8
+          "z": 3
         }
       },
       {
         "id": "c4",
         "type": "crystal",
         "position": {
-          "x": 4,
+          "x": 6,
           "y": 1,
-          "z": 7
+          "z": 2
         }
       },
       {
         "id": "c5",
         "type": "crystal",
         "position": {
-          "x": 4,
+          "x": 6,
           "y": 1,
-          "z": 6
+          "z": 5
         }
       },
       {
         "id": "c6",
         "type": "crystal",
         "position": {
-          "x": 4,
+          "x": 7,
           "y": 1,
-          "z": 3
+          "z": 7
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 4,
+      "x": 6,
       "y": 1,
-      "z": 9
+      "z": 8
     }
   }
 }

@@ -74,89 +74,89 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 6,
+          "x": -2,
           "y": 0,
-          "z": 1
+          "z": 10
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 6,
+          "x": -1,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 6,
+          "x": 0,
           "y": 0,
-          "z": 3
+          "z": 10
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 6,
+          "x": 1,
           "y": 0,
-          "z": 4
+          "z": 10
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 6,
+          "x": 2,
           "y": 0,
-          "z": 5
+          "z": 10
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 3,
           "y": 0,
-          "z": 5
+          "z": 6
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 8,
+          "x": 3,
           "y": 0,
-          "z": 5
+          "z": 7
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 9,
+          "x": 3,
           "y": 0,
-          "z": 5
+          "z": 8
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 10,
+          "x": 3,
           "y": 0,
-          "z": 5
+          "z": 9
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 11,
+          "x": 3,
           "y": 0,
-          "z": 5
+          "z": 10
         }
       },
       {
         "modelKey": "wall.brick01",
         "position": {
-          "x": 8,
+          "x": 3,
           "y": 1,
-          "z": 5
+          "z": 10
         }
       }
     ],
@@ -164,9 +164,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 6,
+          "x": 3,
           "y": 1,
-          "z": 1,
+          "z": 6,
           "direction": 1
         }
       }
@@ -176,35 +176,35 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 10,
+          "x": 3,
           "y": 1,
-          "z": 5
+          "z": 8
         }
       },
       {
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 3,
           "y": 1,
-          "z": 5
+          "z": 9
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 11,
+      "x": -2,
       "y": 1,
-      "z": 5
+      "z": 10
     },
     "obstacles": [
       {
         "id": "o1",
         "type": "wall",
         "position": {
-          "x": 8,
+          "x": 3,
           "y": 1,
-          "z": 5
+          "z": 10
         }
       }
     ]
@@ -220,15 +220,15 @@
       "turnRight",
       "moveForward",
       "moveForward",
+      "collect",
       "moveForward",
-      "moveForward",
-      "turnLeft",
-      "moveForward",
+      "collect",
       "jump",
+      "turnRight",
       "moveForward",
-      "collect",
       "moveForward",
-      "collect",
+      "moveForward",
+      "moveForward",
       "moveForward"
     ],
     "structuredSolution": {
@@ -244,32 +244,32 @@
           "type": "moveForward"
         },
         {
-          "type": "moveForward"
+          "type": "collect"
         },
         {
           "type": "moveForward"
         },
         {
-          "type": "maze_turn",
-          "direction": "turnLeft"
-        },
-        {
-          "type": "moveForward"
+          "type": "collect"
         },
         {
           "type": "jump"
         },
         {
+          "type": "maze_turn",
+          "direction": "turnRight"
+        },
+        {
           "type": "moveForward"
         },
         {
-          "type": "collect"
+          "type": "moveForward"
         },
         {
           "type": "moveForward"
         },
         {
-          "type": "collect"
+          "type": "moveForward"
         },
         {
           "type": "moveForward"

@@ -78,9 +78,49 @@
       {
         "modelKey": "ground.normal",
         "position": {
+          "x": 1,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
           "x": 6,
           "y": 0,
-          "z": 5
+          "z": 6
         }
       },
       {
@@ -88,47 +128,7 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 9,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 11,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 12,
-          "y": 0,
-          "z": 5
+          "z": 6
         }
       }
     ],
@@ -136,9 +136,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 6,
+          "x": 1,
           "y": 1,
-          "z": 5,
+          "z": 6,
           "direction": 1
         }
       }
@@ -148,17 +148,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 4,
           "y": 1,
-          "z": 5
+          "z": 6
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 12,
+      "x": 7,
       "y": 1,
-      "z": 5
+      "z": 6
     }
   },
   "solution": {

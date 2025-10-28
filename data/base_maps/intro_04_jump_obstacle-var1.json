@@ -6,65 +6,65 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 0,
           "y": 0,
-          "z": 11
+          "z": 12
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 8,
+          "x": 1,
           "y": 0,
-          "z": 11
+          "z": 12
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 9,
+          "x": 2,
           "y": 0,
-          "z": 11
+          "z": 12
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 10,
+          "x": 3,
           "y": 0,
-          "z": 11
+          "z": 12
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 11,
+          "x": 4,
           "y": 0,
-          "z": 11
+          "z": 12
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 12,
+          "x": 5,
           "y": 0,
-          "z": 11
+          "z": 12
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 13,
+          "x": 6,
           "y": 0,
-          "z": 11
+          "z": 12
         }
       },
       {
         "modelKey": "wall.brick01",
         "position": {
-          "x": 12,
+          "x": 3,
           "y": 1,
-          "z": 11
+          "z": 12
         }
       }
     ],
@@ -72,9 +72,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 13,
+          "x": 6,
           "y": 1,
-          "z": 11,
+          "z": 12,
           "direction": 1
         }
       }
@@ -82,18 +82,18 @@
     "collectibles": [],
     "interactibles": [],
     "finish": {
-      "x": 7,
+      "x": 0,
       "y": 1,
-      "z": 11
+      "z": 12
     },
     "obstacles": [
       {
         "id": "o1",
         "type": "wall",
         "position": {
-          "x": 12,
+          "x": 3,
           "y": 1,
-          "z": 11
+          "z": 12
         }
       }
     ]

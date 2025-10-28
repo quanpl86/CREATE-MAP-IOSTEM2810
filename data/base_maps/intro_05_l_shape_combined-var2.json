@@ -6,39 +6,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 1,
-          "y": 0,
-          "z": 1
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 1,
+          "x": 4,
           "y": 0,
           "z": 5
         }
@@ -46,49 +14,81 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 1,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 2,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
           "x": 5,
           "y": 0,
-          "z": 6
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 7,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 5
         }
       },
       {
         "modelKey": "wall.brick01",
         "position": {
-          "x": 3,
+          "x": 8,
           "y": 1,
-          "z": 6
+          "z": 4
         }
       }
     ],
@@ -96,9 +96,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 5,
+          "x": 4,
           "y": 1,
-          "z": 6,
+          "z": 5,
           "direction": 1
         }
       }
@@ -108,35 +108,35 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 1,
+          "x": 8,
           "y": 1,
-          "z": 4
+          "z": 2
         }
       },
       {
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 1,
+          "x": 8,
           "y": 1,
-          "z": 6
+          "z": 1
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 1,
+      "x": 8,
       "y": 1,
-      "z": 1
+      "z": 0
     },
     "obstacles": [
       {
         "id": "o1",
         "type": "wall",
         "position": {
-          "x": 3,
+          "x": 8,
           "y": 1,
-          "z": 6
+          "z": 4
         }
       }
     ]

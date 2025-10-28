@@ -1,0 +1,291 @@
+{
+  "topic_code": "TOPIC_99",
+  "topic_name": "Kiểm tra Map mới",
+  "suggested_maps": [
+    {
+      "id": "test_t_shape_01",
+      "level": 1,
+      "titleKey": "Challenge.test_t_shape_01.Title",
+      "descriptionKey": "Challenge.test_t_shape_01.Description",
+      "translations": { "vi": { "Challenge.test_t_shape_01.Title": "Test Map Chữ T (Ngắn)", "Challenge.test_t_shape_01.Description": "Kiểm tra map chữ T với thân ngắn, thanh ngang dài." } },
+      "generation_config": {
+        "map_type": "t_shape",
+        "logic_type": "t_shape",
+        "num_variants": 1,
+        "params": { "stem_length": 3, "bar_length": 7, "item_count": 4 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_t_shape_02",
+      "level": 2,
+      "titleKey": "Challenge.test_t_shape_02.Title",
+      "descriptionKey": "Challenge.test_t_shape_02.Description",
+      "translations": { "vi": { "Challenge.test_t_shape_02.Title": "Test Map Chữ T (Dài)", "Challenge.test_t_shape_02.Description": "Kiểm tra map chữ T với thân dài, thanh ngang ngắn." } },
+      "generation_config": {
+        "map_type": "t_shape",
+        "logic_type": "t_shape",
+        "num_variants": 1,
+        "params": { "stem_length": 5, "bar_length": 5, "item_count": 4 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_grid_holes_01",
+      "level": 3,
+      "titleKey": "Challenge.test_grid_holes_01.Title",
+      "descriptionKey": "Challenge.test_grid_holes_01.Description",
+      "translations": { "vi": { "Challenge.test_grid_holes_01.Title": "Test Lưới có lỗ (Dễ)", "Challenge.test_grid_holes_01.Description": "Kiểm tra map lưới với ít lỗ." } },
+      "generation_config": {
+        "map_type": "grid_with_holes",
+        "logic_type": "grid_with_holes",
+        "num_variants": 1,
+        "params": { "grid_width": 8, "grid_depth": 8, "hole_chance": 0.2, "item_count": 3 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_grid_holes_02",
+      "level": 4,
+      "titleKey": "Challenge.test_grid_holes_02.Title",
+      "descriptionKey": "Challenge.test_grid_holes_02.Description",
+      "translations": { "vi": { "Challenge.test_grid_holes_02.Title": "Test Lưới có lỗ (Khó)", "Challenge.test_grid_holes_02.Description": "Kiểm tra map lưới với nhiều lỗ hơn." } },
+      "generation_config": {
+        "map_type": "grid_with_holes",
+        "logic_type": "grid_with_holes",
+        "num_variants": 1,
+        "params": { "grid_width": 10, "grid_depth": 10, "hole_chance": 0.35, "item_count": 5 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_h_shape_01",
+      "level": 5,
+      "titleKey": "Challenge.test_h_shape_01.Title",
+      "descriptionKey": "Challenge.test_h_shape_01.Description",
+      "translations": { "vi": { "Challenge.test_h_shape_01.Title": "Test Map Chữ H (Cao)", "Challenge.test_h_shape_01.Description": "Kiểm tra map chữ H cao và hẹp." } },
+      "generation_config": {
+        "map_type": "h_shape",
+        "logic_type": "h_shape",
+        "num_variants": 1,
+        "params": { "column_length": 5, "column_spacing": 2, "item_count": 6 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_h_shape_02",
+      "level": 6,
+      "titleKey": "Challenge.test_h_shape_02.Title",
+      "descriptionKey": "Challenge.test_h_shape_02.Description",
+      "translations": { "vi": { "Challenge.test_h_shape_02.Title": "Test Map Chữ H (Rộng)", "Challenge.test_h_shape_02.Description": "Kiểm tra map chữ H thấp và rộng." } },
+      "generation_config": {
+        "map_type": "h_shape",
+        "logic_type": "h_shape",
+        "num_variants": 1,
+        "params": { "column_length": 3, "column_spacing": 4, "item_count": 6 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_ef_shape_01",
+      "level": 7,
+      "titleKey": "Challenge.test_ef_shape_01.Title",
+      "descriptionKey": "Challenge.test_ef_shape_01.Description",
+      "translations": { "vi": { "Challenge.test_ef_shape_01.Title": "Test Map Chữ F", "Challenge.test_ef_shape_01.Description": "Kiểm tra map chữ F với 2 nhánh." } },
+      "generation_config": {
+        "map_type": "ef_shape",
+        "logic_type": "ef_shape",
+        "num_variants": 1,
+        "params": { "stem_length": 6, "num_branches": 2, "branch_length": 4, "item_count": 7 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_ef_shape_02",
+      "level": 8,
+      "titleKey": "Challenge.test_ef_shape_02.Title",
+      "descriptionKey": "Challenge.test_ef_shape_02.Description",
+      "translations": { "vi": { "Challenge.test_ef_shape_02.Title": "Test Map Chữ E", "Challenge.test_ef_shape_02.Description": "Kiểm tra map chữ E với 3 nhánh." } },
+      "generation_config": {
+        "map_type": "ef_shape",
+        "logic_type": "ef_shape",
+        "num_variants": 1,
+        "params": { "stem_length": 7, "num_branches": 3, "branch_length": 3, "item_count": 8 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_plus_shape_01",
+      "level": 9,
+      "titleKey": "Challenge.test_plus_shape_01.Title",
+      "descriptionKey": "Challenge.test_plus_shape_01.Description",
+      "translations": { "vi": { "Challenge.test_plus_shape_01.Title": "Test Dấu cộng (Nhỏ)", "Challenge.test_plus_shape_01.Description": "Kiểm tra map dấu cộng với các nhánh ngắn." } },
+      "generation_config": {
+        "map_type": "plus_shape",
+        "logic_type": "plus_shape",
+        "num_variants": 1,
+        "params": { "arm_length": 2, "item_count": 3 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_plus_shape_02",
+      "level": 10,
+      "titleKey": "Challenge.test_plus_shape_02.Title",
+      "descriptionKey": "Challenge.test_plus_shape_02.Description",
+      "translations": { "vi": { "Challenge.test_plus_shape_02.Title": "Test Dấu cộng (Lớn)", "Challenge.test_plus_shape_02.Description": "Kiểm tra map dấu cộng với các nhánh dài." } },
+      "generation_config": {
+        "map_type": "plus_shape",
+        "logic_type": "plus_shape",
+        "num_variants": 1,
+        "params": { "arm_length": 4, "item_count": 4 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_arrow_shape_01",
+      "level": 11,
+      "titleKey": "Challenge.test_arrow_shape_01.Title",
+      "descriptionKey": "Challenge.test_arrow_shape_01.Description",
+      "translations": { "vi": { "Challenge.test_arrow_shape_01.Title": "Test Mũi tên (Thân dài)", "Challenge.test_arrow_shape_01.Description": "Kiểm tra map mũi tên với thân dài, đầu nhỏ." } },
+      "generation_config": {
+        "map_type": "arrow_shape",
+        "logic_type": "arrow_shape",
+        "num_variants": 1,
+        "params": { "shaft_length": 5, "head_size": 2, "item_count": 6 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_arrow_shape_02",
+      "level": 12,
+      "titleKey": "Challenge.test_arrow_shape_02.Title",
+      "descriptionKey": "Challenge.test_arrow_shape_02.Description",
+      "translations": { "vi": { "Challenge.test_arrow_shape_02.Title": "Test Mũi tên (Đầu to)", "Challenge.test_arrow_shape_02.Description": "Kiểm tra map mũi tên với thân ngắn, đầu to." } },
+      "generation_config": {
+        "map_type": "arrow_shape",
+        "logic_type": "arrow_shape",
+        "num_variants": 1,
+        "params": { "shaft_length": 3, "head_size": 3, "item_count": 7 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_v_shape_01",
+      "level": 13,
+      "titleKey": "Challenge.test_v_shape_01.Title",
+      "descriptionKey": "Challenge.test_v_shape_01.Description",
+      "translations": { "vi": { "Challenge.test_v_shape_01.Title": "Test Map Chữ V", "Challenge.test_v_shape_01.Description": "Kiểm tra map chữ V." } },
+      "generation_config": {
+        "map_type": "v_shape",
+        "logic_type": "v_shape",
+        "num_variants": 1,
+        "params": { "arm_length": 4, "item_count": 5 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_star_shape_01",
+      "level": 14,
+      "titleKey": "Challenge.test_star_shape_01.Title",
+      "descriptionKey": "Challenge.test_star_shape_01.Description",
+      "translations": { "vi": { "Challenge.test_star_shape_01.Title": "Test Map Ngôi Sao", "Challenge.test_star_shape_01.Description": "Kiểm tra map hình ngôi sao 5 cánh." } },
+      "generation_config": {
+        "map_type": "star_shape",
+        "logic_type": "star_shape",
+        "num_variants": 1,
+        "params": { "arm_length": 3, "item_count": 4 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_z_shape_01",
+      "level": 15,
+      "titleKey": "Challenge.test_z_shape_01.Title",
+      "descriptionKey": "Challenge.test_z_shape_01.Description",
+      "translations": { "vi": { "Challenge.test_z_shape_01.Title": "Test Map Chữ Z", "Challenge.test_z_shape_01.Description": "Kiểm tra map chữ Z." } },
+      "generation_config": {
+        "map_type": "z_shape",
+        "logic_type": "z_shape",
+        "num_variants": 1,
+        "params": { "leg1_length": 3, "leg2_length": 3, "leg3_length": 3, "item_count": 5 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_triangle_shape_01",
+      "level": 16,
+      "titleKey": "Challenge.test_triangle_shape_01.Title",
+      "descriptionKey": "Challenge.test_triangle_shape_01.Description",
+      "translations": { "vi": { "Challenge.test_triangle_shape_01.Title": "Test Map Tam Giác", "Challenge.test_triangle_shape_01.Description": "Kiểm tra map hình tam giác." } },
+      "generation_config": {
+        "map_type": "triangle",
+        "logic_type": "triangle",
+        "num_variants": 1,
+        "params": { "side_length": 5, "item_count": 6 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_staircase_3d_01",
+      "level": 17,
+      "titleKey": "Challenge.test_staircase_3d_01.Title",
+      "descriptionKey": "Challenge.test_staircase_3d_01.Description",
+      "translations": { "vi": { "Challenge.test_staircase_3d_01.Title": "Test Cầu Thang 3D", "Challenge.test_staircase_3d_01.Description": "Kiểm tra map cầu thang 3D." } },
+      "generation_config": {
+        "map_type": "staircase_3d",
+        "logic_type": "staircase_3d",
+        "num_variants": 1,
+        "params": { "num_steps": 7 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_spiral_3d_01",
+      "level": 18,
+      "titleKey": "Challenge.test_spiral_3d_01.Title",
+      "descriptionKey": "Challenge.test_spiral_3d_01.Description",
+      "translations": { "vi": { "Challenge.test_spiral_3d_01.Title": "Test Xoắn Ốc 3D", "Challenge.test_spiral_3d_01.Description": "Kiểm tra map xoắn ốc 3D đi lên." } },
+      "generation_config": {
+        "map_type": "spiral_3d",
+        "logic_type": "spiral_3d",
+        "num_variants": 1,
+        "params": { "width": 7, "height": 2, "item_count": 8 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_circle_01",
+      "level": 19,
+      "titleKey": "Challenge.test_circle_01.Title",
+      "descriptionKey": "Challenge.test_circle_01.Description",
+      "translations": { "vi": { "Challenge.test_circle_01.Title": "Test Hình Tròn", "Challenge.test_circle_01.Description": "Kiểm tra map hình tròn." } },
+      "generation_config": {
+        "map_type": "circle",
+        "logic_type": "circle",
+        "num_variants": 1,
+        "params": { "radius": 6, "num_points": 20, "item_count": 8 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    }
+  ]
+}

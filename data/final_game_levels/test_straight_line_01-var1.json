@@ -1,0 +1,348 @@
+{
+  "id": "test_straight_line_01-var1",
+  "gameType": "maze",
+  "topic": "topic-title-topic_100",
+  "level": 2,
+  "titleKey": "Challenge.test_straight_line_01.Title",
+  "questTitleKey": "Challenge.test_straight_line_01.Description",
+  "descriptionKey": "Challenge.test_straight_line_01.Description",
+  "translations": {
+    "vi": {
+      "Challenge.test_straight_line_01.Title": "Test Đường thẳng",
+      "Challenge.test_straight_line_01.Description": "Kiểm tra map 'straight_line' cơ bản.",
+      "topic-title-topic_100": "Kiểm tra các Map còn lại"
+    }
+  },
+  "supportedEditors": [
+    "blockly",
+    "monaco"
+  ],
+  "blocklyConfig": {
+    "toolbox": {
+      "kind": "categoryToolbox",
+      "contents": [
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATEVENTS}",
+          "categorystyle": "events_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_start"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATMOVEMENT}",
+          "categorystyle": "movement_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_moveForward"
+            },
+            {
+              "kind": "block",
+              "type": "maze_jump"
+            },
+            {
+              "kind": "block",
+              "type": "maze_turn"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATLOOPS}",
+          "categorystyle": "loops_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_forever"
+            },
+            {
+              "kind": "block",
+              "type": "maze_repeat",
+              "inputs": {
+                "TIMES": {
+                  "shadow": {
+                    "type": "math_number",
+                    "fields": {
+                      "NUM": 5
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATLOGIC}",
+          "categorystyle": "logic_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "controls_if"
+            },
+            {
+              "kind": "block",
+              "type": "logic_compare"
+            },
+            {
+              "kind": "block",
+              "type": "logic_operation"
+            },
+            {
+              "kind": "block",
+              "type": "logic_negate"
+            },
+            {
+              "kind": "block",
+              "type": "logic_boolean"
+            },
+            {
+              "kind": "block",
+              "type": "maze_is_path"
+            },
+            {
+              "kind": "block",
+              "type": "maze_is_item_present"
+            },
+            {
+              "kind": "block",
+              "type": "maze_is_switch_state"
+            },
+            {
+              "kind": "block",
+              "type": "maze_at_finish"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATACTIONS}",
+          "categorystyle": "actions_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_collect"
+            },
+            {
+              "kind": "block",
+              "type": "maze_toggle_switch"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATMATH}",
+          "categorystyle": "math_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_item_count"
+            },
+            {
+              "kind": "block",
+              "type": "math_number"
+            },
+            {
+              "kind": "block",
+              "type": "math_arithmetic",
+              "inputs": {
+                "A": {
+                  "shadow": {
+                    "type": "math_number",
+                    "fields": {
+                      "NUM": 1
+                    }
+                  }
+                },
+                "B": {
+                  "shadow": {
+                    "type": "math_number",
+                    "fields": {
+                      "NUM": 1
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "sep"
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATVARIABLES}",
+          "custom": "VARIABLE",
+          "categorystyle": "variable_category"
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATPROCEDURES}",
+          "custom": "PROCEDURE",
+          "categorystyle": "procedure_category"
+        }
+      ]
+    },
+    "maxBlocks": 14,
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
+  },
+  "gameConfig": {
+    "type": "maze",
+    "renderer": "3d",
+    "blocks": [
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 10
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 11
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 12
+        }
+      }
+    ],
+    "players": [
+      {
+        "id": "player1",
+        "start": {
+          "x": 10,
+          "y": 1,
+          "z": 12,
+          "direction": 1
+        }
+      }
+    ],
+    "collectibles": [
+      {
+        "id": "c1",
+        "type": "crystal",
+        "position": {
+          "x": 10,
+          "y": 1,
+          "z": 10
+        }
+      }
+    ],
+    "interactibles": [],
+    "finish": {
+      "x": 10,
+      "y": 1,
+      "z": 5
+    }
+  },
+  "solution": {
+    "type": "reach_target",
+    "itemGoals": {
+      "crystal": 1
+    },
+    "optimalBlocks": 9,
+    "optimalLines": 8,
+    "rawActions": [
+      "turnLeft",
+      "moveForward",
+      "moveForward",
+      "collect",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward"
+    ],
+    "structuredSolution": {
+      "main": [
+        {
+          "type": "maze_turn",
+          "direction": "turnLeft"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "maze_repeat",
+          "times": 2,
+          "body": [
+            {
+              "type": "moveForward"
+            },
+            {
+              "type": "moveForward"
+            }
+          ]
+        },
+        {
+          "type": "moveForward"
+        }
+      ],
+      "procedures": {}
+    }
+  },
+  "sounds": {
+    "win": "/assets/maze/win.mp3",
+    "fail": "/assets/maze/fail_pegman.mp3"
+  }
+}

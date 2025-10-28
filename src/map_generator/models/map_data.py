@@ -116,17 +116,19 @@ class MapData:
         def coord_to_obj(coord: Coord, y_offset: int = 0) -> Dict[str, int]:
             """Chuyển tuple (x,y,z) thành object {"x":x, "y":y, "z":z} và áp dụng offset y."""
             return {"x": coord[0], "y": coord[1] + y_offset, "z": coord[2]}
-
+        
         # --- Bước 1: Tạo mặt đất (ground) ---
-        # [SỬA LỖI] Hợp nhất tất cả các nguồn tọa độ để tạo nền đất.
-        # Điều này đảm bảo tất cả các ô của hình dạng đều có đất bên dưới.
-        potential_ground_coords = set()
+        # [SỬA LỖI] Logic tạo nền đất được viết lại hoàn toàn.
+        # Chỉ tạo nền đất tại các tọa độ được chỉ định rõ ràng, không suy diễn.
+        ground_coords = set()
+        
+        # Thêm các tọa độ từ path_coords và placement_coords
         if self.path_coords:
-            potential_ground_coords.update(self.path_coords)
+            ground_coords.update(self.path_coords)
         if self.placement_coords:
-            potential_ground_coords.update(self.placement_coords)
-        potential_ground_coords.add(self.start_pos)
-        potential_ground_coords.add(self.target_pos)
+            ground_coords.update(self.placement_coords)
+        ground_coords.add(self.start_pos)
+        ground_coords.add(self.target_pos)
 
         # (CẢI TIẾN) Thêm tọa độ của tất cả các chướng ngại vật (wall, pit)
         # vào danh sách cần có ground để đảm bảo chúng có nền móng.
@@ -136,7 +138,7 @@ class MapData:
         for obs in self.obstacles:
             obs_pos = tuple(obs['pos'])
             if obs.get('type') != 'pit':
-                potential_ground_coords.add(obs_pos)
+                ground_coords.add(obs_pos)
 
         # --- (CẢI TIẾN) Xử lý trường hợp đặc biệt cho map maze ---
         if not self.path_coords and self.map_type == 'complex_maze_2d':
@@ -172,10 +174,10 @@ class MapData:
             # Ground cuối cùng bao gồm các ô đi được và các ô nền móng của tường.
             final_ground_coords = visited_grounds.union(wall_coords)
         else:
-            # Logic cũ cho các map có đường đi định trước
-            final_ground_coords = potential_ground_coords
+            # Đối với các map khác, ground_coords đã được xác định ở trên.
+            final_ground_coords = ground_coords
         
-        game_blocks = [{"modelKey": "ground.normal", "position": coord_to_obj(pos)} for pos in sorted(list(final_ground_coords))]
+        game_blocks = [{"modelKey": "ground.normal", "position": coord_to_obj(pos, y_offset=0)} for pos in sorted(list(final_ground_coords))]
 
         # --- Bước 2: Đặt các đối tượng lên trên mặt đất ---
         collectibles = []

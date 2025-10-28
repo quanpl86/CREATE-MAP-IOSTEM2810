@@ -22,6 +22,21 @@ from .topologies.ef_shape import EFShapeTopology
 from .topologies.plus_shape import PlusShapeTopology
 from .topologies.arrow_shape import ArrowShapeTopology
 from .topologies.t_shape import TShapeTopology
+from .topologies.v_shape import VShapeTopology
+from .topologies.star_shape import StarShapeTopology
+from .topologies.z_shape import ZShapeTopology
+from .topologies.staircase_3d import Staircase3DTopology
+from .topologies.spiral_3d import Spiral3DTopology
+from .topologies.circle import CircleTopology
+from .placements.spiral_placer import SpiralPlacer
+from .placements.v_shape_placer import VShapePlacer
+from .placements.star_shape_placer import StarShapePlacer
+from .placements.z_shape_placer import ZShapePlacer
+from .placements.staircase_3d_placer import Staircase3DPlacer
+from .placements.spiral_3d_placer import Spiral3DPlacer
+from .placements.circle_placer import CirclePlacer
+from .topologies.triangle import TriangleTopology
+from .placements.triangle_placer import TrianglePlacer
 from .placements.sequencing_placer import SequencingPlacer
 from .placements.obstacle_placer import ObstaclePlacer # THÊM MỚI
 from .placements.for_loop_placer import ForLoopPlacer
@@ -60,6 +75,13 @@ class MapGeneratorService:
             'plus_shape': PlusShapeTopology(),
             'arrow_shape': ArrowShapeTopology(),
             't_shape': TShapeTopology(),
+            'v_shape': VShapeTopology(),
+            'star_shape': StarShapeTopology(),
+            'z_shape': ZShapeTopology(),
+            'staircase_3d': Staircase3DTopology(),
+            'spiral_3d': Spiral3DTopology(),
+            'circle': CircleTopology(),
+            'triangle': TriangleTopology(),
             'variable_length_sides': StraightLineTopology(),
             'item_counting_path': StraightLineTopology(),
             'unknown_length_hallway': StraightLineTopology(),
@@ -74,6 +96,14 @@ class MapGeneratorService:
             'plus_shape': PlusShapePlacer(),
             'arrow_shape': ArrowShapePlacer(),
             'grid_with_holes': GridWithHolesPlacer(),
+            'v_shape': VShapePlacer(),
+            'star_shape': StarShapePlacer(),
+            'z_shape': ZShapePlacer(),
+            'staircase_3d': Staircase3DPlacer(),
+            'spiral_3d': Spiral3DPlacer(),
+            'circle': CirclePlacer(),
+            'spiral_path': SpiralPlacer(),
+            'triangle': TrianglePlacer(),
             'obstacle': ObstaclePlacer(), # THÊM MỚI
             'function_definition': FunctionPlacer(),
             'function_decomposition': FunctionPlacer(),

@@ -543,7 +543,7 @@ def main():
                     filename = f"{final_json['id']}.json"
                     output_filepath = os.path.join(final_output_dir, filename)
                     with open(output_filepath, 'w', encoding='utf-8') as f:
-                        json.dump(final_json, f, indent=2, ensure_ascii=False)
+                        json.dump(final_json, f, indent=2, ensure_ascii=False)                
                     print(f"✅ Đã tạo thành công file game hoàn chỉnh: {filename}")
                     total_maps_generated += 1
                     

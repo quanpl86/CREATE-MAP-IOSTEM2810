@@ -14,7 +14,11 @@ class SimplePathTopology(BaseTopology):
         print(f"    LOG: Generating 'simple_path' with params: {params}")
         
         path_length = params.get('path_length', 3)
-        pattern = params.get('pattern', 'straight')
+        
+        # [SỬA LỖI] Đọc tham số 'turns' thay vì 'pattern' để quyết định hình dạng.
+        # Nếu có 'turns' > 0, tạo đường có góc cua. Nếu không, tạo đường thẳng.
+        num_turns = params.get('turns', 0)
+        pattern = 'corner' if num_turns > 0 else 'straight'
         
         max_dim = min(grid_size[0], grid_size[2])
         if path_length >= max_dim - 3:

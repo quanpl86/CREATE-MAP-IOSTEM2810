@@ -200,7 +200,7 @@
         "position": {
           "x": 1,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -208,7 +208,7 @@
         "position": {
           "x": 1,
           "y": 0,
-          "z": 3
+          "z": 11
         }
       },
       {
@@ -216,7 +216,7 @@
         "position": {
           "x": 2,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -224,7 +224,7 @@
         "position": {
           "x": 2,
           "y": 0,
-          "z": 3
+          "z": 11
         }
       },
       {
@@ -232,7 +232,7 @@
         "position": {
           "x": 3,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -240,7 +240,7 @@
         "position": {
           "x": 4,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -248,7 +248,7 @@
         "position": {
           "x": 5,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -256,7 +256,7 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -264,7 +264,7 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 3
+          "z": 11
         }
       },
       {
@@ -272,7 +272,7 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -280,7 +280,7 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 3
+          "z": 11
         }
       },
       {
@@ -288,7 +288,7 @@
         "position": {
           "x": 8,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -296,7 +296,7 @@
         "position": {
           "x": 9,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -304,7 +304,7 @@
         "position": {
           "x": 10,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -312,7 +312,7 @@
         "position": {
           "x": 11,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -320,7 +320,7 @@
         "position": {
           "x": 11,
           "y": 0,
-          "z": 3
+          "z": 11
         }
       },
       {
@@ -328,7 +328,7 @@
         "position": {
           "x": 12,
           "y": 0,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -336,7 +336,7 @@
         "position": {
           "x": 12,
           "y": 0,
-          "z": 3
+          "z": 11
         }
       }
     ],
@@ -346,7 +346,7 @@
         "start": {
           "x": 1,
           "y": 1,
-          "z": 2,
+          "z": 10,
           "direction": 1
         }
       }
@@ -356,9 +356,9 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 1,
+          "x": 2,
           "y": 1,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -367,34 +367,34 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 2
+          "z": 11
         }
       },
       {
         "id": "c3",
         "type": "crystal",
         "position": {
-          "x": 2,
+          "x": 1,
           "y": 1,
-          "z": 3
+          "z": 11
         }
       },
       {
         "id": "c4",
         "type": "crystal",
         "position": {
-          "x": 1,
+          "x": 6,
           "y": 1,
-          "z": 3
+          "z": 10
         }
       },
       {
         "id": "c5",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 7,
           "y": 1,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -403,34 +403,34 @@
         "position": {
           "x": 7,
           "y": 1,
-          "z": 2
+          "z": 11
         }
       },
       {
         "id": "c7",
         "type": "crystal",
         "position": {
-          "x": 7,
+          "x": 6,
           "y": 1,
-          "z": 3
+          "z": 11
         }
       },
       {
         "id": "c8",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 11,
           "y": 1,
-          "z": 3
+          "z": 10
         }
       },
       {
         "id": "c9",
         "type": "crystal",
         "position": {
-          "x": 11,
+          "x": 12,
           "y": 1,
-          "z": 2
+          "z": 10
         }
       },
       {
@@ -439,16 +439,7 @@
         "position": {
           "x": 12,
           "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "id": "c11",
-        "type": "crystal",
-        "position": {
-          "x": 12,
-          "y": 1,
-          "z": 3
+          "z": 11
         }
       }
     ],
@@ -456,18 +447,17 @@
     "finish": {
       "x": 11,
       "y": 1,
-      "z": 3
+      "z": 11
     }
   },
   "solution": {
     "type": "reach_target",
     "itemGoals": {
-      "crystal": 11
+      "crystal": 10
     },
     "optimalBlocks": 23,
     "optimalLines": 22,
     "rawActions": [
-      "collect",
       "moveForward",
       "collect",
       "turnRight",
@@ -518,7 +508,14 @@
           "body": [
             {
               "type": "CALL",
-              "name": "PROCEDURE_3"
+              "name": "PROCEDURE_1"
+            },
+            {
+              "type": "collect"
+            },
+            {
+              "type": "maze_turn",
+              "direction": "turnRight"
             },
             {
               "type": "CALL",
@@ -537,12 +534,22 @@
             },
             {
               "type": "moveForward"
+            },
+            {
+              "type": "collect"
             }
           ]
         },
         {
           "type": "CALL",
-          "name": "PROCEDURE_3"
+          "name": "PROCEDURE_1"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnRight"
         },
         {
           "type": "moveForward"
@@ -573,22 +580,6 @@
                 "type": "moveForward"
               }
             ]
-          }
-        ],
-        "PROCEDURE_3": [
-          {
-            "type": "collect"
-          },
-          {
-            "type": "CALL",
-            "name": "PROCEDURE_1"
-          },
-          {
-            "type": "collect"
-          },
-          {
-            "type": "maze_turn",
-            "direction": "turnRight"
           }
         ]
       }

@@ -37,7 +37,7 @@ class FunctionPlacer(BasePlacer):
 
         # (SỬA LỖI) Đặt vật phẩm lên tất cả các điểm, TRỪ điểm cuối cùng là đích đến.
         # Điều này tránh việc vật phẩm và đích bị đặt chồng lên nhau.
-        items = [{"type": "crystal", "pos": pos} for pos in coords_to_place_on if pos != path_info.target_pos]
+        items = [{"type": "crystal", "pos": pos} for pos in coords_to_place_on if pos != path_info.target_pos and pos != path_info.start_pos]
 
         # Tương tự ForLoop, chúng ta tránh chướng ngại vật để không làm
         # người chơi phân tâm khỏi mục tiêu chính là nhận biết mẫu hình.

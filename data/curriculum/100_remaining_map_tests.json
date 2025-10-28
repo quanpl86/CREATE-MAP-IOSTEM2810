@@ -42,7 +42,7 @@
         "map_type": "staircase",
         "logic_type": "sequencing",
         "num_variants": 1,
-        "params": { "num_steps": 5, "step_size": 1 }
+        "params": { "num_steps": 4, "step_size": 2 }
       },
       "blockly_config": { "toolbox_preset": "full_toolbox" },
       "solution_config": { "type": "reach_target", "itemGoals": {} }

@@ -38,7 +38,7 @@ class ForLoopPlacer(BasePlacer):
         
         # (SỬA LỖI) Không đặt vật phẩm ở vị trí đích cuối cùng.
         # Điều này áp dụng cho các map như Staircase, PlowingField.
-        items = [{"type": "crystal", "pos": pos} for pos in coords_to_place_on if pos != path_info.target_pos]
+        items = [{"type": "crystal", "pos": pos} for pos in coords_to_place_on if pos != path_info.target_pos and pos != path_info.start_pos]
         
         # Trong các bài toán về vòng lặp for, chúng ta thường không thêm chướng ngại vật
         # để người chơi có thể tập trung hoàn toàn vào việc nhận biết quy luật lặp.

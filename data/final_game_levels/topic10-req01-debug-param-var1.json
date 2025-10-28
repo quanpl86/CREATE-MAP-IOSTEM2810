@@ -1,0 +1,455 @@
+{
+  "id": "topic10-req01-debug-param-var1",
+  "gameType": "maze",
+  "topic": "topic-title-topic_10_debugging",
+  "level": 1,
+  "titleKey": "Challenge.topic10-req01-debug-param.Title",
+  "questTitleKey": "Challenge.topic10-req01-debug-param.Description",
+  "descriptionKey": "Challenge.topic10-req01-debug-param.Description",
+  "translations": {
+    "vi": {
+      "Challenge.topic10-req01-debug-param.Title": "Sửa lỗi: Sai số lần lặp",
+      "Challenge.topic10-req01-debug-param.Description": "Chương trình này gần đúng rồi, nhưng có vẻ nó lặp lại sai số lần. Hãy tìm và sửa lại con số đó!",
+      "topic-title-topic_10_debugging": "Gỡ lỗi"
+    }
+  },
+  "supportedEditors": [
+    "blockly",
+    "monaco"
+  ],
+  "blocklyConfig": {
+    "toolbox": {
+      "kind": "categoryToolbox",
+      "contents": [
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATEVENTS}",
+          "categorystyle": "events_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_start"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATMOVEMENT}",
+          "categorystyle": "movement_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_moveForward"
+            },
+            {
+              "kind": "block",
+              "type": "maze_jump"
+            },
+            {
+              "kind": "block",
+              "type": "maze_turn"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATACTIONS}",
+          "categorystyle": "actions_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_collect"
+            },
+            {
+              "kind": "block",
+              "type": "maze_toggle_switch"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATLOOPS}",
+          "categorystyle": "loops_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_repeat",
+              "inputs": {
+                "TIMES": {
+                  "shadow": {
+                    "type": "math_number",
+                    "fields": {
+                      "NUM": 5
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "maxBlocks": 21,
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_repeat\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"DO\"><block type=\"maze_repeat\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></statement><next><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_turn\"><field name=\"DIR\">turnRight</field></block></next></block></next></block></next></block></statement><next><block type=\"maze_repeat\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">2</field></shadow></value><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></statement><next><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_moveForward\" /></next></block></next></block></next></block></next></block></next></block></next></block></statement></block></xml>"
+  },
+  "gameConfig": {
+    "type": "maze",
+    "renderer": "3d",
+    "blocks": [
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 9
+        }
+      }
+    ],
+    "players": [
+      {
+        "id": "player1",
+        "start": {
+          "x": 0,
+          "y": 1,
+          "z": 4,
+          "direction": 1
+        }
+      }
+    ],
+    "collectibles": [
+      {
+        "id": "c1",
+        "type": "crystal",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 4
+        }
+      },
+      {
+        "id": "c2",
+        "type": "crystal",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 4
+        }
+      },
+      {
+        "id": "c3",
+        "type": "crystal",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 9
+        }
+      },
+      {
+        "id": "c4",
+        "type": "crystal",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 9
+        }
+      }
+    ],
+    "interactibles": [],
+    "finish": {
+      "x": 0,
+      "y": 1,
+      "z": 9
+    }
+  },
+  "solution": {
+    "type": "reach_target",
+    "itemGoals": {},
+    "optimalBlocks": 16,
+    "optimalLines": 15,
+    "rawActions": [
+      "moveForward",
+      "collect",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "collect",
+      "turnRight",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "collect",
+      "turnRight",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "collect",
+      "moveForward"
+    ],
+    "structuredSolution": {
+      "main": [
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "maze_repeat",
+          "times": 2,
+          "body": [
+            {
+              "type": "maze_repeat",
+              "times": 2,
+              "body": [
+                {
+                  "type": "moveForward"
+                },
+                {
+                  "type": "moveForward"
+                }
+              ]
+            },
+            {
+              "type": "moveForward"
+            },
+            {
+              "type": "collect"
+            },
+            {
+              "type": "maze_turn",
+              "direction": "turnRight"
+            }
+          ]
+        },
+        {
+          "type": "maze_repeat",
+          "times": 2,
+          "body": [
+            {
+              "type": "moveForward"
+            },
+            {
+              "type": "moveForward"
+            }
+          ]
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "moveForward"
+        }
+      ],
+      "procedures": {}
+    },
+    "structuredSolution_fixbug_version": {
+      "main": [
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "maze_repeat",
+          "times": 2,
+          "body": [
+            {
+              "type": "maze_repeat",
+              "times": 1,
+              "body": [
+                {
+                  "type": "moveForward"
+                },
+                {
+                  "type": "moveForward"
+                }
+              ]
+            },
+            {
+              "type": "moveForward"
+            },
+            {
+              "type": "collect"
+            },
+            {
+              "type": "maze_turn",
+              "direction": "turnRight"
+            }
+          ]
+        },
+        {
+          "type": "maze_repeat",
+          "times": 2,
+          "body": [
+            {
+              "type": "moveForward"
+            },
+            {
+              "type": "moveForward"
+            }
+          ]
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "moveForward"
+        }
+      ],
+      "procedures": {}
+    }
+  },
+  "sounds": {
+    "win": "/assets/maze/win.mp3",
+    "fail": "/assets/maze/fail_pegman.mp3"
+  }
+}

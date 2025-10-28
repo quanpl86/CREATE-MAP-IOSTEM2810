@@ -188,7 +188,7 @@
         }
       ]
     },
-    "maxBlocks": 17,
+    "maxBlocks": 13,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -412,9 +412,9 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 3,
+          "x": 5,
           "y": 1,
-          "z": 5
+          "z": 2
         }
       }
     ],
@@ -422,7 +422,7 @@
     "finish": {
       "x": 5,
       "y": 1,
-      "z": 4
+      "z": 5
     }
   },
   "solution": {
@@ -430,29 +430,35 @@
     "itemGoals": {
       "crystal": 1
     },
-    "optimalBlocks": 12,
-    "optimalLines": 11,
+    "optimalBlocks": 8,
+    "optimalLines": 7,
     "rawActions": [
       "moveForward",
-      "moveForward",
-      "turnRight",
       "moveForward",
       "moveForward",
       "moveForward",
       "collect",
-      "turnLeft",
+      "turnRight",
       "moveForward",
       "moveForward",
-      "turnLeft",
       "moveForward"
     ],
     "structuredSolution": {
       "main": [
         {
-          "type": "moveForward"
+          "type": "maze_repeat",
+          "times": 2,
+          "body": [
+            {
+              "type": "moveForward"
+            },
+            {
+              "type": "moveForward"
+            }
+          ]
         },
         {
-          "type": "moveForward"
+          "type": "collect"
         },
         {
           "type": "maze_turn",
@@ -466,26 +472,6 @@
               "type": "moveForward"
             }
           ]
-        },
-        {
-          "type": "collect"
-        },
-        {
-          "type": "maze_turn",
-          "direction": "turnLeft"
-        },
-        {
-          "type": "moveForward"
-        },
-        {
-          "type": "moveForward"
-        },
-        {
-          "type": "maze_turn",
-          "direction": "turnLeft"
-        },
-        {
-          "type": "moveForward"
         }
       ],
       "procedures": {}

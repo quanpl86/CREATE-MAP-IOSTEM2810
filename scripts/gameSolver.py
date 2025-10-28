@@ -282,25 +282,30 @@ def solve_level(world: GameWorld) -> Optional[List[Action]]:
                         is_valid_move = True
 
                 elif action == 'jump':
-                    # [REVERTED] Logic Jump: Chỉ nhảy lên trên đỉnh của vật cản.
-                    # Không cho phép nhảy qua hố.
-                    obstacle_x, obstacle_y, obstacle_z = state.x + dx, state.y, state.z + dz
+                    # [SỬA LỖI LẦN 2] Logic Jump mới để xử lý bậc thang.
+                    # Mô phỏng hành động "nhảy và đi tới một ô".
+                    
+                    # Vị trí đích sau khi nhảy: đi tới 1 ô và đi lên 1 ô.
+                    next_x, next_y, next_z = state.x + dx, state.y + 1, state.z + dz
 
-                    # 1. Phải có vật cản ở ô phía trước, ngang tầm mắt.
-                    obstacle_pos_key = f"{obstacle_x}-{obstacle_y}-{obstacle_z}"
-                    is_obstacle_in_front = world.world_map.get(obstacle_pos_key) in GameWorld.SOLID_WALLS
+                    # Điều kiện để nhảy thành công:
+                    # 1. Ô ngay phía trước (ngang tầm mắt) phải là tường (bậc thang) HOẶC không có gì (để nhảy qua hố).
+                    #    Trong trường hợp cầu thang, nó sẽ là tường.
+                    obstacle_key = f"{state.x + dx}-{state.y}-{state.z + dz}"
+                    block_in_front = world.world_map.get(obstacle_key)
 
-                    # 2. Không gian phía trên vật cản phải trống.
-                    air_above_obstacle_key = f"{obstacle_x}-{obstacle_y + 1}-{obstacle_z}"
-                    is_air_clear_above = world.world_map.get(air_above_obstacle_key) is None
+                    # 2. Ô đích ở trên cao phía trước phải trống.
+                    dest_key = f"{next_x}-{next_y}-{next_z}"
+                    is_dest_air_clear = world.world_map.get(dest_key) is None
 
-                    # 3. Người chơi phải đang đứng trên mặt đất.
-                    player_ground_key = f"{state.x}-{state.y - 1}-{state.z}"
-                    is_player_on_ground = world.world_map.get(player_ground_key) in GameWorld.WALKABLE_GROUNDS
-
-                    if is_obstacle_in_front and is_air_clear_above and is_player_on_ground:
-                        # Di chuyển người chơi lên trên đỉnh của vật cản.
-                        next_state.x, next_state.y, next_state.z = obstacle_x, obstacle_y + 1, obstacle_z
+                    # 3. Phải có đất ở dưới ô đích để đáp xuống.
+                    ground_under_dest_key = f"{next_x}-{next_y - 1}-{next_z}"
+                    is_ground_at_dest = world.world_map.get(ground_under_dest_key) in GameWorld.WALKABLE_GROUNDS
+                    
+                    # Chỉ cần không gian đích trống và có chỗ đáp là có thể nhảy.
+                    if is_dest_air_clear and is_ground_at_dest:
+                        # Cập nhật vị trí mới của người chơi sau khi nhảy thành công.
+                        next_state.x, next_state.y, next_state.z = next_x, next_y, next_z
                         is_valid_move = True
             elif action == 'turnLeft':
                 next_state.direction = (state.direction + 3) % 4

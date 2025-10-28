@@ -1,0 +1,222 @@
+{
+  "id": "topic10-req03-debug-order-var2",
+  "gameType": "maze",
+  "topic": "topic-title-topic_10_debugging",
+  "level": 3,
+  "titleKey": "Challenge.topic10-req03-debug-order.Title",
+  "questTitleKey": "Challenge.topic10-req03-debug-order.Description",
+  "descriptionKey": "Challenge.topic10-req03-debug-order.Description",
+  "translations": {
+    "vi": {
+      "Challenge.topic10-req03-debug-order.Title": "Sửa lỗi: Sai thứ tự",
+      "Challenge.topic10-req03-debug-order.Description": "Các lệnh đều đúng, nhưng chúng đang ở sai vị trí. Hãy sắp xếp lại chúng để chương trình chạy đúng!",
+      "topic-title-topic_10_debugging": "Gỡ lỗi"
+    }
+  },
+  "supportedEditors": [
+    "blockly",
+    "monaco"
+  ],
+  "blocklyConfig": {
+    "toolbox": {
+      "kind": "categoryToolbox",
+      "contents": [
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATEVENTS}",
+          "categorystyle": "events_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_start"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATMOVEMENT}",
+          "categorystyle": "movement_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_moveForward"
+            },
+            {
+              "kind": "block",
+              "type": "maze_jump"
+            },
+            {
+              "kind": "block",
+              "type": "maze_turn"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATACTIONS}",
+          "categorystyle": "actions_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_collect"
+            },
+            {
+              "kind": "block",
+              "type": "maze_toggle_switch"
+            }
+          ]
+        }
+      ]
+    },
+    "maxBlocks": 12,
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_collect\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></next></block></next></block></next></block></next></block></statement></block></xml>"
+  },
+  "gameConfig": {
+    "type": "maze",
+    "renderer": "3d",
+    "blocks": [
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 7,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 5
+        }
+      }
+    ],
+    "players": [
+      {
+        "id": "player1",
+        "start": {
+          "x": 5,
+          "y": 1,
+          "z": 5,
+          "direction": 1
+        }
+      }
+    ],
+    "collectibles": [
+      {
+        "id": "c1",
+        "type": "crystal",
+        "position": {
+          "x": 7,
+          "y": 1,
+          "z": 5
+        }
+      }
+    ],
+    "interactibles": [],
+    "finish": {
+      "x": 10,
+      "y": 1,
+      "z": 5
+    }
+  },
+  "solution": {
+    "type": "reach_target",
+    "itemGoals": {
+      "crystal": 1
+    },
+    "optimalBlocks": 7,
+    "optimalLines": 6,
+    "rawActions": [
+      "moveForward",
+      "moveForward",
+      "collect",
+      "moveForward",
+      "moveForward",
+      "moveForward"
+    ],
+    "structuredSolution": {
+      "main": [
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        }
+      ],
+      "procedures": {}
+    },
+    "structuredSolution_fixbug_version": {
+      "main": [
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        }
+      ],
+      "procedures": {}
+    }
+  },
+  "sounds": {
+    "win": "/assets/maze/win.mp3",
+    "fail": "/assets/maze/fail_pegman.mp3"
+  }
+}

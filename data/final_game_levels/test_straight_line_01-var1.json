@@ -198,7 +198,31 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 10,
+          "x": 3,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
           "y": 0,
           "z": 5
         }
@@ -206,7 +230,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 10,
+          "x": 3,
           "y": 0,
           "z": 6
         }
@@ -214,7 +238,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 10,
+          "x": 3,
           "y": 0,
           "z": 7
         }
@@ -222,7 +246,7 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 10,
+          "x": 3,
           "y": 0,
           "z": 8
         }
@@ -230,33 +254,9 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 10,
+          "x": 3,
           "y": 0,
           "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 12
         }
       }
     ],
@@ -264,9 +264,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 10,
+          "x": 3,
           "y": 1,
-          "z": 12,
+          "z": 2,
           "direction": 1
         }
       }
@@ -276,17 +276,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 10,
+          "x": 3,
           "y": 1,
-          "z": 10
+          "z": 7
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 10,
+      "x": 3,
       "y": 1,
-      "z": 5
+      "z": 9
     }
   },
   "solution": {
@@ -297,13 +297,13 @@
     "optimalBlocks": 9,
     "optimalLines": 8,
     "rawActions": [
-      "turnLeft",
+      "turnRight",
+      "moveForward",
+      "moveForward",
+      "moveForward",
       "moveForward",
       "moveForward",
       "collect",
-      "moveForward",
-      "moveForward",
-      "moveForward",
       "moveForward",
       "moveForward"
     ],
@@ -311,16 +311,7 @@
       "main": [
         {
           "type": "maze_turn",
-          "direction": "turnLeft"
-        },
-        {
-          "type": "moveForward"
-        },
-        {
-          "type": "moveForward"
-        },
-        {
-          "type": "collect"
+          "direction": "turnRight"
         },
         {
           "type": "maze_repeat",
@@ -333,6 +324,15 @@
               "type": "moveForward"
             }
           ]
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "moveForward"
         },
         {
           "type": "moveForward"

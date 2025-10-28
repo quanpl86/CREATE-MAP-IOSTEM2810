@@ -8,39 +8,7 @@
         "position": {
           "x": -2,
           "y": 0,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": -2,
-          "y": 0,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": -2,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": -2,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": -2,
-          "y": 0,
-          "z": 6
+          "z": -3
         }
       },
       {
@@ -48,7 +16,7 @@
         "position": {
           "x": -1,
           "y": 0,
-          "z": 6
+          "z": -3
         }
       },
       {
@@ -56,7 +24,7 @@
         "position": {
           "x": 0,
           "y": 0,
-          "z": 6
+          "z": -3
         }
       },
       {
@@ -64,7 +32,7 @@
         "position": {
           "x": 1,
           "y": 0,
-          "z": 6
+          "z": -3
         }
       },
       {
@@ -72,7 +40,39 @@
         "position": {
           "x": 2,
           "y": 0,
-          "z": 6
+          "z": -3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": -2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": -1
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 1
         }
       }
     ],
@@ -82,7 +82,7 @@
         "start": {
           "x": 2,
           "y": 1,
-          "z": 6,
+          "z": 1,
           "direction": 1
         }
       }
@@ -92,9 +92,9 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": -2,
+          "x": -1,
           "y": 1,
-          "z": 4
+          "z": -3
         }
       }
     ],
@@ -102,7 +102,7 @@
     "finish": {
       "x": -2,
       "y": 1,
-      "z": 2
+      "z": -3
     }
   }
 }

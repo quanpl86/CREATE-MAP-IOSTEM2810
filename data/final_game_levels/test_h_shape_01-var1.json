@@ -1,0 +1,512 @@
+{
+  "id": "test_h_shape_01-var1",
+  "gameType": "maze",
+  "topic": "topic-title-topic_99",
+  "level": 5,
+  "titleKey": "Challenge.test_h_shape_01.Title",
+  "questTitleKey": "Challenge.test_h_shape_01.Description",
+  "descriptionKey": "Challenge.test_h_shape_01.Description",
+  "translations": {
+    "vi": {
+      "Challenge.test_h_shape_01.Title": "Test Map Chữ H (Cao)",
+      "Challenge.test_h_shape_01.Description": "Kiểm tra map chữ H cao và hẹp.",
+      "topic-title-topic_99": "Kiểm tra Map mới"
+    }
+  },
+  "supportedEditors": [
+    "blockly",
+    "monaco"
+  ],
+  "blocklyConfig": {
+    "toolbox": {
+      "kind": "categoryToolbox",
+      "contents": [
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATEVENTS}",
+          "categorystyle": "events_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_start"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATMOVEMENT}",
+          "categorystyle": "movement_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_moveForward"
+            },
+            {
+              "kind": "block",
+              "type": "maze_jump"
+            },
+            {
+              "kind": "block",
+              "type": "maze_turn"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATLOOPS}",
+          "categorystyle": "loops_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_forever"
+            },
+            {
+              "kind": "block",
+              "type": "maze_repeat",
+              "inputs": {
+                "TIMES": {
+                  "shadow": {
+                    "type": "math_number",
+                    "fields": {
+                      "NUM": 5
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATLOGIC}",
+          "categorystyle": "logic_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "controls_if"
+            },
+            {
+              "kind": "block",
+              "type": "logic_compare"
+            },
+            {
+              "kind": "block",
+              "type": "logic_operation"
+            },
+            {
+              "kind": "block",
+              "type": "logic_negate"
+            },
+            {
+              "kind": "block",
+              "type": "logic_boolean"
+            },
+            {
+              "kind": "block",
+              "type": "maze_is_path"
+            },
+            {
+              "kind": "block",
+              "type": "maze_is_item_present"
+            },
+            {
+              "kind": "block",
+              "type": "maze_is_switch_state"
+            },
+            {
+              "kind": "block",
+              "type": "maze_at_finish"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATACTIONS}",
+          "categorystyle": "actions_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_collect"
+            },
+            {
+              "kind": "block",
+              "type": "maze_toggle_switch"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATMATH}",
+          "categorystyle": "math_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_item_count"
+            },
+            {
+              "kind": "block",
+              "type": "math_number"
+            },
+            {
+              "kind": "block",
+              "type": "math_arithmetic",
+              "inputs": {
+                "A": {
+                  "shadow": {
+                    "type": "math_number",
+                    "fields": {
+                      "NUM": 1
+                    }
+                  }
+                },
+                "B": {
+                  "shadow": {
+                    "type": "math_number",
+                    "fields": {
+                      "NUM": 1
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "sep"
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATVARIABLES}",
+          "custom": "VARIABLE",
+          "categorystyle": "variable_category"
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATPROCEDURES}",
+          "custom": "PROCEDURE",
+          "categorystyle": "procedure_category"
+        }
+      ]
+    },
+    "maxBlocks": 32,
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
+  },
+  "gameConfig": {
+    "type": "maze",
+    "renderer": "3d",
+    "blocks": [
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 11,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 12,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 12,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 12,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 12,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 12,
+          "y": 0,
+          "z": 6
+        }
+      }
+    ],
+    "players": [
+      {
+        "id": "player1",
+        "start": {
+          "x": 9,
+          "y": 1,
+          "z": 2,
+          "direction": 1
+        }
+      }
+    ],
+    "collectibles": [
+      {
+        "id": "c1",
+        "type": "crystal",
+        "position": {
+          "x": 11,
+          "y": 1,
+          "z": 3
+        }
+      },
+      {
+        "id": "c2",
+        "type": "crystal",
+        "position": {
+          "x": 12,
+          "y": 1,
+          "z": 6
+        }
+      },
+      {
+        "id": "c3",
+        "type": "crystal",
+        "position": {
+          "x": 9,
+          "y": 1,
+          "z": 6
+        }
+      },
+      {
+        "id": "c4",
+        "type": "crystal",
+        "position": {
+          "x": 12,
+          "y": 1,
+          "z": 5
+        }
+      },
+      {
+        "id": "c5",
+        "type": "crystal",
+        "position": {
+          "x": 10,
+          "y": 1,
+          "z": 3
+        }
+      },
+      {
+        "id": "c6",
+        "type": "crystal",
+        "position": {
+          "x": 9,
+          "y": 1,
+          "z": 4
+        }
+      }
+    ],
+    "interactibles": [],
+    "finish": {
+      "x": 12,
+      "y": 1,
+      "z": 2
+    }
+  },
+  "solution": {
+    "type": "reach_target",
+    "itemGoals": {
+      "crystal": 6
+    },
+    "optimalBlocks": 27,
+    "optimalLines": 26,
+    "rawActions": [
+      "turnRight",
+      "moveForward",
+      "moveForward",
+      "collect",
+      "moveForward",
+      "moveForward",
+      "collect",
+      "turnLeft",
+      "turnLeft",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "turnRight",
+      "moveForward",
+      "collect",
+      "moveForward",
+      "collect",
+      "moveForward",
+      "turnRight",
+      "moveForward",
+      "moveForward",
+      "collect",
+      "moveForward",
+      "collect",
+      "turnLeft",
+      "turnLeft",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward"
+    ],
+    "structuredSolution": {
+      "main": [
+        {
+          "type": "maze_turn",
+          "direction": "turnRight"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "CALL",
+          "name": "PROCEDURE_1"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnLeft"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnLeft"
+        },
+        {
+          "type": "maze_repeat",
+          "times": 3,
+          "body": [
+            {
+              "type": "moveForward"
+            }
+          ]
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnRight"
+        },
+        {
+          "type": "CALL",
+          "name": "PROCEDURE_1"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnRight"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "CALL",
+          "name": "PROCEDURE_1"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnLeft"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnLeft"
+        },
+        {
+          "type": "maze_repeat",
+          "times": 2,
+          "body": [
+            {
+              "type": "moveForward"
+            },
+            {
+              "type": "moveForward"
+            }
+          ]
+        }
+      ],
+      "procedures": {
+        "PROCEDURE_1": [
+          {
+            "type": "moveForward"
+          },
+          {
+            "type": "collect"
+          },
+          {
+            "type": "moveForward"
+          }
+        ]
+      }
+    }
+  },
+  "sounds": {
+    "win": "/assets/maze/win.mp3",
+    "fail": "/assets/maze/fail_pegman.mp3"
+  }
+}

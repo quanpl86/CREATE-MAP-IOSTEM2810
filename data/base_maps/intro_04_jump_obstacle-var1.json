@@ -1,0 +1,101 @@
+{
+  "gameConfig": {
+    "type": "maze",
+    "renderer": "3d",
+    "blocks": [
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 7,
+          "y": 0,
+          "z": 11
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 11
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 11
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 11
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 11,
+          "y": 0,
+          "z": 11
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 12,
+          "y": 0,
+          "z": 11
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 13,
+          "y": 0,
+          "z": 11
+        }
+      },
+      {
+        "modelKey": "wall.brick01",
+        "position": {
+          "x": 12,
+          "y": 1,
+          "z": 11
+        }
+      }
+    ],
+    "players": [
+      {
+        "id": "player1",
+        "start": {
+          "x": 13,
+          "y": 1,
+          "z": 11,
+          "direction": 1
+        }
+      }
+    ],
+    "collectibles": [],
+    "interactibles": [],
+    "finish": {
+      "x": 7,
+      "y": 1,
+      "z": 11
+    },
+    "obstacles": [
+      {
+        "id": "o1",
+        "type": "wall",
+        "position": {
+          "x": 12,
+          "y": 1,
+          "z": 11
+        }
+      }
+    ]
+  }
+}

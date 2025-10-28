@@ -1,0 +1,242 @@
+{
+  "topic_code": "TOPIC_01",
+  "topic_name": "Giới thiệu",
+  "suggested_maps": [
+    {
+      "id": "intro_01_straight_path",
+      "level": 1,
+      "titleKey": "Challenge.intro_01_straight_path.Title",
+      "descriptionKey": "Challenge.intro_01_straight_path.Description",
+      "translations": {
+        "vi": {
+          "Challenge.intro_01_straight_path.Title": "Bước đi đầu tiên",
+          "Challenge.intro_01_straight_path.Description": "Sử dụng khối 'moveForward' để di chuyển nhân vật đến đích."
+        }
+      },
+      "generation_config": {
+        "map_type": "straight_line",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "path_length": 5
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_only",
+        "start_block_type": "empty"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "intro_02_collect_item",
+      "level": 2,
+      "titleKey": "Challenge.intro_02_collect_item.Title",
+      "descriptionKey": "Challenge.intro_02_collect_item.Description",
+      "translations": {
+        "vi": {
+          "Challenge.intro_02_collect_item.Title": "Thu thập pha lê",
+          "Challenge.intro_02_collect_item.Description": "Di chuyển và sử dụng khối 'collect' để thu thập tất cả pha lê trên đường đi."
+        }
+      },
+      "generation_config": {
+        "map_type": "straight_line",
+        "logic_type": "for_loop_simple",
+        "num_variants": 1,
+        "params": {
+          "path_length": 6,
+          "item_type": "crystal",
+          "item_count": 2
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_collect",
+        "start_block_type": "empty"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": "all"
+        }
+      }
+    },
+    {
+      "id": "intro_03_l_shape_turn",
+      "level": 3,
+      "titleKey": "Challenge.intro_03_l_shape_turn.Title",
+      "descriptionKey": "Challenge.intro_03_l_shape_turn.Description",
+      "translations": {
+        "vi": {
+          "Challenge.intro_03_l_shape_turn.Title": "Học cách rẽ",
+          "Challenge.intro_03_l_shape_turn.Description": "Sử dụng các khối rẽ trái/phải để di chuyển theo đường chữ L."
+        }
+      },
+      "generation_config": {
+        "map_type": "l_shape",
+        "logic_type": "sequencing",
+        "num_variants": 2,
+        "params": {
+          "leg1_length": 3,
+          "leg2_length": 4
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_turn",
+        "start_block_type": "empty"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "intro_04_jump_obstacle",
+      "level": 4,
+      "titleKey": "Challenge.intro_04_jump_obstacle.Title",
+      "descriptionKey": "Challenge.intro_04_jump_obstacle.Description",
+      "translations": {
+        "vi": {
+          "Challenge.intro_04_jump_obstacle.Title": "Vượt chướng ngại vật",
+          "Challenge.intro_04_jump_obstacle.Description": "Có một bức tường phía trước! Sử dụng khối 'jump' để nhảy qua nó."
+        }
+      },
+      "generation_config": {
+        "map_type": "straight_line",
+        "logic_type": "obstacle",
+        "num_variants": 1,
+        "params": {
+          "path_length": 5,
+          "obstacle_count": 1
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_jump",
+        "start_block_type": "empty"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "intro_05_l_shape_combined",
+      "level": 5,
+      "titleKey": "Challenge.intro_05_l_shape_combined.Title",
+      "descriptionKey": "Challenge.intro_05_l_shape_combined.Description",
+      "translations": {
+        "vi": {
+          "Challenge.intro_05_l_shape_combined.Title": "Thử thách tổng hợp",
+          "Challenge.intro_05_l_shape_combined.Description": "Vận dụng tất cả kỹ năng đã học: di chuyển, rẽ, thu thập pha lê và nhảy qua tường để về đích!"
+        }
+      },
+      "generation_config": {
+        "map_type": "l_shape",
+        "logic_type": "obstacle",
+        "num_variants": 2,
+        "params": {
+          "leg1_length": 4,
+          "leg2_length": 5,
+          "obstacle_count": 1,
+          "item_type": "crystal",
+          "item_count": 2
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_full"
+      },
+      "solution_config": {
+        "type": "collect_all_and_reach_target",
+        "itemGoals": {
+          "crystal": "all"
+        }
+      }
+    },
+        {
+      "id": "intro_06_u_shape_path",
+      "level": 6,
+      "titleKey": "Challenge.intro_06_u_shape_path.Title",
+      "descriptionKey": "Challenge.intro_06_u_shape_path.Description",
+      "translations": {
+        "vi": {
+          "Challenge.intro_06_u_shape_path.Title": "Đường đi chữ U",
+          "Challenge.intro_06_u_shape_path.Description": "Luyện tập kỹ năng rẽ với đường đi hình chữ U."
+        }
+      },
+      "generation_config": {
+        "map_type": "u_shape",
+        "logic_type": "sequencing",
+        "num_variants": 2,
+        "params": {
+          "side_legs_length": 3,
+          "base_leg_length": 4
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_turn"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "intro_07_s_shape_path",
+      "level": 7,
+      "titleKey": "Challenge.intro_07_s_shape_path.Title",
+      "descriptionKey": "Challenge.intro_07_s_shape_path.Description",
+      "translations": {
+        "vi": {
+          "Challenge.intro_07_s_shape_path.Title": "Đường đi chữ S",
+          "Challenge.intro_07_s_shape_path.Description": "Thử thách kỹ năng rẽ ngược chiều với đường đi hình chữ S."
+        }
+      },
+      "generation_config": {
+        "map_type": "s_shape",
+        "logic_type": "sequencing",
+        "num_variants": 2,
+        "params": {
+          "leg1_length": 3,
+          "leg2_length": 4,
+          "leg3_length": 3
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_turn"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "intro_08_zigzag_path",
+      "level": 8,
+      "titleKey": "Challenge.intro_08_zigzag_path.Title",
+      "descriptionKey": "Challenge.intro_08_zigzag_path.Description",
+      "translations": {
+        "vi": {
+          "Challenge.intro_08_zigzag_path.Title": "Đường đi Ziczac",
+          "Challenge.intro_08_zigzag_path.Description": "Con đường này có nhiều khúc cua. Hãy di chuyển cẩn thận để về đích!"
+        }
+      },
+      "generation_config": {
+        "map_type": "zigzag",
+        "logic_type": "sequencing",
+        "num_variants": 2,
+        "params": {
+          "num_segments": 4,
+          "segment_length": 3
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_turn"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    }
+  ]
+}

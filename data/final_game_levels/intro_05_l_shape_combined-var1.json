@@ -1,0 +1,285 @@
+{
+  "id": "intro_05_l_shape_combined-var1",
+  "gameType": "maze",
+  "topic": "topic-title-topic_01",
+  "level": 5,
+  "titleKey": "Challenge.intro_05_l_shape_combined.Title",
+  "questTitleKey": "Challenge.intro_05_l_shape_combined.Description",
+  "descriptionKey": "Challenge.intro_05_l_shape_combined.Description",
+  "translations": {
+    "vi": {
+      "Challenge.intro_05_l_shape_combined.Title": "Thử thách tổng hợp",
+      "Challenge.intro_05_l_shape_combined.Description": "Vận dụng tất cả kỹ năng đã học: di chuyển, rẽ, thu thập pha lê và nhảy qua tường để về đích!",
+      "topic-title-topic_01": "Giới thiệu"
+    }
+  },
+  "supportedEditors": [
+    "blockly",
+    "monaco"
+  ],
+  "blocklyConfig": {
+    "toolbox": {
+      "kind": "categoryToolbox",
+      "contents": [
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATEVENTS}",
+          "categorystyle": "events_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_start"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATMOVEMENT}",
+          "categorystyle": "movement_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_moveForward"
+            },
+            {
+              "kind": "block",
+              "type": "maze_turn"
+            },
+            {
+              "kind": "block",
+              "type": "maze_jump"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATACTIONS}",
+          "categorystyle": "actions_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_collect"
+            }
+          ]
+        }
+      ]
+    },
+    "maxBlocks": 19,
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
+  },
+  "gameConfig": {
+    "type": "maze",
+    "renderer": "3d",
+    "blocks": [
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 7,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 8,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 11,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "wall.brick01",
+        "position": {
+          "x": 8,
+          "y": 1,
+          "z": 5
+        }
+      }
+    ],
+    "players": [
+      {
+        "id": "player1",
+        "start": {
+          "x": 6,
+          "y": 1,
+          "z": 1,
+          "direction": 1
+        }
+      }
+    ],
+    "collectibles": [
+      {
+        "id": "c1",
+        "type": "crystal",
+        "position": {
+          "x": 10,
+          "y": 1,
+          "z": 5
+        }
+      },
+      {
+        "id": "c2",
+        "type": "crystal",
+        "position": {
+          "x": 9,
+          "y": 1,
+          "z": 5
+        }
+      }
+    ],
+    "interactibles": [],
+    "finish": {
+      "x": 11,
+      "y": 1,
+      "z": 5
+    },
+    "obstacles": [
+      {
+        "id": "o1",
+        "type": "wall",
+        "position": {
+          "x": 8,
+          "y": 1,
+          "z": 5
+        }
+      }
+    ]
+  },
+  "solution": {
+    "type": "reach_target",
+    "itemGoals": {
+      "crystal": 2
+    },
+    "optimalBlocks": 14,
+    "optimalLines": 13,
+    "rawActions": [
+      "turnRight",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "turnLeft",
+      "moveForward",
+      "jump",
+      "moveForward",
+      "collect",
+      "moveForward",
+      "collect",
+      "moveForward"
+    ],
+    "structuredSolution": {
+      "main": [
+        {
+          "type": "maze_turn",
+          "direction": "turnRight"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnLeft"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "jump"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "moveForward"
+        }
+      ],
+      "procedures": {}
+    }
+  },
+  "sounds": {
+    "win": "/assets/maze/win.mp3",
+    "fail": "/assets/maze/fail_pegman.mp3"
+  }
+}

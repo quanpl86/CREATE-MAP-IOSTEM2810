@@ -1,0 +1,188 @@
+{
+  "id": "topic10-req02-debug-param-var2",
+  "gameType": "maze",
+  "topic": "topic-title-topic_10_debugging",
+  "level": 2,
+  "titleKey": "Challenge.topic10-req02-debug-param.Title",
+  "questTitleKey": "Challenge.topic10-req02-debug-param.Description",
+  "descriptionKey": "Challenge.topic10-req02-debug-param.Description",
+  "translations": {
+    "vi": {
+      "Challenge.topic10-req02-debug-param.Title": "Sửa lỗi: Rẽ sai hướng",
+      "Challenge.topic10-req02-debug-param.Description": "Nhân vật đang đi sai đường! Có vẻ như một lệnh rẽ đã bị nhầm. Bạn có thể sửa nó không?",
+      "topic-title-topic_10_debugging": "Gỡ lỗi"
+    }
+  },
+  "supportedEditors": [
+    "blockly",
+    "monaco"
+  ],
+  "blocklyConfig": {
+    "toolbox": {
+      "kind": "categoryToolbox",
+      "contents": [
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATEVENTS}",
+          "categorystyle": "events_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_start"
+            }
+          ]
+        },
+        {
+          "kind": "category",
+          "name": "%{BKY_GAMES_CATMOVEMENT}",
+          "categorystyle": "movement_category",
+          "contents": [
+            {
+              "kind": "block",
+              "type": "maze_moveForward"
+            },
+            {
+              "kind": "block",
+              "type": "maze_turn"
+            }
+          ]
+        }
+      ]
+    },
+    "maxBlocks": 11,
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_turn\"><field name=\"DIR\">turnLeft</field><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></next></block></next></block></next></block></statement></block></xml>"
+  },
+  "gameConfig": {
+    "type": "maze",
+    "renderer": "3d",
+    "blocks": [
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 7,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 7,
+          "y": 0,
+          "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 7,
+          "y": 0,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 7,
+          "y": 0,
+          "z": 9
+        }
+      }
+    ],
+    "players": [
+      {
+        "id": "player1",
+        "start": {
+          "x": 6,
+          "y": 1,
+          "z": 6,
+          "direction": 1
+        }
+      }
+    ],
+    "collectibles": [
+      {
+        "id": "c1",
+        "type": "crystal",
+        "position": {
+          "x": 7,
+          "y": 1,
+          "z": 8
+        }
+      }
+    ],
+    "interactibles": [],
+    "finish": {
+      "x": 7,
+      "y": 1,
+      "z": 9
+    }
+  },
+  "solution": {
+    "type": "reach_target",
+    "itemGoals": {},
+    "optimalBlocks": 6,
+    "optimalLines": 5,
+    "rawActions": [
+      "moveForward",
+      "turnRight",
+      "moveForward",
+      "moveForward",
+      "moveForward"
+    ],
+    "structuredSolution": {
+      "main": [
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnRight"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        }
+      ],
+      "procedures": {}
+    },
+    "structuredSolution_fixbug_version": {
+      "main": [
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnLeft"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
+        }
+      ],
+      "procedures": {}
+    }
+  },
+  "sounds": {
+    "win": "/assets/maze/win.mp3",
+    "fail": "/assets/maze/fail_pegman.mp3"
+  }
+}

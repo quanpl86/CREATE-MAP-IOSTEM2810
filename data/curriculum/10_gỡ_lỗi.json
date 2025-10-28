@@ -18,7 +18,7 @@
         "logic_type": "for_loop_simple",
         "num_variants": 2,
         "params": {
-          "side_length": 5,
+          "side_length": [ 4, 5 ],
           "start_blocks_type": "buggy_solution",
           "bug_type": "incorrect_loop_count",
           "bug_config": {
@@ -51,7 +51,7 @@
         "logic_type": "sequencing",
         "num_variants": 2,
         "params": {
-          "pattern": "corner",
+          "turns": 1,
           "start_blocks_type": "buggy_solution",
           "bug_type": "incorrect_parameter",
           "bug_config": {
@@ -83,7 +83,7 @@
         "logic_type": "sequencing",
         "num_variants": 2,
         "params": {
-          "path_length": 4,
+          "path_length": [ 4, 5 ],
           "items_to_place": "crystal",
           "start_blocks_type": "buggy_solution",
           "bug_type": "sequence_error",
@@ -118,7 +118,7 @@
         "logic_type": "sequencing",
         "num_variants": 2,
         "params": {
-          "path_length": 5,
+          "path_length": [ 5, 6 ],
           "items_to_place": "crystal",
           "start_blocks_type": "buggy_solution",
           "bug_type": "missing_block",

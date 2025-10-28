@@ -8,7 +8,7 @@
         "position": {
           "x": 1,
           "y": 0,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -16,7 +16,7 @@
         "position": {
           "x": 2,
           "y": 0,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -24,7 +24,7 @@
         "position": {
           "x": 3,
           "y": 0,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -32,45 +32,13 @@
         "position": {
           "x": 3,
           "y": 0,
-          "z": 8
+          "z": 4
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
           "x": 3,
-          "y": 0,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 5,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
           "y": 0,
           "z": 5
         }
@@ -78,9 +46,41 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 4,
           "y": 0,
-          "z": 6
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 3
         }
       },
       {
@@ -88,7 +88,7 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -96,7 +96,7 @@
         "position": {
           "x": 8,
           "y": 0,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -104,7 +104,7 @@
         "position": {
           "x": 9,
           "y": 0,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -112,7 +112,7 @@
         "position": {
           "x": 10,
           "y": 0,
-          "z": 7
+          "z": 3
         }
       }
     ],
@@ -122,7 +122,7 @@
         "start": {
           "x": 1,
           "y": 1,
-          "z": 7,
+          "z": 3,
           "direction": 1
         }
       }
@@ -134,7 +134,7 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -143,7 +143,7 @@
         "position": {
           "x": 3,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -152,7 +152,7 @@
         "position": {
           "x": 3,
           "y": 1,
-          "z": 8
+          "z": 4
         }
       },
       {
@@ -161,7 +161,7 @@
         "position": {
           "x": 3,
           "y": 1,
-          "z": 9
+          "z": 5
         }
       },
       {
@@ -170,43 +170,43 @@
         "position": {
           "x": 4,
           "y": 1,
-          "z": 7
+          "z": 1
         }
       },
       {
         "id": "c6",
         "type": "crystal",
         "position": {
-          "x": 5,
+          "x": 4,
           "y": 1,
-          "z": 7
+          "z": 2
         }
       },
       {
         "id": "c7",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 4,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       },
       {
         "id": "c8",
         "type": "crystal",
         "position": {
-          "x": 7,
+          "x": 5,
           "y": 1,
-          "z": 5
+          "z": 3
         }
       },
       {
         "id": "c9",
         "type": "crystal",
         "position": {
-          "x": 7,
+          "x": 6,
           "y": 1,
-          "z": 6
+          "z": 3
         }
       },
       {
@@ -215,7 +215,7 @@
         "position": {
           "x": 7,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -224,7 +224,7 @@
         "position": {
           "x": 8,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -233,7 +233,7 @@
         "position": {
           "x": 9,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       }
     ],
@@ -241,7 +241,7 @@
     "finish": {
       "x": 10,
       "y": 1,
-      "z": 7
+      "z": 3
     }
   }
 }

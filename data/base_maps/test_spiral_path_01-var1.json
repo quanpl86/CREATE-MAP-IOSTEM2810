@@ -148,27 +148,27 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 8,
           "y": 1,
-          "z": 5
+          "z": 9
         }
       },
       {
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 7,
+          "x": 9,
           "y": 1,
-          "z": 7
+          "z": 9
         }
       },
       {
         "id": "c3",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 10,
           "y": 1,
-          "z": 9
+          "z": 7
         }
       },
       {
@@ -177,16 +177,16 @@
         "position": {
           "x": 7,
           "y": 1,
-          "z": 9
+          "z": 7
         }
       },
       {
         "id": "c5",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 7,
           "y": 1,
-          "z": 5
+          "z": 8
         }
       }
     ],

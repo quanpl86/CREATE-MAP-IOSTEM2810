@@ -188,7 +188,7 @@
         }
       ]
     },
-    "maxBlocks": 25,
+    "maxBlocks": 24,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -340,27 +340,27 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 8,
           "y": 1,
-          "z": 5
+          "z": 9
         }
       },
       {
         "id": "c2",
         "type": "crystal",
         "position": {
-          "x": 7,
+          "x": 9,
           "y": 1,
-          "z": 7
+          "z": 9
         }
       },
       {
         "id": "c3",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 10,
           "y": 1,
-          "z": 9
+          "z": 7
         }
       },
       {
@@ -369,16 +369,16 @@
         "position": {
           "x": 7,
           "y": 1,
-          "z": 9
+          "z": 7
         }
       },
       {
         "id": "c5",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 7,
           "y": 1,
-          "z": 5
+          "z": 8
         }
       }
     ],
@@ -394,29 +394,29 @@
     "itemGoals": {
       "crystal": 5
     },
-    "optimalBlocks": 20,
-    "optimalLines": 19,
+    "optimalBlocks": 19,
+    "optimalLines": 18,
     "rawActions": [
       "moveForward",
-      "collect",
-      "moveForward",
-      "moveForward",
-      "moveForward",
-      "collect",
-      "moveForward",
-      "turnRight",
       "moveForward",
       "moveForward",
       "moveForward",
       "moveForward",
       "turnRight",
       "moveForward",
+      "moveForward",
       "collect",
       "moveForward",
       "moveForward",
-      "collect",
       "turnRight",
       "moveForward",
+      "collect",
+      "moveForward",
+      "collect",
+      "moveForward",
+      "turnRight",
+      "moveForward",
+      "collect",
       "moveForward",
       "collect",
       "turnRight",
@@ -425,31 +425,6 @@
     "structuredSolution": {
       "main": [
         {
-          "type": "moveForward"
-        },
-        {
-          "type": "collect"
-        },
-        {
-          "type": "maze_repeat",
-          "times": 3,
-          "body": [
-            {
-              "type": "moveForward"
-            }
-          ]
-        },
-        {
-          "type": "collect"
-        },
-        {
-          "type": "moveForward"
-        },
-        {
-          "type": "maze_turn",
-          "direction": "turnRight"
-        },
-        {
           "type": "maze_repeat",
           "times": 2,
           "body": [
@@ -462,6 +437,9 @@
           ]
         },
         {
+          "type": "moveForward"
+        },
+        {
           "type": "maze_turn",
           "direction": "turnRight"
         },
@@ -469,7 +447,8 @@
           "type": "moveForward"
         },
         {
-          "type": "collect"
+          "type": "CALL",
+          "name": "PROCEDURE_1"
         },
         {
           "type": "maze_repeat",
@@ -477,24 +456,41 @@
           "body": [
             {
               "type": "moveForward"
-            },
-            {
-              "type": "moveForward"
-            },
-            {
-              "type": "collect"
             },
             {
               "type": "maze_turn",
               "direction": "turnRight"
+            },
+            {
+              "type": "CALL",
+              "name": "PROCEDURE_1"
+            },
+            {
+              "type": "collect"
             }
           ]
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnRight"
         },
         {
           "type": "moveForward"
         }
       ],
-      "procedures": {}
+      "procedures": {
+        "PROCEDURE_1": [
+          {
+            "type": "moveForward"
+          },
+          {
+            "type": "collect"
+          },
+          {
+            "type": "moveForward"
+          }
+        ]
+      }
     }
   },
   "sounds": {

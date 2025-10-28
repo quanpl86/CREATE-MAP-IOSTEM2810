@@ -13,7 +13,13 @@ class SimplePathTopology(BaseTopology):
     def generate_path_info(self, grid_size: tuple, params: dict) -> PathInfo:
         print(f"    LOG: Generating 'simple_path' with params: {params}")
         
-        path_length = params.get('path_length', 3)
+        # [CẢI TIẾN] Hỗ trợ path_length là một khoảng [min, max] để tạo sự đa dạng.
+        path_length_param = params.get('path_length', [3, 5])
+        if isinstance(path_length_param, list) and len(path_length_param) == 2:
+            path_length = random.randint(path_length_param[0], path_length_param[1])
+        else:
+            path_length = int(path_length_param)
+
         
         # [SỬA LỖI] Đọc tham số 'turns' thay vì 'pattern' để quyết định hình dạng.
         # Nếu có 'turns' > 0, tạo đường có góc cua. Nếu không, tạo đường thẳng.

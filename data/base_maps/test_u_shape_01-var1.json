@@ -6,81 +6,81 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 8,
+          "x": 4,
           "y": 0,
-          "z": 9
+          "z": 4
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 8,
+          "x": 4,
           "y": 0,
-          "z": 10
+          "z": 5
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 8,
+          "x": 4,
           "y": 0,
-          "z": 11
+          "z": 6
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 8,
+          "x": 4,
           "y": 0,
-          "z": 12
+          "z": 7
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 9,
+          "x": 5,
           "y": 0,
-          "z": 12
+          "z": 7
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 10,
+          "x": 6,
           "y": 0,
-          "z": 12
+          "z": 7
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 11,
+          "x": 7,
           "y": 0,
-          "z": 9
+          "z": 4
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 11,
+          "x": 7,
           "y": 0,
-          "z": 10
+          "z": 5
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 11,
+          "x": 7,
           "y": 0,
-          "z": 11
+          "z": 6
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 11,
+          "x": 7,
           "y": 0,
-          "z": 12
+          "z": 7
         }
       }
     ],
@@ -88,9 +88,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 8,
+          "x": 4,
           "y": 1,
-          "z": 9,
+          "z": 4,
           "direction": 1
         }
       }
@@ -100,17 +100,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 10,
+          "x": 7,
           "y": 1,
-          "z": 12
+          "z": 5
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 11,
+      "x": 7,
       "y": 1,
-      "z": 9
+      "z": 4
     }
   }
 }

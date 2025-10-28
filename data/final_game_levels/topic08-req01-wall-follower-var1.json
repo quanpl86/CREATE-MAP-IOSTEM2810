@@ -188,7 +188,7 @@
         }
       ]
     },
-    "maxBlocks": 17,
+    "maxBlocks": 14,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -588,118 +588,6 @@
         }
       },
       {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 1
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 1
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
         "modelKey": "wall.stone01",
         "position": {
           "x": 0,
@@ -792,6 +680,14 @@
         "position": {
           "x": 2,
           "y": 1,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 2,
+          "y": 1,
           "z": 4
         }
       },
@@ -817,14 +713,6 @@
           "x": 3,
           "y": 1,
           "z": 0
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 3,
-          "y": 1,
-          "z": 2
         }
       },
       {
@@ -944,77 +832,13 @@
         "position": {
           "x": 6,
           "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 7,
-          "y": 1,
-          "z": 0
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 7,
-          "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 0
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 1
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 3
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
           "z": 5
         }
       },
       {
         "modelKey": "wall.stone01",
         "position": {
-          "x": 8,
+          "x": 6,
           "y": 1,
           "z": 6
         }
@@ -1034,7 +858,7 @@
     "collectibles": [],
     "interactibles": [],
     "finish": {
-      "x": 7,
+      "x": 5,
       "y": 1,
       "z": 5
     },
@@ -1144,7 +968,7 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 4
+          "z": 3
         }
       },
       {
@@ -1153,7 +977,7 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 5
+          "z": 4
         }
       },
       {
@@ -1162,16 +986,16 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 6
+          "z": 5
         }
       },
       {
         "id": "o15",
         "type": "wall",
         "position": {
-          "x": 3,
+          "x": 2,
           "y": 1,
-          "z": 0
+          "z": 6
         }
       },
       {
@@ -1180,7 +1004,7 @@
         "position": {
           "x": 3,
           "y": 1,
-          "z": 2
+          "z": 0
         }
       },
       {
@@ -1315,86 +1139,14 @@
         "position": {
           "x": 6,
           "y": 1,
-          "z": 6
+          "z": 5
         }
       },
       {
         "id": "o32",
         "type": "wall",
         "position": {
-          "x": 7,
-          "y": 1,
-          "z": 0
-        }
-      },
-      {
-        "id": "o33",
-        "type": "wall",
-        "position": {
-          "x": 7,
-          "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "id": "o34",
-        "type": "wall",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 0
-        }
-      },
-      {
-        "id": "o35",
-        "type": "wall",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 1
-        }
-      },
-      {
-        "id": "o36",
-        "type": "wall",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "id": "o37",
-        "type": "wall",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 3
-        }
-      },
-      {
-        "id": "o38",
-        "type": "wall",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "id": "o39",
-        "type": "wall",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "id": "o40",
-        "type": "wall",
-        "position": {
-          "x": 8,
+          "x": 6,
           "y": 1,
           "z": 6
         }
@@ -1404,8 +1156,8 @@
   "solution": {
     "type": "reach_target",
     "itemGoals": {},
-    "optimalBlocks": 12,
-    "optimalLines": 11,
+    "optimalBlocks": 9,
+    "optimalLines": 8,
     "rawActions": [
       "moveForward",
       "moveForward",
@@ -1414,9 +1166,6 @@
       "turnRight",
       "moveForward",
       "moveForward",
-      "moveForward",
-      "moveForward",
-      "turnLeft",
       "moveForward",
       "moveForward"
     ],
@@ -1436,16 +1185,6 @@
         {
           "type": "CALL",
           "name": "PROCEDURE_1"
-        },
-        {
-          "type": "moveForward"
-        },
-        {
-          "type": "maze_turn",
-          "direction": "turnLeft"
-        },
-        {
-          "type": "moveForward"
         },
         {
           "type": "moveForward"

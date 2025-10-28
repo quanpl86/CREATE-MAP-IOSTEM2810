@@ -188,7 +188,7 @@
         }
       ]
     },
-    "maxBlocks": 13,
+    "maxBlocks": 15,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -412,9 +412,9 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 5,
+          "x": 3,
           "y": 1,
-          "z": 2
+          "z": 3
         }
       }
     ],
@@ -422,7 +422,7 @@
     "finish": {
       "x": 5,
       "y": 1,
-      "z": 5
+      "z": 4
     }
   },
   "solution": {
@@ -430,48 +430,49 @@
     "itemGoals": {
       "crystal": 1
     },
-    "optimalBlocks": 8,
-    "optimalLines": 7,
+    "optimalBlocks": 10,
+    "optimalLines": 9,
     "rawActions": [
       "moveForward",
       "moveForward",
-      "moveForward",
-      "moveForward",
-      "collect",
       "turnRight",
       "moveForward",
+      "collect",
+      "moveForward",
+      "turnLeft",
       "moveForward",
       "moveForward"
     ],
     "structuredSolution": {
       "main": [
         {
-          "type": "maze_repeat",
-          "times": 2,
-          "body": [
-            {
-              "type": "moveForward"
-            },
-            {
-              "type": "moveForward"
-            }
-          ]
+          "type": "moveForward"
         },
         {
-          "type": "collect"
+          "type": "moveForward"
         },
         {
           "type": "maze_turn",
           "direction": "turnRight"
         },
         {
-          "type": "maze_repeat",
-          "times": 3,
-          "body": [
-            {
-              "type": "moveForward"
-            }
-          ]
+          "type": "moveForward"
+        },
+        {
+          "type": "collect"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnLeft"
+        },
+        {
+          "type": "moveForward"
+        },
+        {
+          "type": "moveForward"
         }
       ],
       "procedures": {}

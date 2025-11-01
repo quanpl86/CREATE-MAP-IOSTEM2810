@@ -35,6 +35,7 @@ class Spiral3DTopology(BaseTopology):
 
         start_pos: Coord = (start_x, y, start_z)
         path_coords: list[Coord] = [start_pos]
+        obstacles: list[dict] = [] # [MỚI] Thêm danh sách vật cản cho bậc thang
         current_pos = start_pos
 
         # [SỬA LỖI] Logic mới: Tạo xoắn ốc đi ra và đi lên tại mỗi góc
@@ -62,6 +63,8 @@ class Spiral3DTopology(BaseTopology):
             # Bỏ qua bước đi lên cuối cùng để target_pos nằm trên mặt phẳng
             if i < num_turns - 1:
                 current_pos = add_vectors(current_pos, UP_Y)
+                # [MỚI] Khối đi lên này là một vật cản (bề mặt bậc thang)
+                obstacles.append({"modelKey": "ground.checker", "pos": current_pos})
                 path_coords.append(current_pos)
 
         target_pos = path_coords[-1]
@@ -70,5 +73,6 @@ class Spiral3DTopology(BaseTopology):
             start_pos=start_pos,
             target_pos=target_pos,
             path_coords=path_coords,
-            placement_coords=path_coords
+            placement_coords=path_coords, # Vẫn cần nền cho toàn bộ đường đi
+            obstacles=obstacles # [MỚI] Trả về các khối bậc thang
         )

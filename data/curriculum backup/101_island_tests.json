@@ -1,0 +1,127 @@
+{
+  "topic_code": "TOPIC_101",
+  "topic_name": "Kiểm tra các dạng Đảo",
+  "suggested_maps": [
+    {
+      "id": "test_islands_01_2_islands_u_shape",
+      "level": 1,
+      "titleKey": "Challenge.test_islands_01.Title",
+      "descriptionKey": "Challenge.test_islands_01.Description",
+      "translations": { "vi": { "Challenge.test_islands_01.Title": "Đảo Đối Xứng (2 Đảo Chữ U)", "Challenge.test_islands_01.Description": "Kiểm tra map 'symmetrical_islands' với 2 đảo hình chữ U." } },
+      "generation_config": {
+        "map_type": "symmetrical_islands",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": { "num_islands": 2, "island_pattern": "u_shape" }
+      },
+      "blockly_config": { "toolbox_preset": "functions_basic" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_islands_02_3_islands_l_shape",
+      "level": 2,
+      "titleKey": "Challenge.test_islands_02.Title",
+      "descriptionKey": "Challenge.test_islands_02.Description",
+      "translations": { "vi": { "Challenge.test_islands_02.Title": "Đảo Đối Xứng (3 Đảo Chữ L)", "Challenge.test_islands_02.Description": "Kiểm tra map 'symmetrical_islands' với 3 đảo hình chữ L phức tạp hơn." } },
+      "generation_config": {
+        "map_type": "symmetrical_islands",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": { "num_islands": 3, "island_pattern": "l_shape" }
+      },
+      "blockly_config": { "toolbox_preset": "functions_basic" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_islands_03_islands_with_obstacles",
+      "level": 3,
+      "titleKey": "Challenge.test_islands_03.Title",
+      "descriptionKey": "Challenge.test_islands_03.Description",
+      "translations": { "vi": { "Challenge.test_islands_03.Title": "Đảo Chướng Ngại Vật", "Challenge.test_islands_03.Description": "Kiểm tra map 'symmetrical_islands' kết hợp với 'ObstaclePlacer'." } },
+      "generation_config": {
+        "map_type": "symmetrical_islands",
+        "logic_type": "obstacle",
+        "num_variants": 1,
+        "params": { "num_islands": 2, "island_pattern": "square_shape", "obstacle_chance": 0.3 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": {} }
+    },
+    {
+      "id": "test_plus_islands_01_basic",
+      "level": 4,
+      "titleKey": "Challenge.test_plus_islands_01.Title",
+      "descriptionKey": "Challenge.test_plus_islands_01.Description",
+      "translations": { "vi": { "Challenge.test_plus_islands_01.Title": "Cụm Đảo Dấu Cộng (Cơ bản)", "Challenge.test_plus_islands_01.Description": "Kiểm tra map 'plus_shape_islands' với 4 đảo và vật phẩm." } },
+      "generation_config": {
+        "map_type": "plus_shape_islands",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": { "arm_length": 4 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_plus_islands_02_with_switches",
+      "level": 5,
+      "titleKey": "Challenge.test_plus_islands_02.Title",
+      "descriptionKey": "Challenge.test_plus_islands_02.Description",
+      "translations": { "vi": { "Challenge.test_plus_islands_02.Title": "Cụm Đảo Dấu Cộng (Công tắc)", "Challenge.test_plus_islands_02.Description": "Kiểm tra map 'plus_shape_islands' kết hợp với 'WhileIfPlacer' để đặt công tắc." } },
+      "generation_config": {
+        "map_type": "plus_shape_islands",
+        "logic_type": "if_else_logic",
+        "num_variants": 1,
+        "params": { "arm_length": 5, "num_switches": 2 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "switch": 2 } }
+    },
+    {
+      "id": "test_stepped_islands_01_basic",
+      "level": 6,
+      "titleKey": "Challenge.test_stepped_islands_01.Title",
+      "descriptionKey": "Challenge.test_stepped_islands_01.Description",
+      "translations": { "vi": { "Challenge.test_stepped_islands_01.Title": "Cụm Đảo Bậc Thang", "Challenge.test_stepped_islands_01.Description": "Kiểm tra map 'stepped_island_clusters' với các cụm đảo ở độ cao khác nhau, nối bằng cầu thang." } },
+      "generation_config": {
+        "map_type": "stepped_island_clusters",
+        "logic_type": "island_tour",
+        "num_variants": 1,
+        "params": { "num_clusters": 2, "height_step": 2, "islands_per_cluster": 2, "cluster_spacing": 7 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_hub_islands_01_tour",
+      "level": 7,
+      "titleKey": "Challenge.test_hub_islands_01.Title",
+      "descriptionKey": "Challenge.test_hub_islands_01.Description",
+      "translations": {
+        "vi": {
+          "Challenge.test_hub_islands_01.Title": "Đảo Trung Tâm và Vệ Tinh",
+          "Challenge.test_hub_islands_01.Description": "Kiểm tra map 'hub_with_stepped_islands'. Bắt đầu từ trung tâm, hãy khám phá cả 4 hòn đảo vệ tinh ở các độ cao khác nhau để thu thập pha lê."
+        }
+      },
+      "generation_config": {
+        "map_type": "hub_with_stepped_islands",
+        "logic_type": "island_tour",
+        "num_variants": 1,
+        "params": {
+          "hub_size": 3,
+          "island_size": 3,
+          "gap_size": 4
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "full_toolbox"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal":20
+        }
+      }
+    }
+  ]
+}

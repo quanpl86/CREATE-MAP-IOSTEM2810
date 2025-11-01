@@ -1,5 +1,6 @@
 # src/map_generator/topologies/simple_path.py
 
+import math
 import random
 from .base_topology import BaseTopology
 from src.map_generator.models.path_info import PathInfo, Coord
@@ -32,10 +33,12 @@ class SimplePathTopology(BaseTopology):
         if path_length < 1:
             path_length = 1
 
-        start_x = random.randint(1, grid_size[0] - path_length - 2)
-        start_z = random.randint(1, grid_size[2] - path_length - 2)
+        # [FIX] Tính toán không gian cần thiết cho đường đi có góc cua
+        required_space = math.ceil(path_length / 2) if num_turns > 0 else path_length
+        start_x = random.randint(1, grid_size[0] - required_space - 2)
+        start_z = random.randint(1, grid_size[2] - required_space - 2)
         start_pos: Coord = (start_x, 0, start_z)
-        
+
         path_coords: list[Coord] = []
         target_pos: Coord
         

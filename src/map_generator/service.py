@@ -13,6 +13,9 @@ from .topologies.spiral import SpiralTopology
 from .topologies.interspersed_path import InterspersedPathTopology
 from .topologies.grid_with_holes import GridWithHolesTopology
 from .topologies.complex_maze import ComplexMazeTopology
+from .topologies.hub_with_stepped_islands import HubWithSteppedIslandsTopology # [MỚI]
+from .topologies.stepped_island_clusters import SteppedIslandClustersTopology # [MỚI]
+from .topologies.plus_shape_islands import PlusShapeIslandsTopology # [MỚI] Import topology mới
 from .topologies.l_shape import LShapeTopology # Import LShapeTopology
 from .topologies.u_shape import UShapeTopology
 from .topologies.s_shape import SShapeTopology
@@ -22,12 +25,13 @@ from .topologies.ef_shape import EFShapeTopology
 from .topologies.plus_shape import PlusShapeTopology
 from .topologies.arrow_shape import ArrowShapeTopology
 from .topologies.t_shape import TShapeTopology
-from .topologies.v_shape import VShapeTopology
+from .topologies.v_shape import VShapeTopology 
 from .topologies.star_shape import StarShapeTopology
 from .topologies.z_shape import ZShapeTopology
 from .topologies.staircase_3d import Staircase3DTopology
 from .topologies.spiral_3d import Spiral3DTopology
 from .topologies.circle import CircleTopology
+from .topologies.swift_playground_maze import SwiftPlaygroundMazeTopology # [MỚI] Import topology Swift Playground
 from .placements.spiral_placer import SpiralPlacer
 from .placements.v_shape_placer import VShapePlacer
 from .placements.star_shape_placer import StarShapePlacer
@@ -50,6 +54,9 @@ from .placements.ef_shape_placer import EFShapePlacer
 from .placements.plus_shape_placer import PlusShapePlacer
 from .placements.arrow_shape_placer import ArrowShapePlacer
 from .placements.algorithm_placer import AlgorithmPlacer
+from .placements.island_tour_placer import IslandTourPlacer # [MỚI] Import placer mới
+from .placements.zigzag_placer import ZigzagPlacer # [MỚI] Import ZigzagPlacer
+from .placements.swift_playground_placer import SwiftPlaygroundPlacer # [MỚI] Import placer Swift Playground
 
 class MapGeneratorService:
     def __init__(self):
@@ -66,6 +73,9 @@ class MapGeneratorService:
             'interspersed_path': InterspersedPathTopology(),
             'grid_with_holes': GridWithHolesTopology(),
             'complex_maze_2d': ComplexMazeTopology(),
+            'hub_with_stepped_islands': HubWithSteppedIslandsTopology(), # [MỚI] Đăng ký topology mới
+            'stepped_island_clusters': SteppedIslandClustersTopology(), # [MỚI]
+            'plus_shape_islands': PlusShapeIslandsTopology(), # [MỚI] Đăng ký topology mới
             'l_shape': LShapeTopology(), # Register LShapeTopology
             'u_shape': UShapeTopology(),
             's_shape': SShapeTopology(),
@@ -86,6 +96,7 @@ class MapGeneratorService:
             'item_counting_path': StraightLineTopology(),
             'unknown_length_hallway': StraightLineTopology(),
             'unknown_height_tower': StaircaseTopology(),
+            'swift_playground_maze': SwiftPlaygroundMazeTopology(), # [SỬA LỖI] Đồng bộ tên đăng ký
             'variable_size_rectangles': PlowingFieldTopology(),
         }
         self.placements = {
@@ -96,7 +107,7 @@ class MapGeneratorService:
             'plus_shape': PlusShapePlacer(),
             'arrow_shape': ArrowShapePlacer(),
             'grid_with_holes': GridWithHolesPlacer(),
-            'v_shape': VShapePlacer(),
+            'v_shape': VShapePlacer(), 
             'star_shape': StarShapePlacer(),
             'z_shape': ZShapePlacer(),
             'staircase_3d': Staircase3DPlacer(),
@@ -108,7 +119,12 @@ class MapGeneratorService:
             'function_definition': FunctionPlacer(),
             'function_decomposition': FunctionPlacer(),
             'function_with_params': FunctionPlacer(),
+            'functions_simple': FunctionPlacer(), # [FIX] Đăng ký placer cho hàm đơn giản
+            'functions_with_return': FunctionPlacer(), # [FIX] Đăng ký placer cho hàm có trả về
+            'functions_recursive': FunctionPlacer(), # [FIX] Đăng ký placer cho hàm đệ quy
+            'functions_with_params': FunctionPlacer(), # [FIX] Đảm bảo placer này được đăng ký (có thể đã có)
             'function_with_multi_params': FunctionPlacer(),
+            'advanced_functions': FunctionPlacer(), # [SỬA LỖI] Đăng ký placer còn thiếu
             'for_loop_simple': ForLoopPlacer(),
             'for_loop_complex': ForLoopPlacer(),
             'nested_for_loop': ForLoopPlacer(),
@@ -129,10 +145,13 @@ class MapGeneratorService:
             'while_loop': WhileIfPlacer(),
             'algorithm_design': AlgorithmPlacer(),
             'advanced_algorithm': AlgorithmPlacer(),
+            'island_tour': IslandTourPlacer(), # [MỚI] Đăng ký placer mới
+            'zigzag': ZigzagPlacer(), # [MỚI] Đăng ký ZigzagPlacer
+            'swift_playground_placer': SwiftPlaygroundPlacer(), # [SỬA LỖI] Đồng bộ tên đăng ký
         }
         print("👍 Đã đăng ký thành công tất cả các chiến lược.")
 
-    def generate_map(self, map_type: str, logic_type: str, params: dict) -> MapData:
+    def generate_map(self, map_type: str, logic_type: str, params: dict) -> MapData: # [SỬA LỖI] Xóa các tham số không cần thiết
         
         # --- DEBUG POINT B ---
         print(f"    DEBUG (B): Service nhận được params: {params}")

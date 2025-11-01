@@ -130,18 +130,23 @@ class MapData:
         ground_coords.add(self.start_pos)
         ground_coords.add(self.target_pos)
 
-        # (CẢI TIẾN) Thêm tọa độ của tất cả các chướng ngại vật (wall, pit)
         # vào danh sách cần có ground để đảm bảo chúng có nền móng.
         # [REFACTORED] Xử lý ground cho chướng ngại vật.
         # - Tường (wall/obstacle) cần có ground bên dưới.
-        # - Hố (pit) thì KHÔNG được có ground.
+        # [SỬA LỖI] Tạo một set chứa tọa độ của các chướng ngại vật để loại trừ nền đất bên dưới.
+        # Chỉ loại trừ khi map là 3D (có bậc thang) để tránh khối chồng chéo.
+        obstacle_positions_to_exclude_ground = set()
+        if self.map_type in ['stepped_island_clusters', 'hub_with_stepped_islands']:
+            obstacle_positions_to_exclude_ground = {tuple(obs['pos']) for obs in self.obstacles}
+
+        # [REFACTORED] Logic xử lý ground cho chướng ngại vật đã rõ ràng hơn.
+        # - Tường (wall/obstacle) cần có ground bên dưới.
         for obs in self.obstacles:
             obs_pos = tuple(obs['pos'])
-            if obs.get('type') != 'pit':
-                ground_coords.add(obs_pos)
+            ground_coords.add(obs_pos)
 
         # --- (CẢI TIẾN) Xử lý trường hợp đặc biệt cho map maze ---
-        if not self.path_coords and self.map_type == 'complex_maze_2d':
+        if self.map_type == 'complex_maze_2d':
             print("    LOG: (Game Engine) Phát hiện map maze, dùng BFS để tìm các ô ground cần thiết...")
             
             # Tạo một set chứa tọa độ của tất cả các bức tường để tra cứu nhanh.
@@ -176,8 +181,20 @@ class MapData:
         else:
             # Đối với các map khác, ground_coords đã được xác định ở trên.
             final_ground_coords = ground_coords
+            # [SỬA LỖI LẦN 3] Chỉ loại bỏ nền đất bên dưới bậc thang đối với các map 3D,
+            # để tránh tạo khối chồng chéo.
+            final_ground_coords = ground_coords - obstacle_positions_to_exclude_ground
+
         
-        game_blocks = [{"modelKey": "ground.normal", "position": coord_to_obj(pos, y_offset=0)} for pos in sorted(list(final_ground_coords))]
+        # [CẢI TIẾN] Xử lý các khối có modelKey tùy chỉnh từ placement_coords
+        game_blocks = []
+        processed_coords = set()
+        for item in self.placement_coords:
+            if isinstance(item, dict) and 'pos' in item and 'modelKey' in item:
+                game_blocks.append({"modelKey": item['modelKey'], "position": coord_to_obj(item['pos'], y_offset=0)})
+                processed_coords.add(item['pos'])
+        
+        game_blocks.extend([{"modelKey": "ground.normal", "position": coord_to_obj(pos, y_offset=0)} for pos in sorted(list(final_ground_coords)) if pos not in processed_coords])
 
         # --- Bước 2: Đặt các đối tượng lên trên mặt đất ---
         collectibles = []
@@ -202,24 +219,9 @@ class MapData:
                     "initialState": item.get("initial_state", "off")
                 })
 
-        # [REFACTORED] Đặt chướng ngại vật với logic rõ ràng hơn
-        # [REFACTORED] Đặt chướng ngại vật với logic rõ ràng hơn, xử lý 'pit'
-        for obs in self.obstacles:
-            obs_type = obs.get('type')
-            # Bỏ qua 'pit' vì nó chỉ đơn giản là không có ground, không cần thêm block
-            if obs_type == 'pit':
-                continue
-
-            # Nếu chướng ngại vật đã có modelKey (ví dụ: tường từ mê cung), sử dụng nó.
-            if 'modelKey' in obs:
-                model_key = obs['modelKey']
-            # Nếu không, gán modelKey mặc định dựa trên loại. [SỬA LỖI]
-            elif obs_type == 'obstacle': # Vật cản có thể nhảy qua (wall.brick01)
-                model_key = 'wall.brick01'
-            else: # Các loại khác (ví dụ: 'wall' từ placer), mặc định là tường gạch
-                model_key = 'wall.brick01'
-            
-            game_blocks.append({ "modelKey": model_key, "position": coord_to_obj(obs['pos'], y_offset=1) })
+        # [SỬA LỖI] Xóa bỏ logic tạo khối cho obstacles tại đây.
+        # Logic này đã được chuyển hoàn toàn sang `generate_all_maps.py` để tránh tạo khối trùng lặp
+        # cho các bậc thang.
 
         # --- Bước 3: Hoàn thiện cấu trúc JSON ---
         return {

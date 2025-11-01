@@ -23,13 +23,14 @@ class SequencingPlacer(BasePlacer):
         items_to_place = items_to_place_param if isinstance(items_to_place_param, list) else [items_to_place_param]
         
         # `obstacles_to_place` là danh sách các loại chướng ngại vật
-        # Ví dụ: ["pit", "pit"]
         obstacles_to_place_param = params.get('obstacles_to_place', [])
         # [SỬA LỖI] Tương tự, đảm bảo obstacles_to_place cũng là một list.
         obstacles_to_place = obstacles_to_place_param if isinstance(obstacles_to_place_param, list) else [obstacles_to_place_param]
 
         # Lấy tất cả các vị trí có thể đặt đối tượng và xáo trộn chúng
-        available_slots = shuffle_list(path_info.path_coords)
+        # [SỬA LỖI] Loại bỏ vị trí bắt đầu và kết thúc khỏi danh sách các ô có thể đặt.
+        possible_coords = [p for p in path_info.path_coords if p != path_info.start_pos and p != path_info.target_pos]
+        available_slots = shuffle_list(possible_coords)
 
         # Kiểm tra để đảm bảo có đủ chỗ
         total_objects = len(items_to_place) + len(obstacles_to_place)
@@ -49,7 +50,7 @@ class SequencingPlacer(BasePlacer):
         for obs_type in obstacles_to_place:
             if available_slots:
                 pos = available_slots.pop()
-                obstacles.append({"type": obs_type, "pos": pos})
+                obstacles.append({"type": "obstacle", "modelKey": obs_type, "pos": pos})
         
         # Đặt vật phẩm
         for item_type in items_to_place:

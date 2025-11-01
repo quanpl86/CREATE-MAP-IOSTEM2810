@@ -33,6 +33,7 @@ BUG_STRATEGIES: Dict[str, Type[BaseBugStrategy]] = {
     # Nhóm 1.2: Lỗi Cấu Hình Khối Điều Khiển
     'incorrect_loop_count': IncorrectLoopCountBug,
     'incorrect_parameter': IncorrectParameterBug, # Ví dụ: sai hướng rẽ
+    'incorrect_block': IncorrectParameterBug, # [MỚI] Thêm alias cho bug rẽ sai hướng
     # 'incorrect_loop_condition': # Sẽ thêm lớp này sau
     
     # Nhóm 1.3: Lỗi Dữ Liệu và Tính Toán    

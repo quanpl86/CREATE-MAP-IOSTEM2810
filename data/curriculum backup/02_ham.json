@@ -1,0 +1,290 @@
+{
+  "topic_code": "TOPIC_02",
+  "topic_name": "Hàm (Functions)",
+  "suggested_maps": [
+    {
+      "id": "topic02-01-intro-function",
+      "level": 1,
+      "titleKey": "Challenge.topic02-01.Title",
+      "descriptionKey": "Challenge.topic02-01.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-01.Title": "Giới thiệu về Hàm",
+          "Challenge.topic02-01.Description": "Bạn có thấy các hòn đảo có cấu trúc giống hệt nhau không? Hãy viết một hàm để giải quyết một đảo, sau đó gọi lại hàm đó để hoàn thành màn chơi!"
+        },
+        "en": {
+          "Challenge.topic02-01.Title": "Introduction to Functions",
+          "Challenge.topic02-01.Description": "Do you see the islands with identical structures? Write a function to solve one island, then call that function again to complete the level!"
+        }
+      },
+      "generation_config": {
+        "map_type": "symmetrical_islands",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": {
+          "num_islands": 2,
+          "island_pattern": "l_shape"
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "functions_basic"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": "all"
+        }
+      }
+    },
+    {
+      "id": "topic02-02-h-shape-function",
+      "level": 2,
+      "titleKey": "Challenge.topic02-02.Title",
+      "descriptionKey": "Challenge.topic02-02.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-02.Title": "Hàm cho Chữ H",
+          "Challenge.topic02-02.Description": "Con đường này có hình chữ H. Hãy tạo một hàm để đi hết một cột dọc, sau đó tái sử dụng nó cho cột còn lại."
+        },
+        "en": {
+          "Challenge.topic02-02.Title": "H-Shape Function",
+          "Challenge.topic02-02.Description": "This path is H-shaped. Create a function to traverse one vertical column, then reuse it for the other."
+        }
+      },
+      "generation_config": {
+        "map_type": "h_shape",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": {
+          "column_length": 4,
+          "column_spacing": 2
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "functions_basic"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": "all"
+        }
+      }
+    },
+    {
+      "id": "topic02-03-fixbug-optimization",
+      "level": 3,
+      "titleKey": "Challenge.topic02-03.Title",
+      "descriptionKey": "Challenge.topic02-03.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-03.Title": "Sửa lỗi: Tối ưu hóa bằng Hàm",
+          "Challenge.topic02-03.Description": "Chương trình này hoạt động, nhưng nó lặp lại cùng một chuỗi lệnh. Hãy tạo một hàm để chứa đoạn code lặp lại và gọi nó để làm cho chương trình gọn hơn!"
+        },
+        "en": {
+          "Challenge.topic02-03.Title": "Fix: Optimize with a Function",
+          "Challenge.topic02-03.Description": "This program works, but it repeats the same sequence of commands. Create a function to hold the repeated code and call it to make the program cleaner!"
+        }
+      },
+      "generation_config": {
+        "map_type": "symmetrical_islands",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "num_islands": 2,
+          "island_pattern": "u_shape",
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "optimization_no_function"
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "functions_basic"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": "all"
+        }
+      }
+    },
+    {
+      "id": "topic02-04-fixbug-logic-in-function",
+      "level": 4,
+      "titleKey": "Challenge.topic02-04.Title",
+      "descriptionKey": "Challenge.topic02-04.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-04.Title": "Sửa lỗi: Logic sai trong Hàm",
+          "Challenge.topic02-04.Description": "Hàm 'cross_and_collect' được cho là sẽ giúp nhân vật nhảy qua tường và lấy vật phẩm, nhưng nó đang làm sai. Hãy tìm lỗi bên trong định nghĩa hàm và sửa nó!"
+        },
+        "en": {
+          "Challenge.topic02-04.Title": "Fix: Incorrect Logic in Function",
+          "Challenge.topic02-04.Description": "The 'cross_and_collect' function is supposed to help the character jump over the wall and get the item, but it's doing something wrong. Find the bug inside the function definition and fix it!"
+        }
+      },
+      "generation_config": {
+        "map_type": "interspersed_path",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": {
+          "main_path_length": 5,
+          "num_branches": 1,
+          "branch_length": 1,
+          "obstacles": 1,
+          "items_to_place": ["crystal"],
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "incorrect_logic_in_function"
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "functions_basic"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": 1
+        }
+      }
+    },
+    {
+      "id": "topic02-05-fixbug-missing-block-in-function",
+      "level": 5,
+      "titleKey": "Challenge.topic02-05.Title",
+      "descriptionKey": "Challenge.topic02-05.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-05.Title": "Sửa lỗi: Thiếu lệnh trong Hàm",
+          "Challenge.topic02-05.Description": "Hàm 'draw_branch' đang vẽ thiếu một đoạn. Hãy tìm và bổ sung khối lệnh còn thiếu vào bên trong hàm để nó vẽ đúng hình dạng."
+        },
+        "en": {
+          "Challenge.topic02-05.Title": "Fix: Missing Block in Function",
+          "Challenge.topic02-05.Description": "The 'draw_branch' function is not drawing the full shape. Find and add the missing block inside the function to make it draw correctly."
+        }
+      },
+      "generation_config": {
+        "map_type": "ef_shape",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": {
+          "stem_length": 5,
+          "num_branches": 2,
+          "branch_length": 2,
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "missing_block_in_function"
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "functions_basic"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": "all"
+        }
+      }
+    },
+    {
+      "id": "topic02-06-fixbug-call-order",
+      "level": 6,
+      "titleKey": "Challenge.topic02-06.Title",
+      "descriptionKey": "Challenge.topic02-06.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-06.Title": "Sửa lỗi: Sai thứ tự gọi Hàm",
+          "Challenge.topic02-06.Description": "Các hàm 'move_forward' và 'turn' đã được định nghĩa đúng, nhưng chúng đang được gọi sai thứ tự trong chương trình chính, khiến nhân vật đi sai đường. Hãy sắp xếp lại các khối gọi hàm!"
+        },
+        "en": {
+          "Challenge.topic02-06.Title": "Fix: Incorrect Function Call Order",
+          "Challenge.topic02-06.Description": "The 'move_forward' and 'turn' functions are defined correctly, but they are being called in the wrong order in the main program, causing the character to go the wrong way. Rearrange the function call blocks!"
+        }
+      },
+      "generation_config": {
+        "map_type": "z_shape",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": {
+          "leg1_length": 2,
+          "leg2_length": 2,
+          "leg3_length": 2,
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "incorrect_function_call_order"
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "functions_basic"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "topic02-07-advanced-decomposition",
+      "level": 7,
+      "titleKey": "Challenge.topic02-07.Title",
+      "descriptionKey": "Challenge.topic02-07.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-07.Title": "Phân rã Hàm Nâng cao",
+          "Challenge.topic02-07.Description": "Con đường này có nhiều đoạn lặp lại. Hãy xác định các mẫu hình và tạo ra nhiều hàm khác nhau để tối ưu hóa lời giải của bạn."
+        },
+        "en": {
+          "Challenge.topic02-07.Title": "Advanced Function Decomposition",
+          "Challenge.topic02-07.Description": "This path has multiple repeating sections. Identify the patterns and create different functions to optimize your solution."
+        }
+      },
+      "generation_config": {
+        "map_type": "plowing_field",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": {
+          "rows": 3,
+          "cols": 4
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "functions_full"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": "all"
+        }
+      }
+    },
+    {
+      "id": "topic02-08-final-challenge",
+      "level": 8,
+      "titleKey": "Challenge.topic02-08.Title",
+      "descriptionKey": "Challenge.topic02-08.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-08.Title": "Thử thách cuối: Tour du lịch đảo",
+          "Challenge.topic02-08.Description": "Hãy áp dụng tất cả kiến thức về hàm để khám phá các hòn đảo ở những độ cao khác nhau. Bạn có thể cần một hàm để đi lên cầu thang và một hàm khác để khám phá mỗi hòn đảo!"
+        },
+        "en": {
+          "Challenge.topic02-08.Title": "Final Challenge: Island Tour",
+          "Challenge.topic02-08.Description": "Apply all your knowledge of functions to explore islands at different heights. You might need one function to climb the stairs and another to explore each island!"
+        }
+      },
+      "generation_config": {
+        "map_type": "stepped_island_clusters",
+        "logic_type": "island_tour",
+        "num_variants": 1,
+        "params": {
+          "num_clusters": 2,
+          "islands_per_cluster": 2,
+          "height_step": 2
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "functions_full"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": "all"
+        }
+      }
+    }
+  ]
+}

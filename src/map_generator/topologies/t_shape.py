@@ -35,42 +35,49 @@ class TShapeTopology(BaseTopology):
         start_x = random.randint(bar_side_len + 1, grid_size[0] - bar_side_len - 2)
         start_z = random.randint(1, grid_size[2] - stem_len - 2)
         y = 0
+        
         start_pos: Coord = (start_x, y, start_z)
  
-        path_coords: list[Coord] = [] # Đường đi cho solver
-        placement_coords: list[Coord] = [start_pos] # Toàn bộ hình dạng chữ T
+        # --- PHẦN 1: TẠO HÌNH DẠNG (placement_coords) ---
+        placement_coords = set()
         current_pos = start_pos
+        placement_coords.add(current_pos)
  
         # 1. Vẽ thân chữ T (đi theo trục Z)
         for _ in range(stem_len):
             current_pos = add_vectors(current_pos, FORWARD_Z)
-            path_coords.append(current_pos)
-            placement_coords.append(current_pos)
+            placement_coords.add(current_pos)
  
         junction_pos = current_pos
  
         # 2. Vẽ thanh ngang (đi theo trục X)
         # Vẽ nhánh phải
-        temp_pos = junction_pos
         for _ in range(bar_side_len):
-            temp_pos = add_vectors(temp_pos, FORWARD_X)
-            placement_coords.append(temp_pos)
+            current_pos = add_vectors(current_pos, FORWARD_X)
+            placement_coords.add(current_pos)
  
         # Vẽ nhánh trái
-        temp_pos = junction_pos
+        current_pos = junction_pos # Quay lại ngã ba
         for _ in range(bar_side_len):
-            temp_pos = add_vectors(temp_pos, BACKWARD_X)
-            placement_coords.append(temp_pos)
+            current_pos = add_vectors(current_pos, BACKWARD_X)
+            placement_coords.add(current_pos)
  
-        # 3. Chọn điểm đích và hoàn thiện đường đi chính
-        # Ví dụ: đích ở cuối nhánh trái
-        target_pos = (start_x - bar_side_len, y, start_z + stem_len)
+        # --- PHẦN 2: TẠO ĐƯỜNG ĐI (path_coords) ---
+        # Đường đi sẽ đi từ start_pos -> junction_pos -> cuối nhánh phải -> quay lại junction_pos -> cuối nhánh trái
+        path_coords: list[Coord] = [start_pos]
+        current_pos = start_pos
         
-        # Hoàn thiện path_coords từ ngã ba đến đích
-        temp_pos = junction_pos
+        # Đi lên thân
+        for _ in range(stem_len):
+            current_pos = add_vectors(current_pos, FORWARD_Z)
+            path_coords.append(current_pos)
+        
+        # Đi sang nhánh trái (đích)
         for _ in range(bar_side_len):
-            temp_pos = add_vectors(temp_pos, BACKWARD_X)
-            path_coords.append(temp_pos)
+            current_pos = add_vectors(current_pos, BACKWARD_X)
+            path_coords.append(current_pos)
+
+        target_pos = current_pos
  
         return PathInfo(
             start_pos=start_pos,

@@ -22,7 +22,7 @@ class WhileIfPlacer(BasePlacer):
             path_info (PathInfo): Thông tin đường đi từ một lớp Topology
                                   (thường là InterspersedPathTopology).
             params (dict): Các tham số bổ sung để điều chỉnh độ khó,
-                           ví dụ: {'pit_chance': 0.3, 'item_chance': 0.4}.
+                           ví dụ: {'obstacle_chance': 0.3, 'item_chance': 0.4}.
 
         Returns:
             dict: Một dictionary chứa layout map hoàn chỉnh.
@@ -31,9 +31,9 @@ class WhileIfPlacer(BasePlacer):
 
         # --- Lấy các tham số xác suất từ params để điều chỉnh độ khó ---
         # Nếu không có, sử dụng giá trị mặc định.
-        pit_chance = params.get('pit_chance', 0.3)      # 30% cơ hội mỗi ô là hố
-        item_chance = params.get('item_chance', 0.4)     # 40% cơ hội mỗi ô là vật phẩm
-        switch_chance = params.get('switch_chance', 0.1) # 10% cơ hội mỗi ô là công tắc
+        obstacle_chance = params.get('obstacle_chance', 0.3) # 30% cơ hội mỗi ô là vật cản
+        item_chance = params.get('item_chance', 0.4)         # 40% cơ hội mỗi ô là vật phẩm
+        switch_chance = params.get('switch_chance', 0.1)     # 10% cơ hội mỗi ô là công tắc
 
         # --- Lấy danh sách các loại vật phẩm có thể xuất hiện từ params ---
         possible_items = params.get('possible_items', ['crystal'])
@@ -43,25 +43,27 @@ class WhileIfPlacer(BasePlacer):
         
         # --- Vòng lặp để "trang trí" con đường ---
         for pos in path_info.path_coords:
-            # (SỬA LỖI) Bỏ qua ô cuối cùng là vị trí đích, không đặt gì ở đó.
-            # Điều này đảm bảo đích đến luôn có thể tiếp cận và không bị che khuất.
-            if pos == path_info.target_pos:
+            # [SỬA LỖI] Bỏ qua cả ô bắt đầu và ô kết thúc.
+            # Điều này ngăn việc đặt hố/vật phẩm ngay tại vị trí xuất phát
+            # hoặc chặn mất đường về đích.
+            if pos == path_info.start_pos or pos == path_info.target_pos:
                 continue
 
             rand_val = random.random() # Lấy một số ngẫu nhiên từ 0.0 đến 1.0
 
             # Các điều kiện này được sắp xếp để không bị chồng chéo
-            if rand_val < pit_chance:
-                # Nếu số ngẫu nhiên nhỏ hơn xác suất của hố (ví dụ: < 0.3)
-                obstacles.append({"type": "pit", "pos": pos})
-            elif rand_val < pit_chance + item_chance:
+            if rand_val < obstacle_chance:
+                # Nếu số ngẫu nhiên nhỏ hơn xác suất của vật cản (ví dụ: < 0.3)
+                # [REFACTORED] Thay vì tạo hố, tạo một vật cản có thể nhảy qua.
+                obstacles.append({"type": "obstacle", "modelKey": "wall.brick01", "pos": pos})
+            elif rand_val < obstacle_chance + item_chance:
                 # Nếu số ngẫu nhiên không phải là hố, nhưng nhỏ hơn tổng xác suất
                 # của hố và vật phẩm (ví dụ: 0.3 <= rand_val < 0.7)
                 
                 # Chọn ngẫu nhiên một loại vật phẩm từ danh sách cho phép
                 item_type = random.choice(possible_items)
                 items.append({"type": item_type, "pos": pos})
-            elif rand_val < pit_chance + item_chance + switch_chance:
+            elif rand_val < obstacle_chance + item_chance + switch_chance:
                 # Tương tự cho công tắc (ví dụ: 0.7 <= rand_val < 0.8)
                 
                 # Công tắc cũng là một loại "vật phẩm" có thể tương tác

@@ -1,61 +1,60 @@
 import random
 from .base_topology import BaseTopology
 from src.map_generator.models.path_info import PathInfo, Coord
+from src.utils.geometry import add_vectors, FORWARD_X, FORWARD_Z, BACKWARD_X, BACKWARD_Z
 
 class StarShapeTopology(BaseTopology):
-    def _draw_straight_line(self, start: Coord, direction: str, length: int) -> list[Coord]:
-        """Vẽ đường thẳng theo hướng: 'up', 'down', 'left', 'right'"""
-        path = [start]
-        x, y, z = start
-        for _ in range(length):
-            if direction == 'up':    z -= 1
-            elif direction == 'down':z += 1
-            elif direction == 'left':x -= 1
-            elif direction == 'right':x += 1
-            path.append((x, y, z))
-        return path
+    """
+    Tạo ra một đường đi liên tục theo đường viền của một ngôi sao 5 cánh (pixel art).
+    Đường đi được thiết kế để có Eulerian Path, cho phép robot di chuyển hết toàn bộ map.
+    """
 
     def generate_path_info(self, grid_size: tuple, params: dict) -> PathInfo:
-        print(" LOG: Generating 'star_shape' topology (walkable)...")
-        arm_len = params.get('arm_length', 3)
-        if arm_len < 2: arm_len = 2
+        print("    LOG: Generating 'star_shape' (outline) topology...")
+        size = params.get('star_size', 3)  # Kích thước mỗi đoạn của ngôi sao
+        if size < 2: size = 2
 
-        # Tâm ngôi sao
         center_x = grid_size[0] // 2
         center_z = grid_size[2] // 2
-        center = (center_x, 0, center_z)
 
-        # Tạo 5 cánh: mỗi cánh dài `arm_len`
-        arms = [
-            ('up',    arm_len),   # cánh 1
-            ('right', arm_len),   # cánh 2
-            ('down',  arm_len),   # cánh 4
-            ('left',  arm_len),   # cánh 5
-            ('up',    arm_len),   # cánh 1 (để quay lại)
+        # Tạo đường viền ngôi sao 5 cánh kiểu pixel (đi vòng ngoài)
+        current_pos = (center_x, 0, center_z - size * 2)  # Bắt đầu từ đỉnh trên
+        path_coords = [current_pos]
+
+        # Ánh xạ hướng chuỗi sang vector
+        direction_map = {
+            'right': FORWARD_X,
+            'down': FORWARD_Z,
+            'left': BACKWARD_X,
+            'up': BACKWARD_Z,
+        }
+
+        # Danh sách các đoạn di chuyển (hướng, số bước) để vẽ viền ngôi sao
+        segments = [
+            ('right', size),     # Đi đến đỉnh trên-phải
+            ('down', size),      # Đi xuống cánh phải
+            ('left', size),      # Đi vào trong
+            ('down', size),      # Đi xuống đỉnh dưới-phải
+            ('left', size),      # Đi qua đỉnh dưới
+            ('up', size),        # Đi lên đỉnh dưới-trái
+            ('left', size),      # Đi ra cánh trái
+            ('up', size),        # Đi lên đỉnh trên-trái
+            ('right', size),     # Đi vào trong
+            ('up', size - 1),    # Đi lên gần đỉnh trên để nối vòng lặp
         ]
 
-        path_coords = [center]
-        current_pos = center
+        for direction_key, steps in segments:
+            move_vector = direction_map[direction_key]
+            for _ in range(steps):
+                current_pos = add_vectors(current_pos, move_vector)
+                path_coords.append(current_pos)
 
-        for direction, length in arms:
-            segment = self._draw_straight_line(current_pos, direction, length)
-            path_coords.extend(segment[1:])  # bỏ điểm đầu
-            current_pos = segment[-1]
-
-        # Loại bỏ trùng lặp (chỉ ở tâm)
-        seen = set()
-        unique_path = []
-        for p in path_coords:
-            if p not in seen:
-                seen.add(p)
-                unique_path.append(p)
-
-        start_pos = unique_path[0]
-        target_pos = unique_path[-1]  # quay lại tâm
+        # Loại bỏ các điểm trùng lặp nhưng vẫn giữ nguyên thứ tự
+        unique_path = list(dict.fromkeys(path_coords))
 
         return PathInfo(
-            start_pos=start_pos,
-            target_pos=target_pos,
+            start_pos=unique_path[0],
+            target_pos=unique_path[-1],
             path_coords=unique_path,
             placement_coords=unique_path
         )

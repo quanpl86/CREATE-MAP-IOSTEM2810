@@ -202,15 +202,22 @@ def _create_xml_from_structured_solution(program_dict: dict, raw_actions: list =
             ET.SubElement(main_blocks[i], 'next').append(main_blocks[i+1])
         final_xml_components["main"] = ET.tostring(main_blocks[0], encoding='unicode')
 
-    # Nối tất cả các thành phần lại thành một chuỗi XML duy nhất
-    # Các khối định nghĩa hàm sẽ ở cấp cao nhất, cùng cấp với maze_start
+    # [FIX] Nối tất cả các thành phần XML lại với nhau một cách chính xác.
+    # Các khối định nghĩa hàm phải được đặt ở cấp cao nhất, bên ngoài khối maze_start.
     proc_defs_xml = "".join(final_xml_components["procedures"])
     main_code_xml = final_xml_components["main"] or ""
 
     # Bọc code chính trong khối maze_start
-    main_start_block = f'<block type="maze_start" deletable="false" movable="false"><statement name="DO">{main_code_xml}</statement></block>'
-    
-    return proc_defs_xml + main_start_block
+    # [FIX] Khối maze_start không nên có deletable="false" hoặc movable="false" ở đây,
+    # vì nó sẽ được bọc trong thẻ <xml> và các thuộc tính đó áp dụng cho khối gốc.
+    # Thay vào đó, ta sẽ thêm các thuộc tính này vào khối định nghĩa hàm.
+    main_start_block = ET.Element('block', {'type': 'maze_start', 'deletable': 'false', 'movable': 'false'})
+    main_statement = ET.SubElement(main_start_block, 'statement', {'name': 'DO'})
+    if main_code_xml:
+        # Phải parse lại chuỗi XML của main để append nó vào statement
+        main_statement.append(ET.fromstring(main_code_xml))
+
+    return proc_defs_xml + ET.tostring(main_start_block, encoding='unicode')
 
 def main():
     """
@@ -229,7 +236,9 @@ def main():
         "Vòng lặp": "Loops",
         "Hàm": "Functions",
         "Biến & Toán học": "Variables & Math",
-        "Gỡ lỗi": "Debugging"
+        "Gỡ lỗi": "Debugging",
+        "Gỡ lỗi Nâng cao": "Advanced Debugging",
+        "Hàm Nâng Cao": "Advanced Functions"
     }
 
     curriculum_dir = os.path.join(PROJECT_ROOT, 'data', 'curriculum')
@@ -318,10 +327,19 @@ def main():
 
                     game_config = generated_map.to_game_engine_dict()
 
-                    # [SỬA LỖI] Bổ sung danh sách obstacles vào gameConfig.
-                    # Đây là bước quan trọng bị thiếu, khiến các vật cản không xuất hiện.
+                    # [REFACTORED] Bổ sung danh sách obstacles vào gameConfig.
+                    # Bước này đảm bảo solver có thể nhận diện được chúng.
                     if generated_map.obstacles:
-                        game_config['gameConfig']['obstacles'] = [{"id": f"o{i+1}", "type": obs.get("type", "wall"), "position": {"x": obs['pos'][0], "y": obs['pos'][1]+1, "z": obs['pos'][2]}} for i, obs in enumerate(generated_map.obstacles)]
+                        # [REFACTORED] Thống nhất type là "obstacle" và truyền modelKey nếu có.
+                        game_config['gameConfig']['obstacles'] = [{"id": f"o{i+1}", "type": "obstacle", "modelKey": obs.get('modelKey', 'wall.brick01'), "position": {"x": obs['pos'][0], "y": obs['pos'][1]+1, "z": obs['pos'][2]}} for i, obs in enumerate(generated_map.obstacles)]
+
+                    # Bổ sung các khối vật lý của vật cản vào `blocks`
+                    # để solver có thể nhận diện chúng là các khối vật lý có thể đứng lên được.
+                    if generated_map.obstacles:
+                         for obs in generated_map.obstacles:
+                            y_offset = 0 if map_type in ['stepped_island_clusters', 'hub_with_stepped_islands'] else 1
+                            model_key = obs.get('modelKey', 'wall.brick01') # Mặc định là tường gạch nếu không có modelKey
+                            game_config['gameConfig']['blocks'].append({ "modelKey": model_key, "position": {"x": obs['pos'][0], "y": obs['pos'][1] + y_offset, "z": obs['pos'][2]} })
 
                     # --- [MỚI] Lưu file gameConfig vào base_maps để test ---
                     test_map_filename = f"{map_request.get('id', 'unknown')}-var{variant_index + 1}.json"
@@ -466,7 +484,7 @@ def main():
                                 print(f"   - ⚠️ Cảnh báo: Không thể tạo lỗi cho bug_type '{bug_type}'.")
                                 final_inner_blocks = '' # Để trống nếu không tạo được lỗi
                     
-                    elif start_blocks_type == "raw_solution" and solution_result:
+                    elif start_blocks_type in ["raw_solution", "unrefactored_solution"] and solution_result:
                         # Cung cấp lời giải tuần tự (chưa tối ưu)
                         raw_actions = solution_result.get("raw_actions", [])
                         # [SỬA LỖI] Bọc các khối tuần tự trong một khối maze_start
@@ -510,6 +528,7 @@ def main():
                     final_json = {
                         "id": f"{map_request.get('id', 'unknown')}-var{variant_index + 1}",
                         "gameType": "maze",
+                        "grade": 4,
                         "topic": topic_key, # [SỬA] Sử dụng topic key duy nhất
                         "level": map_request.get('level', 1),
                         "titleKey": map_request.get('titleKey'),

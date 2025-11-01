@@ -54,27 +54,34 @@ class StaircaseTopology(BaseTopology):
 
         # Tạo đường đi (tọa độ của đỉnh các bậc thang)
         path_coords: list[Coord] = []
+        obstacles = []
         current_pos = list(start_pos)
         
         # Vòng lặp để xây dựng từng bậc thang
         for i in range(num_steps):
-            # 1. Đi lên một bậc (tăng tọa độ Y)
-            current_pos[1] += 1
-            
-            # 2. Di chuyển tới theo hướng đã chọn với chiều dài step_size
+            # Di chuyển tới theo hướng đã chọn với chiều dài step_size
             for _ in range(step_size):
                 if axis == 'x':
                     current_pos[0] += direction
                 else: # axis == 'z'
                     current_pos[2] += direction
-                # Lưu lại tọa độ của mỗi ô trên mặt phẳng của bậc thang
                 path_coords.append(tuple(current_pos))
+            
+            # Đi lên một bậc (tăng tọa độ Y)
+            current_pos[1] += 1
+            path_coords.append(tuple(current_pos))
             
         # Vị trí đích là đỉnh của bậc thang cuối cùng
         target_pos = path_coords[-1]
 
+        # [CẢI TIẾN] Định nghĩa các bậc thang là các khối vật lý để solver có thể "jump" lên.
+        # Chúng ta sẽ coi mỗi ô đi lên là một "obstacle" có thể đứng được.
+        stair_blocks = [pos for pos in path_coords if pos[1] > start_pos[1]]
+        obstacles.extend([{"type": "obstacle", "modelKey": "ground.checker", "pos": pos} for pos in stair_blocks])
+
         return PathInfo(
             start_pos=start_pos,
             target_pos=target_pos,
-            path_coords=path_coords
+            path_coords=path_coords,
+            obstacles=obstacles
         )

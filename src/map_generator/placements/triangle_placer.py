@@ -27,12 +27,16 @@ class TrianglePlacer(BasePlacer):
         items = []
         item_count = params.get('item_count', 3) # Mặc định đặt 3 vật phẩm
 
-        # Sử dụng placement_coords đã được Topology chuẩn bị sẵn
-        possible_coords = path_info.placement_coords
+        # [SỬA LỖI] Lọc ra các vị trí có thể đặt vật phẩm.
+        # Loại bỏ vị trí bắt đầu và kết thúc để tránh đặt vật phẩm trùng lặp.
+        coords_for_items = [
+            p for p in path_info.placement_coords 
+            if p != path_info.start_pos and p != path_info.target_pos
+        ]
 
-        if possible_coords:
+        if coords_for_items:
             # Chọn ngẫu nhiên 'item_count' vị trí từ các vị trí có thể
-            selected_coords = random.sample(possible_coords, min(item_count, len(possible_coords)))
+            selected_coords = random.sample(coords_for_items, min(item_count, len(coords_for_items)))
             for pos in selected_coords:
                 items.append({"type": "crystal", "pos": pos})
 

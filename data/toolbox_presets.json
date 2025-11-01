@@ -96,6 +96,43 @@
       { "kind": "category", "name": "%{BKY_GAMES_CATPROCEDURES}", "custom": "PROCEDURE", "categorystyle": "procedure_category" }
     ]
   },
+  "functions_full": {
+    "kind": "categoryToolbox",
+    "contents": [
+      { "kind": "category", "name": "%{BKY_GAMES_CATMOVEMENT}", "categorystyle": "movement_category", "contents": [
+        { "kind": "block", "type": "maze_moveForward" },
+        { "kind": "block", "type": "maze_jump" },
+        { "kind": "block", "type": "maze_turn" }
+      ]},
+      { "kind": "category", "name": "%{BKY_GAMES_CATACTIONS}", "categorystyle": "actions_category", "contents": [
+        { "kind": "block", "type": "maze_collect" },
+        { "kind": "block", "type": "maze_toggle_switch" }
+      ]},
+      { "kind": "sep" },
+      { "kind": "category", "name": "%{BKY_GAMES_CATPROCEDURES}", "custom": "PROCEDURE", "categorystyle": "procedure_category" }
+    ]
+  },
+  "functions_movement_only": {
+    "kind": "categoryToolbox",
+    "contents": [
+      { "kind": "category", "name": "%{BKY_GAMES_CATMOVEMENT}", "categorystyle": "movement_category", "contents": [
+        { "kind": "block", "type": "maze_moveForward" },
+        { "kind": "block", "type": "maze_jump" },
+        { "kind": "block", "type": "maze_turn" }
+      ]},
+      { "kind": "sep" },
+      { "kind": "category", "name": "%{BKY_GAMES_CATPROCEDURES}", "custom": "PROCEDURE", "categorystyle": "procedure_category" }
+    ]
+  },
+  "functions_loops": {
+    "kind": "categoryToolbox",
+    "contents": [
+      { "kind": "category", "name": "%{BKY_GAMES_CATMOVEMENT}", "categorystyle": "movement_category", "contents": [ { "kind": "block", "type": "maze_moveForward" }, { "kind": "block", "type": "maze_turn" } ]},
+      { "kind": "category", "name": "%{BKY_GAMES_CATLOOPS}", "categorystyle": "loops_category", "contents": [ { "kind": "block", "type": "maze_repeat", "inputs": { "TIMES": { "shadow": { "type": "math_number", "fields": { "NUM": 5 }}}}} ]},
+      { "kind": "sep" },
+      { "kind": "category", "name": "%{BKY_GAMES_CATPROCEDURES}", "custom": "PROCEDURE", "categorystyle": "procedure_category" }
+    ]
+  },
   "variables_basic": {
     "kind": "categoryToolbox",
     "contents": [
@@ -250,6 +287,7 @@
         ]},
         { "kind": "category", "name": "%{BKY_GAMES_CATLOOPS}", "categorystyle": "loops_category", "contents": [
             { "kind": "block", "type": "maze_forever" },
+            { "kind": "block", "type": "controls_whileUntil" },
             { "kind": "block", "type": "maze_repeat", "inputs": { "TIMES": { "shadow": { "type": "math_number", "fields": { "NUM": 5 }}}}}
         ]},
         {

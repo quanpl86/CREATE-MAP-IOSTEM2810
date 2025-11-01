@@ -1,0 +1,34 @@
+{
+  "topic_code": "TOPIC_02_FUNCTIONS",
+  "topic_name": "Hàm",
+  "suggested_maps": [
+    {
+      "id": "topic02-req02-refactor",
+      "level": 2,
+      "titleKey": "Challenge.topic02-req02-refactor.Title",
+      "descriptionKey": "Challenge.topic02-req02-refactor.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-req02-refactor.Title": "Tái cấu trúc Code",
+          "Challenge.topic02-req02-refactor.Description": "Chương trình này quá dài. Hãy tạo một hàm drawOneSide để làm cho chương trình chính ngắn gọn hơn."
+        }
+      },
+      "generation_config": {
+        "map_type": "square_shape",
+        "logic_type": "for_loop_complex",
+        "num_variants": 2,
+        "params": {
+          "side_length": 4
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "functions_basic",
+        "start_block_type": "refactor_from_raw_actions"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    }
+  ]
+}

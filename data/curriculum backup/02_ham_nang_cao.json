@@ -1,0 +1,195 @@
+{
+  "topic_code": "TOPIC_02_ADVANCED_FUNCTIONS",
+  "topic_name": "Hàm Nâng Cao",
+  "suggested_maps": [
+    {
+      "id": "topic02-adv-01-decomposition",
+      "level": 1,
+      "titleKey": "Challenge.topic02-adv-01.Title",
+      "descriptionKey": "Challenge.topic02-adv-01.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-adv-01.Title": "Phân rã vấn đề",
+          "Challenge.topic02-adv-01.Description": "Con đường này có các đoạn giống hệt nhau. Hãy viết một hàm để đi hết một đoạn, sau đó gọi lại hàm đó để hoàn thành màn chơi!"
+        }
+      },
+      "generation_config": {
+        "map_type": "h_shape",
+        "logic_type": "function_decomposition",
+        "num_variants": 1,
+        "params": { "column_length": 4, "column_spacing": 3 }
+      },
+      "blockly_config": { "toolbox_preset": "functions_basic" },
+      "solution_config": { "type": "reach_target", "itemGoals": {} }
+    },
+    {
+      "id": "topic02-adv-02-fixbug-optimization",
+      "level": 2,
+      "titleKey": "Challenge.topic02-adv-02.Title",
+      "descriptionKey": "Challenge.topic02-adv-02.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-adv-02.Title": "Tối ưu hóa: Thay thế code lặp",
+          "Challenge.topic02-adv-02.Description": "Chương trình này hoạt động, nhưng nó lặp lại cùng một chuỗi lệnh để vẽ mỗi cạnh hình vuông. Hãy tạo một hàm để chứa đoạn code lặp lại và gọi nó 4 lần để làm cho chương trình gọn hơn!"
+        }
+      },
+      "generation_config": {
+        "map_type": "square_shape",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "side_length": 3,
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "optimization_no_function"
+        }
+      },
+      "blockly_config": { "toolbox_preset": "functions_basic" },
+      "solution_config": { "type": "reach_target", "itemGoals": {} }
+    },
+    {
+      "id": "topic02-adv-03-fixbug-func-logic",
+      "level": 3,
+      "titleKey": "Challenge.topic02-adv-03.Title",
+      "descriptionKey": "Challenge.topic02-adv-03.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-adv-03.Title": "Sửa lỗi: Logic sai trong hàm",
+          "Challenge.topic02-adv-03.Description": "Hàm 'cross_and_collect' được cho là sẽ giúp nhân vật nhảy qua tường và lấy vật phẩm, nhưng nó đang làm sai. Hãy tìm lỗi bên trong định nghĩa hàm và sửa nó!"
+        }
+      },
+      "generation_config": {
+        "map_type": "interspersed_path",
+        "logic_type": "functions_simple",
+        "num_variants": 1,
+        "params": {
+          "main_path_length": 5,
+          "num_branches": 1,
+          "branch_length": 1,
+          "obstacles": 1,
+          "items_to_place": ["crystal"],
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "incorrect_logic_in_function",
+          "bug_config": {
+            "target": "function_body",
+            "options": { "function_name": "crossAndCollect", "remove_block_type": "collect" }
+          }
+        }
+      },
+      "blockly_config": { "toolbox_preset": "functions_basic" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": 1 } }
+    },
+    {
+      "id": "topic02-adv-04-fixbug-func-order",
+      "level": 4,
+      "titleKey": "Challenge.topic02-adv-04.Title",
+      "descriptionKey": "Challenge.topic02-adv-04.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-adv-04.Title": "Sửa lỗi: Sai thứ tự trong hàm",
+          "Challenge.topic02-adv-04.Description": "Hàm 'jump_and_move' đang nhảy trước khi di chuyển tới sát tường. Hãy hoán đổi thứ tự các khối lệnh bên trong hàm để nó hoạt động đúng."
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "functions_simple",
+        "num_variants": 1,
+        "params": {
+          "path_length": 4,
+          "obstacles": 1,
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "sequence_error_in_function",
+          "bug_config": {
+            "target": "function_body",
+            "options": { "function_name": "jumpAndMove", "swap_indices": [0, 1] }
+          }
+        }
+      },
+      "blockly_config": { "toolbox_preset": "functions_basic" },
+      "solution_config": { "type": "reach_target", "itemGoals": {} }
+    },
+    {
+      "id": "topic02-adv-05-fixbug-main-call-order",
+      "level": 5,
+      "titleKey": "Challenge.topic02-adv-05.Title",
+      "descriptionKey": "Challenge.topic02-adv-05.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-adv-05.Title": "Sửa lỗi: Sai thứ tự gọi hàm",
+          "Challenge.topic02-adv-05.Description": "Các hàm 'move_to_item' và 'collect_item' đã đúng, nhưng chúng đang được gọi sai thứ tự trong chương trình chính. Hãy sắp xếp lại các khối gọi hàm!"
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "functions_simple",
+        "num_variants": 1,
+        "params": {
+          "path_length": 3,
+          "items_to_place": ["crystal"],
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "incorrect_function_call_order",
+          "bug_config": {
+            "target": "main",
+            "options": { "swap_calls": ["moveToItem", "collectItem"] }
+          }
+        }
+      },
+      "blockly_config": { "toolbox_preset": "functions_basic" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": 1 } }
+    },
+    {
+      "id": "topic02-adv-06-fixbug-main-missing-call",
+      "level": 6,
+      "titleKey": "Challenge.topic02-adv-06.Title",
+      "descriptionKey": "Challenge.topic02-adv-06.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-adv-06.Title": "Sửa lỗi: Thiếu lệnh gọi hàm",
+          "Challenge.topic02-adv-06.Description": "Bạn đã định nghĩa một hàm rất hữu ích để đi hết con đường, nhưng chương trình không làm gì cả! Có vẻ như bạn đã quên gọi hàm đó. Hãy thêm lệnh gọi hàm vào chương trình chính!"
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "functions_simple",
+        "num_variants": 1,
+        "params": {
+          "path_length": 4,
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "missing_function_call",
+          "bug_config": {
+            "target": "main",
+            "options": { "function_name_to_remove": "solvePath" }
+          }
+        }
+      },
+      "blockly_config": { "toolbox_preset": "functions_basic" },
+      "solution_config": { "type": "reach_target", "itemGoals": {} }
+    },
+    {
+      "id": "topic02-adv-07-final-challenge",
+      "level": 7,
+      "titleKey": "Challenge.topic02-adv-07.Title",
+      "descriptionKey": "Challenge.topic02-adv-07.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic02-adv-07.Title": "Thử thách cuối: Chinh phục các đảo",
+          "Challenge.topic02-adv-07.Description": "Áp dụng tất cả kiến thức về hàm để khám phá các hòn đảo ở những độ cao khác nhau. Bạn có thể cần một hàm để đi lên cầu thang và một hàm khác để khám phá mỗi hòn đảo!"
+        }
+      },
+      "generation_config": {
+        "map_type": "stepped_island_clusters",
+        "logic_type": "island_tour",
+        "num_variants": 1,
+        "params": {
+          "num_clusters": 2,
+          "islands_per_cluster": 2,
+          "height_step": 2
+        }
+      },
+      "blockly_config": { "toolbox_preset": "functions_full" },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": { "crystal": "all" }
+      }
+    }
+  ]
+}

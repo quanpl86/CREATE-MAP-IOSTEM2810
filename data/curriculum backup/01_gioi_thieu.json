@@ -223,11 +223,12 @@
       },
       "generation_config": {
         "map_type": "zigzag",
-        "logic_type": "sequencing",
+        "logic_type": "zigzag",
         "num_variants": 2,
         "params": {
           "num_segments": 4,
-          "segment_length": 3
+          "segment_length": 3,
+          "item_count": 2
         }
       },
       "blockly_config": {

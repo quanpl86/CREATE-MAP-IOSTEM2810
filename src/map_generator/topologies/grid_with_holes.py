@@ -60,9 +60,9 @@ class GridWithHolesTopology(BaseTopology):
         
         # ====================================================================
         # === ĐÂY LÀ DÒNG CODE QUAN TRỌNG NHẤT CẦN KIỂM TRA ===
-        # === Hãy chắc chắn rằng "type" là "pit" (hố), KHÔNG PHẢI "wall" (tường) ===
+        # === Hãy chắc chắn rằng "type" là "obstacle" ===
         # ====================================================================
-        obstacles = [{"type": "pit", "pos": pos} for pos in potential_holes]
+        obstacles = [{"type": "obstacle", "pos": pos} for pos in potential_holes]
 
         return PathInfo(
             start_pos=start_pos,

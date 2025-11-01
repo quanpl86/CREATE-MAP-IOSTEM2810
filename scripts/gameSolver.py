@@ -3,6 +3,7 @@ import sys
 import traceback
 from typing import Set, Dict, List, Tuple, Any, Optional
 import random # [FIX] Import the random module
+import copy # [SỬA LỖI] Import thư viện copy để sử dụng deepcopy
 from collections import Counter
 
 # --- SECTION 1: TYPE DEFINITIONS (Định nghĩa kiểu dữ liệu) ---
@@ -13,20 +14,27 @@ PlayerStart = Dict[str, Any]
 # --- SECTION 2: GAME WORLD MODEL (Mô hình hóa thế giới game) ---
 class GameWorld:
     """Đọc và hiểu file JSON, xây dựng một bản đồ thế giới chi tiết với các thuộc tính model."""
-    # [SỬA] Khai báo toàn bộ các loại đối tượng dựa trên gameAssets.ts
+    # [REFACTORED] Định nghĩa các loại vật cản dựa trên modelKey
+    
+    # Các khối nền có thể đi bộ trên đó.
     WALKABLE_GROUNDS: Set[str] = {
         'ground.checker', 'ground.earth', 'ground.earthChecker', 'ground.mud', 
         'ground.normal', 'ground.snow',
         'water.water01',
         'ice.ice01'
     }
-    SOLID_WALLS: Set[str] = {
-        'stone.stone01', 'stone.stone02', 'stone.stone03', 'stone.stone04', 
-        'stone.stone05', 'stone.stone06', 'stone.stone07',
-        'wall.brick01', 'wall.brick02', 'wall.brick03', 'wall.brick04', 
-        'wall.brick05', 'wall.brick06', 'wall.stone01',
-        # [SỬA] Thêm các model key còn thiếu
-        'lava.lava01' # Lava cũng là một bức tường không thể đi qua
+    
+    # Các vật cản có thể nhảy LÊN trên đỉnh.
+    JUMPABLE_OBSTACLES: Set[str] = {
+        'wall.brick01', 'wall.brick02', 'wall.brick03', 'wall.brick04', 'wall.brick05', 'wall.brick06',
+        'ground.checker', 'ground.earth', 'ground.earthChecker', 'ground.mud', 'ground.normal', 'ground.snow',
+        'stone.stone01', 'stone.stone02', 'stone.stone03', 'stone.stone04', 'stone.stone05', 'stone.stone06', 'stone.stone07'
+    }
+
+    # Các vật cản KHÔNG thể nhảy lên (tường cao, dung nham, v.v.).
+    UNJUMPABLE_OBSTACLES: Set[str] = {
+        'wall.stone01', # Ví dụ: tường đá cao
+        'lava.lava01'
     }
     DEADLY_OBSTACLES: Set[str] = {
         'lava.lava01'
@@ -44,13 +52,16 @@ class GameWorld:
             f"{block['position']['x']}-{block['position']['y']}-{block['position']['z']}": block['modelKey']
             for block in config.get('blocks', [])
         }
-        # [SỬA] Thêm các khối của vật cản vào world_map để solver nhận biết
-        # Giả định vật cản luôn có modelKey là 'wall.brick01' và cao 1 khối
+        # [REFACTORED] Gán modelKey chính xác cho từng loại vật cản vào world_map
+        # để solver có thể nhận diện.
+        # [CẢI TIẾN] Đọc modelKey từ danh sách obstacles và ghi đè vào world_map.
+        # Điều này đảm bảo solver luôn biết chính xác loại vật cản tại một vị trí,
+        # ngay cả khi nó không được định nghĩa trong 'blocks' (trường hợp hiếm).
         self.obstacles: List[Dict] = config.get('obstacles', [])
-        # [REFACTORED] Gán modelKey chính xác cho từng loại vật cản
         for obs in self.obstacles: 
             pos = obs['position'] 
-            model_key = obs.get('modelKey', 'wall.brick01') # Mặc định là wall.brick01 nếu không có
+            # modelKey được thêm vào từ generate_all_maps.py, nhưng để an toàn, vẫn có giá trị mặc định.
+            model_key = obs.get('modelKey', 'wall.brick01')
             self.world_map[f"{pos['x']}-{pos['y']}-{pos['z']}"] = model_key
 
         # [SỬA] Tách ra làm 2 dict: một cho tra cứu theo vị trí, một cho tra cứu theo ID
@@ -129,8 +140,97 @@ class PathNode:
     def f_cost(self) -> float:
         return float(self.g_cost) + float(self.h_cost)
 
+# --- [MỚI] SECTION 3.5: META-SOLVER CHO BÀI TOÁN PHỨC TẠP (TSP) ---
+def _solve_multi_goal_tsp(world: GameWorld) -> Optional[List[Action]]:
+    """
+    Hàm "meta-solver" sử dụng thuật toán A* để giải bài toán người giao hàng (TSP).
+    Nó hoạt động bằng cách chia bài toán lớn thành các bài toán A* nhỏ hơn.
+    """
+    from itertools import permutations
+    print("    LOG: (Solver) Phát hiện bài toán nhiều mục tiêu. Kích hoạt meta-solver TSP...")
+
+    # 1. Xác định tất cả các điểm cần đi qua
+    start_pos = {'x': world.start_info['x'], 'y': world.start_info['y'], 'z': world.start_info['z']}
+    goal_positions = [c['position'] for c in world.collectibles_by_id.values()]
+    
+    # Tạo một cache để lưu trữ đường đi giữa hai điểm bất kỳ, tránh tính toán lại
+    path_cache: Dict[Tuple[str, str], Optional[List[Action]]] = {}
+
+    def get_path_between(pos1: Position, pos2: Position) -> Optional[List[Action]]:
+        """Hàm helper để tìm đường đi giữa 2 điểm và cache lại kết quả."""
+        key1 = f"{pos1['x']}-{pos1['y']}-{pos1['z']}"
+        key2 = f"{pos2['x']}-{pos2['y']}-{pos2['z']}"
+        
+        # Kiểm tra cache trước
+        if (key1, key2) in path_cache: return path_cache[(key1, key2)]
+        if (key2, key1) in path_cache: return path_cache[(key2, key1)]
+
+        # Tạo một "thế giới game" tạm thời cho bài toán con này
+        temp_world = copy.deepcopy(world)
+        temp_world.start_info['x'], temp_world.start_info['y'], temp_world.start_info['z'] = pos1['x'], pos1['y'], pos1['z']
+        temp_world.finish_pos = pos2
+        # Quan trọng: Xóa itemGoals để A* chỉ tập trung về đích
+        temp_world.solution_config['itemGoals'] = {}
+
+        # Gọi hàm A* gốc để giải bài toán con
+        sub_path = solve_level(temp_world, is_sub_problem=True)
+        
+        # Lưu vào cache và trả về
+        path_cache[(key1, key2)] = sub_path
+        return sub_path
+
+    # 2. Tìm thứ tự đi tối ưu bằng cách thử mọi hoán vị (chỉ hiệu quả với số lượng mục tiêu nhỏ)
+    best_order = None
+    min_total_cost = float('inf')
+
+    # Lấy hoán vị của các vị trí mục tiêu
+    for order in permutations(goal_positions):
+        current_order = [start_pos] + list(order) + [world.finish_pos]
+        total_cost = 0
+        possible = True
+
+        # Tính tổng chi phí cho thứ tự này
+        for i in range(len(current_order) - 1):
+            path = get_path_between(current_order[i], current_order[i+1])
+            if path is None:
+                possible = False
+                break
+            total_cost += len(path)
+        
+        if possible and total_cost < min_total_cost:
+            min_total_cost = total_cost
+            best_order = current_order
+
+    # 3. Nếu tìm thấy thứ tự tối ưu, ghép các đường đi lại
+    if best_order:
+        print(f"    LOG: (Solver) Đã tìm thấy thứ tự tối ưu với chi phí {min_total_cost} khối.")
+        full_path: List[Action] = []
+        # Thêm hành động 'collect' vào đúng vị trí
+        for i in range(len(best_order) - 1):
+            sub_path = get_path_between(best_order[i], best_order[i+1])
+            if sub_path:
+                full_path.extend(sub_path)
+                # Nếu điểm đến là một vật phẩm (không phải start/finish), thêm lệnh collect
+                is_collectible_destination = any(
+                    p == best_order[i+1] for p in goal_positions
+                )
+                if is_collectible_destination:
+                    full_path.append('collect')
+        
+        # Loại bỏ lệnh collect cuối cùng nếu nó nằm ngay trước khi kết thúc
+        if full_path and full_path[-1] == 'collect':
+             # Kiểm tra xem điểm cuối có phải là vật phẩm không
+             is_finish_collectible = any(p == world.finish_pos for p in goal_positions)
+             if not is_finish_collectible:
+                 full_path.pop()
+
+        return full_path
+
+    print("    LOG: (Solver) Meta-solver không tìm được thứ tự hợp lệ.")
+    return None
+
 # --- SECTION 4: A* SOLVER (Thuật toán A*) ---
-def solve_level(world: GameWorld) -> Optional[List[Action]]:
+def solve_level(world: GameWorld, is_sub_problem=False) -> Optional[List[Action]]:
     """Thực thi thuật toán A* để tìm lời giải tối ưu cho level."""
     start_state = GameState(world.start_info, world)
     start_node = PathNode(start_state)
@@ -138,6 +238,9 @@ def solve_level(world: GameWorld) -> Optional[List[Action]]:
     visited: Set[str] = set()
 
     def manhattan(p1: Position, p2: Position) -> int:
+        # [SỬA LỖI] Xử lý trường hợp p1, p2 có thể là tuple (x,y,z)
+        if isinstance(p1, tuple): p1 = {'x': p1[0], 'y': p1[1], 'z': p1[2]}
+        if isinstance(p2, tuple): p2 = {'x': p2[0], 'y': p2[1], 'z': p2[2]}
         return abs(p1['x'] - p2['x']) + abs(p1['y'] - p2['y']) + abs(p1['z'] - p2['z'])
 
     def heuristic(state: GameState) -> int:
@@ -172,8 +275,6 @@ def solve_level(world: GameWorld) -> Optional[List[Action]]:
         """Kiểm tra xem trạng thái hiện tại có thỏa mãn điều kiện thắng của màn chơi không."""
         solution_type = world.solution_config.get("type", "reach_target")
         
-        is_at_finish = state.x == world.finish_pos['x'] and state.y == world.finish_pos['y'] and state.z == world.finish_pos['z']
-        
         # --- [ĐÃ SỬA] Logic kiểm tra mục tiêu ---
         required_items = world.solution_config.get("itemGoals", {})
         if required_items:
@@ -205,8 +306,18 @@ def solve_level(world: GameWorld) -> Optional[List[Action]]:
                         break
         else:
             all_goals_met = True
-        # Hiện tại chỉ hỗ trợ mục tiêu "reach_target" và "collect_all"
+
+        # [CẬP NHẬT THEO YÊU CẦU] Điều kiện thắng LUÔN LUÔN yêu cầu phải về đích.
+        # Nếu có itemGoals, chúng cũng phải được hoàn thành.
+        is_at_finish = state.x == world.finish_pos['x'] and state.y == world.finish_pos['y'] and state.z == world.finish_pos['z']
         return is_at_finish and all_goals_met
+
+    # --- [CẢI TIẾN] Logic điều phối ---
+    # Nếu đây là bài toán phức tạp (nhiều mục tiêu), sử dụng meta-solver
+    required_goals = world.solution_config.get("itemGoals", {})
+    num_collectible_goals = sum(1 for k, v in required_goals.items() if k != 'switch')
+    if not is_sub_problem and num_collectible_goals > 1:
+        return _solve_multi_goal_tsp(world)
 
     start_node.h_cost = heuristic(start_state)
     open_list.append(start_node)
@@ -256,57 +367,49 @@ def solve_level(world: GameWorld) -> Optional[List[Action]]:
 
             if action in ['moveForward', 'jump']:
                 # [SỬA] Đồng bộ lại logic di chuyển và nhảy để xử lý vật cản chính xác
-                dx, _, dz = DIRECTIONS[state.direction]
+                dx, _, dz = DIRECTIONS[next_state.direction]
                 if action == 'moveForward':
-                    next_x, next_y, next_z = state.x + dx, state.y, state.z + dz
-                    dest_key = f"{next_x}-{next_y}-{next_z}"
-                    ground_key = f"{next_x}-{next_y-1}-{next_z}"
-                    current_ground_key = f"{state.x}-{state.y-1}-{state.z}"
-                    model_at_dest = world.world_map.get(dest_key)
-                    model_at_ground = world.world_map.get(ground_key)
+                    # [SỬA LỖI] Logic moveForward mới, xử lý cả đi ngang, đi lên và đi xuống.
+                    next_x, y, next_z = next_state.x + dx, next_state.y, next_state.z + dz
 
-                    # TH1: Di chuyển ngang trên mặt đất
-                    is_walking_on_ground = (model_at_dest is None or model_at_dest not in GameWorld.SOLID_WALLS) and \
-                                           (model_at_ground is not None and model_at_ground in GameWorld.WALKABLE_GROUNDS)
-                    if is_walking_on_ground:
-                        next_state.x, next_state.y, next_state.z = next_x, next_y, next_z
-                        is_valid_move = True
+                    # TH1: Đi ngang (cùng độ cao y)
+                    ground_ahead_key = f"{next_x}-{y-1}-{next_z}"
+                    space_ahead_key = f"{next_x}-{y}-{next_z}"
+                    if world.world_map.get(ground_ahead_key) in GameWorld.WALKABLE_GROUNDS and world.world_map.get(space_ahead_key) is None:
+                        next_state.x, next_state.z = next_x, next_z
+                        is_valid_move = True # type: ignore
                     
-                    # TH2: Bước xuống từ trên cao (ví dụ: từ đỉnh vật cản)
-                    is_stepping_down = world.world_map.get(current_ground_key) in GameWorld.SOLID_WALLS
-                    ground_key_onestep_down = f"{next_x}-{next_y-2}-{next_z}" # Đất ở dưới chân sau khi bước xuống
-                    is_landing_on_ground = world.world_map.get(ground_key_onestep_down) in GameWorld.WALKABLE_GROUNDS
-                    if is_stepping_down and is_landing_on_ground and model_at_dest is None:
-                        next_y -= 1
-                        next_state.x, next_state.y, next_state.z = next_x, next_y, next_z
-                        is_valid_move = True
-
                 elif action == 'jump':
-                    # [SỬA LỖI LẦN 2] Logic Jump mới để xử lý bậc thang.
-                    # Mô phỏng hành động "nhảy và đi tới một ô".
+                    # [REFACTORED] Logic Jump mới: Chỉ xử lý nhảy LÊN vật cản.
+                    # Logic nhảy qua hố đã bị loại bỏ.
                     
-                    # Vị trí đích sau khi nhảy: đi tới 1 ô và đi lên 1 ô.
-                    next_x, next_y, next_z = state.x + dx, state.y + 1, state.z + dz
-
-                    # Điều kiện để nhảy thành công:
-                    # 1. Ô ngay phía trước (ngang tầm mắt) phải là tường (bậc thang) HOẶC không có gì (để nhảy qua hố).
-                    #    Trong trường hợp cầu thang, nó sẽ là tường.
-                    obstacle_key = f"{state.x + dx}-{state.y}-{state.z + dz}"
-                    block_in_front = world.world_map.get(obstacle_key)
-
-                    # 2. Ô đích ở trên cao phía trước phải trống.
-                    dest_key = f"{next_x}-{next_y}-{next_z}"
-                    is_dest_air_clear = world.world_map.get(dest_key) is None
-
-                    # 3. Phải có đất ở dưới ô đích để đáp xuống.
-                    ground_under_dest_key = f"{next_x}-{next_y - 1}-{next_z}"
-                    is_ground_at_dest = world.world_map.get(ground_under_dest_key) in GameWorld.WALKABLE_GROUNDS
+                    # --- Trường hợp 1: Nhảy LÊN (Jump Up) một vật cản ---
+                    jump_up_dest_x, jump_up_dest_y, jump_up_dest_z = next_state.x + dx, next_state.y + 1, next_state.z + dz
                     
-                    # Chỉ cần không gian đích trống và có chỗ đáp là có thể nhảy.
-                    if is_dest_air_clear and is_ground_at_dest:
-                        # Cập nhật vị trí mới của người chơi sau khi nhảy thành công.
-                        next_state.x, next_state.y, next_state.z = next_x, next_y, next_z
-                        is_valid_move = True
+                    # Vị trí của khối vật cản nằm ngay trước mặt người chơi
+                    obstacle_key = f"{next_state.x + dx}-{next_state.y}-{next_state.z + dz}"
+                    obstacle_model = world.world_map.get(obstacle_key)
+
+                    # Điều kiện để nhảy lên:
+                    # 1. Có một vật cản ở ngay trước mặt.
+                    # 2. Model của vật cản đó nằm trong danh sách JUMPABLE_OBSTACLES.
+                    # 3. Không gian phía trên vật cản đó phải trống.
+                    is_obstacle_jumpable = obstacle_model in GameWorld.JUMPABLE_OBSTACLES
+                    is_space_above_clear = world.world_map.get(f"{jump_up_dest_x}-{jump_up_dest_y}-{jump_up_dest_z}") is None
+
+                    if is_obstacle_jumpable and is_space_above_clear:
+                        next_state.x, next_state.y, next_state.z = jump_up_dest_x, jump_up_dest_y, jump_up_dest_z
+                        is_valid_move = True # type: ignore
+
+                    # --- Trường hợp 2: Nhảy XUỐNG (Jump Down) một bậc ---
+                    # Logic này vẫn hữu ích cho các map có địa hình bậc thang.
+                    if not is_valid_move:
+                        jump_down_dest_x, jump_down_dest_y, jump_down_dest_z = next_state.x + dx, next_state.y - 1, next_state.z + dz
+                        # Điều kiện: có nền đất ở vị trí đáp và không gian đáp trống
+                        if world.world_map.get(f"{jump_down_dest_x}-{jump_down_dest_y-1}-{jump_down_dest_z}") in GameWorld.WALKABLE_GROUNDS and world.world_map.get(f"{jump_down_dest_x}-{jump_down_dest_y}-{jump_down_dest_z}") is None:
+                            next_state.x, next_state.y, next_state.z = jump_down_dest_x, jump_down_dest_y, jump_down_dest_z
+                            is_valid_move = True
+
             elif action == 'turnLeft':
                 next_state.direction = (state.direction + 3) % 4
                 is_valid_move = True
@@ -404,12 +507,13 @@ def compress_actions_to_structure(actions: List[str], available_blocks: Set[str]
             if action_str.startswith("CALL:"):
                 structured_code.append({"type": "CALL", "name": action_str.split(":", 1)[1]})
             else:
-                # [FIX] Khôi phục lại logic lưu trữ hướng rẽ.
-                # Điều này CỰC KỲ QUAN TRỌNG để bug_generator có thể tìm và thay đổi hướng rẽ.
+                # [CẢI TIẾN] Nhóm các hành động rẽ thành một khối 'maze_turn' duy nhất
+                # với thuộc tính 'direction'. Điều này rất quan trọng để các chiến lược
+                # tạo lỗi (như IncorrectParameterBug) có thể tìm và sửa đổi chúng.
                 if action_str == "turnLeft" or action_str == "turnRight":
                     structured_code.append({"type": "maze_turn", "direction": action_str})
                 else:
-                    structured_code.append({"type": action_str})
+                    structured_code.append({"type": f"maze_{action_str}"})
             i += 1
     return structured_code
 

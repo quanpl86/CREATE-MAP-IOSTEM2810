@@ -31,9 +31,12 @@ class ZigzagPlacer(BasePlacer):
         # Lấy tất cả các tọa độ có thể đặt, loại trừ điểm đầu và điểm cuối
         possible_placement_coords = [coord for coord in path_info.path_coords if coord != path_info.start_pos and coord != path_info.target_pos]
 
+        # [CẢI TIẾN] Đặt nhiều vật phẩm dựa trên item_count từ params
+        num_items = params.get('item_count', 1) # Mặc định là 1 nếu không có
+
         if possible_placement_coords:
-            item_pos = random.choice(possible_placement_coords)
-            items.append({"type": "crystal", "pos": item_pos})
+            selected_coords = random.sample(possible_placement_coords, min(num_items, len(possible_placement_coords)))
+            items.extend([{"type": "crystal", "pos": pos} for pos in selected_coords])
 
         return {
             "start_pos": path_info.start_pos,

@@ -38,7 +38,7 @@ class BasePlacer(ABC):
                                 "start_pos": (x, y, z),
                                 "target_pos": (tx, ty, tz),
                                 "items": [{"type": "crystal", "pos": (x1, y1, z1)}, ...],
-                                "obstacles": [{"type": "pit", "pos": (x2, y2, z2)}, ...]
+                                "obstacles": [{"type": "obstacle", "modelKey": "wall.brick01", "pos": (x2, y2, z2)}, ...]
                             }
         """
         # Phương thức này không có code bên trong.

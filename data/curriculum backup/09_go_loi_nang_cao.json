@@ -658,7 +658,7 @@
         }
       },
       "generation_config": {
-        "map_type": "complex_path",
+        "map_type": "complex_maze_2d",
         "logic_type": "functions_simple",
         "num_variants": 1,
         "params": {

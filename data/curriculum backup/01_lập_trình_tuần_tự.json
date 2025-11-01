@@ -1,0 +1,40 @@
+{
+  "topic_code": "TOPIC_01_SEQUENCING",
+  "topic_name": "Lập trình Tuần tự",
+  "suggested_maps": [
+    {
+      "id": "topic01-req01-simple",
+      "level": 1,
+      "titleKey": "Challenge.topic01-req01-simple.Title",
+      "descriptionKey": "Challenge.topic01-req01-simple.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic01-req01-simple.Title": "Đi thẳng và Thu thập",
+          "Challenge.topic01-req01-simple.Description": "Nhân vật đang ở đầu một con đường thẳng. Hãy viết code để nhân vật đi đến cuối đường và lấy viên pha lê."
+        },
+        "en": {
+          "Challenge.topic01-req01-simple.Title": "Go Straight and Collect",
+          "Challenge.topic01-req01-simple.Description": "The character is at the start of a straight path. Write code to make the character move to the end and collect the crystal."
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "path_length": 4,
+          "items_to_place": "crystal"
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_actions"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": 1
+        }
+      }
+    }
+  ]
+}

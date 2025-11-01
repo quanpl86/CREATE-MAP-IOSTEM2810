@@ -27,17 +27,33 @@ class ObstaclePlacer(BasePlacer):
         print("    LOG: Placing items and obstacles with 'obstacle' logic...")
 
         items = []
-        obstacles = []
+        # [SỬA LỖI] Kế thừa danh sách chướng ngại vật từ Topology trước.
+        obstacles = path_info.obstacles.copy()
+
+        # [SỬA LỖI] Chỉ đặt vật cản trên các "đảo" (placement_coords), không đặt trên cầu.
+        # Điều này ngăn việc vật cản chặn hoàn toàn đường đi.
+        coords_for_obstacles = path_info.placement_coords if path_info.placement_coords else path_info.path_coords
         
-        # Lấy danh sách các tọa độ có thể đặt đối tượng, loại trừ điểm bắt đầu và kết thúc
-        possible_coords = [p for p in path_info.path_coords if p != path_info.start_pos and p != path_info.target_pos]
+        possible_coords = [p for p in coords_for_obstacles if p != path_info.start_pos and p != path_info.target_pos]
         random.shuffle(possible_coords)
 
-        # 1. Đặt chướng ngại vật (ưu tiên)
-        num_obstacles = params.get('obstacle_count', 0)
-        for _ in range(min(num_obstacles, len(possible_coords))):
-            pos = possible_coords.pop(0)
-            obstacles.append({"type": "wall", "pos": pos})
+        # 1. [CẢI TIẾN] Đặt chướng ngại vật, hỗ trợ cả 'obstacle_count' và 'obstacle_chance'
+        obstacle_chance = params.get('obstacle_chance')
+        if obstacle_chance is not None:
+            # Nếu có 'obstacle_chance', đặt vật cản dựa trên xác suất
+            coords_after_obstacles = []
+            for pos in possible_coords:
+                if random.random() < obstacle_chance:
+                    obstacles.append({"type": "obstacle", "modelKey": "wall.brick01", "pos": pos})
+                else:
+                    coords_after_obstacles.append(pos)
+            possible_coords = coords_after_obstacles # Cập nhật lại các vị trí còn trống
+        else:
+            # Nếu không, dùng logic 'obstacle_count' cũ
+            num_obstacles = params.get('obstacle_count', 0)
+            for _ in range(min(num_obstacles, len(possible_coords))):
+                pos = possible_coords.pop(0)
+                obstacles.append({"type": "obstacle", "modelKey": "wall.brick01", "pos": pos})
 
         # 2. [MỞ RỘNG] Đặt các vật phẩm và công tắc khác vào các vị trí còn lại
         # [SỬA LỖI] Hỗ trợ cả hai cách định nghĩa item:

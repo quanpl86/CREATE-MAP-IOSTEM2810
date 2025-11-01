@@ -37,7 +37,7 @@
       "level": 3,
       "titleKey": "Challenge.test_grid_holes_01.Title",
       "descriptionKey": "Challenge.test_grid_holes_01.Description",
-      "translations": { "vi": { "Challenge.test_grid_holes_01.Title": "Test Lưới có lỗ (Dễ)", "Challenge.test_grid_holes_01.Description": "Kiểm tra map lưới với ít lỗ." } },
+      "translations": { "vi": { "Challenge.test_grid_holes_01.Title": "Test Lưới có vật cản (Dễ)", "Challenge.test_grid_holes_01.Description": "Kiểm tra map lưới với ít vật cản." } },
       "generation_config": {
         "map_type": "grid_with_holes",
         "logic_type": "grid_with_holes",
@@ -52,7 +52,7 @@
       "level": 4,
       "titleKey": "Challenge.test_grid_holes_02.Title",
       "descriptionKey": "Challenge.test_grid_holes_02.Description",
-      "translations": { "vi": { "Challenge.test_grid_holes_02.Title": "Test Lưới có lỗ (Khó)", "Challenge.test_grid_holes_02.Description": "Kiểm tra map lưới với nhiều lỗ hơn." } },
+      "translations": { "vi": { "Challenge.test_grid_holes_02.Title": "Test Lưới có vật cản (Khó)", "Challenge.test_grid_holes_02.Description": "Kiểm tra map lưới với nhiều vật cản hơn." } },
       "generation_config": {
         "map_type": "grid_with_holes",
         "logic_type": "grid_with_holes",
@@ -202,12 +202,27 @@
       "level": 14,
       "titleKey": "Challenge.test_star_shape_01.Title",
       "descriptionKey": "Challenge.test_star_shape_01.Description",
-      "translations": { "vi": { "Challenge.test_star_shape_01.Title": "Test Map Ngôi Sao", "Challenge.test_star_shape_01.Description": "Kiểm tra map hình ngôi sao 5 cánh." } },
+      "translations": { "vi": { "Challenge.test_star_shape_01.Title": "Test Map Ngôi Sao (Nhỏ)", "Challenge.test_star_shape_01.Description": "Kiểm tra map hình ngôi sao với kích thước nhỏ." } },
       "generation_config": {
         "map_type": "star_shape",
         "logic_type": "star_shape",
         "num_variants": 1,
-        "params": { "arm_length": 3, "item_count": 4 }
+        "params": { "star_size": 2, "item_count": 4 }
+      },
+      "blockly_config": { "toolbox_preset": "full_toolbox" },
+      "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }
+    },
+    {
+      "id": "test_star_shape_02",
+      "level": 14,
+      "titleKey": "Challenge.test_star_shape_02.Title",
+      "descriptionKey": "Challenge.test_star_shape_02.Description",
+      "translations": { "vi": { "Challenge.test_star_shape_02.Title": "Test Map Ngôi Sao (Lớn)", "Challenge.test_star_shape_02.Description": "Kiểm tra map hình ngôi sao với kích thước lớn, tạo ra thử thách phức tạp hơn." } },
+      "generation_config": {
+        "map_type": "star_shape",
+        "logic_type": "star_shape",
+        "num_variants": 1,
+        "params": { "star_size": 4, "item_count": 6 }
       },
       "blockly_config": { "toolbox_preset": "full_toolbox" },
       "solution_config": { "type": "reach_target", "itemGoals": { "crystal": "all" } }

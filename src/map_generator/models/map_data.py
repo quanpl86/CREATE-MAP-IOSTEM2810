@@ -156,37 +156,13 @@ class MapData:
 
         # --- (CẢI TIẾN) Xử lý trường hợp đặc biệt cho map maze ---
         if self.map_type == 'complex_maze_2d':
-            print("    LOG: (Game Engine) Phát hiện map maze, dùng BFS để tìm các ô ground cần thiết...")
-            
-            # Tạo một set chứa tọa độ của tất cả các bức tường để tra cứu nhanh.
-            wall_coords = {tuple(obs['pos']) for obs in self.obstacles if obs.get('type') == 'wall'}
-            
-            # Sử dụng thuật toán BFS để tìm tất cả các ô ground có thể đi được.
-            # Hàng đợi (queue) cho BFS, bắt đầu từ vị trí của người chơi.
-            queue = [self.start_pos]
-            # Set để lưu các ô đã ghé thăm, tránh lặp vô hạn.
-            visited_grounds = {self.start_pos}
-
-            while queue:
-                current_pos = queue.pop(0)
-                
-                # Khám phá 4 hướng xung quanh (trên mặt phẳng XZ)
-                for dx, _, dz in [(1,0,0), (-1,0,0), (0,0,1), (0,0,-1)]:
-                    next_pos = (current_pos[0] + dx, 0, current_pos[2] + dz)
-                    
-                    # Kiểm tra các điều kiện để một ô là hợp lệ:
-                    # 1. Nằm trong biên của lưới.
-                    # 2. Chưa được ghé thăm.
-                    # 3. Không phải là một bức tường.
-                    if (0 <= next_pos[0] < self.grid_size[0] and
-                        0 <= next_pos[2] < self.grid_size[2] and
-                        next_pos not in visited_grounds and
-                        next_pos not in wall_coords):
-                        visited_grounds.add(next_pos)
-                        queue.append(next_pos)
-            
-            # Ground cuối cùng bao gồm các ô đi được và các ô nền móng của tường.
-            final_ground_coords = visited_grounds.union(wall_coords)
+            # [SỬA LỖI CHÍ MẠNG] Logic tạo nền đất cho mê cung đã bị sai.
+            # Logic cũ dùng BFS chỉ tạo nền cho các ô có thể đến được, nhưng Placer
+            # lại đặt vật phẩm vào ngõ cụt, khiến vật phẩm không có nền đất và solver không tìm được.
+            # -> Sửa lại: Luôn tạo nền đất cho TẤT CẢ các ô đường đi (path_coords) và ô tường (obstacles).
+            print("    LOG: (Game Engine) Phát hiện map maze, tạo nền đất cho tất cả các ô đường đi và tường...")
+            wall_coords = {tuple(obs['pos']) for obs in self.obstacles}
+            final_ground_coords = set(self.path_coords).union(wall_coords)
         else:
             # Đối với các map khác, ground_coords đã được xác định ở trên.
             final_ground_coords = ground_coords

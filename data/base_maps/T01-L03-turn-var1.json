@@ -6,7 +6,55 @@
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": 4,
+          "x": 1,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 3,
           "y": 0,
           "z": 8
         }
@@ -16,39 +64,7 @@
         "position": {
           "x": 4,
           "y": 0,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 13
+          "z": 8
         }
       },
       {
@@ -56,7 +72,7 @@
         "position": {
           "x": 5,
           "y": 0,
-          "z": 13
+          "z": 8
         }
       },
       {
@@ -64,23 +80,7 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 13
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 13
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 13
+          "z": 8
         }
       }
     ],
@@ -88,9 +88,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 4,
+          "x": 1,
           "y": 1,
-          "z": 8,
+          "z": 4,
           "direction": 1
         }
       }
@@ -100,17 +100,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 4,
+          "x": 1,
           "y": 1,
-          "z": 10
+          "z": 5
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 8,
+      "x": 6,
       "y": 1,
-      "z": 13
+      "z": 8
     }
   }
 }

@@ -65,6 +65,46 @@
       {
         "modelKey": "ground.earth",
         "position": {
+          "x": -3,
+          "y": 0,
+          "z": 12
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": -2,
+          "y": 0,
+          "z": 12
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": -1,
+          "y": 0,
+          "z": 12
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 12
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
           "x": 1,
           "y": 0,
           "z": 9
@@ -93,46 +133,6 @@
           "y": 0,
           "z": 12
         }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 13
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 14
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 2,
-          "y": 0,
-          "z": 14
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 14
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 14
-        }
       }
     ],
     "players": [
@@ -141,7 +141,7 @@
         "start": {
           "x": 1,
           "y": 1,
-          "z": 9,
+          "z": 8,
           "direction": 1
         }
       }
@@ -151,17 +151,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 2,
+          "x": 1,
           "y": 1,
-          "z": 14
+          "z": 10
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 4,
+      "x": -3,
       "y": 1,
-      "z": 14
+      "z": 12
     }
   },
   "solution": {
@@ -175,8 +175,8 @@
       "moveForward",
       "moveForward",
       "moveForward",
+      "turnRight",
       "moveForward",
-      "turnLeft",
       "moveForward",
       "moveForward",
       "moveForward"
@@ -200,11 +200,11 @@
           "type": "maze_moveForward"
         },
         {
-          "type": "maze_moveForward"
+          "type": "maze_turn",
+          "direction": "turnRight"
         },
         {
-          "type": "maze_turn",
-          "direction": "turnLeft"
+          "type": "maze_moveForward"
         },
         {
           "type": "maze_moveForward"

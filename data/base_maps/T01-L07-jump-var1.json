@@ -6,9 +6,41 @@
       {
         "modelKey": "ground.snow",
         "position": {
+          "x": 1,
+          "y": 0,
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.snow",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.snow",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.snow",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.snow",
+        "position": {
           "x": 5,
           "y": 0,
-          "z": 8
+          "z": 1
         }
       },
       {
@@ -16,47 +48,15 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.snow",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.snow",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.snow",
-        "position": {
-          "x": 9,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.snow",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 8
+          "z": 1
         }
       },
       {
         "modelKey": "ice.ice01",
         "position": {
-          "x": 9,
+          "x": 5,
           "y": 1,
-          "z": 8
+          "z": 1
         }
       }
     ],
@@ -64,9 +64,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 5,
+          "x": 1,
           "y": 1,
-          "z": 8,
+          "z": 1,
           "direction": 1
         }
       }
@@ -76,17 +76,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 7,
+          "x": 3,
           "y": 1,
-          "z": 8
+          "z": 1
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 10,
+      "x": 6,
       "y": 1,
-      "z": 8
+      "z": 1
     },
     "obstacles": [
       {
@@ -94,9 +94,9 @@
         "type": "obstacle",
         "modelKey": "ice.ice01",
         "position": {
-          "x": 9,
+          "x": 5,
           "y": 1,
-          "z": 8
+          "z": 1
         }
       }
     ]

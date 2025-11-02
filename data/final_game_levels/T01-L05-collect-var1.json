@@ -76,9 +76,25 @@
       {
         "modelKey": "stone.stone01",
         "position": {
+          "x": 3,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "stone.stone01",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "stone.stone01",
+        "position": {
           "x": 5,
           "y": 0,
-          "z": 6
+          "z": 5
         }
       },
       {
@@ -86,7 +102,7 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 6
+          "z": 5
         }
       },
       {
@@ -94,7 +110,7 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 6
+          "z": 5
         }
       },
       {
@@ -102,23 +118,7 @@
         "position": {
           "x": 8,
           "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "stone.stone01",
-        "position": {
-          "x": 9,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "stone.stone01",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 6
+          "z": 5
         }
       }
     ],
@@ -126,9 +126,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 5,
+          "x": 3,
           "y": 1,
-          "z": 6,
+          "z": 5,
           "direction": 1
         }
       }
@@ -138,17 +138,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 8,
+          "x": 6,
           "y": 1,
-          "z": 6
+          "z": 5
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 10,
+      "x": 8,
       "y": 1,
-      "z": 6
+      "z": 5
     }
   },
   "solution": {

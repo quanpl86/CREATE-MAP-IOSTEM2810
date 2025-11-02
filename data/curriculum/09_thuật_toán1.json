@@ -22,14 +22,13 @@
         "logic_type": "algorithm_design",
         "num_variants": 1,
         "params": {
-          "maze_width": 14,
+          "maze_width": 12,
           "items_to_place": [
-            "crystal",
             "crystal",
             "crystal"
           ],
           "asset_theme": {
-            "ground": "stone.stone04"
+            "ground": "wall.brick01"
           }
         }
       },
@@ -39,7 +38,7 @@
       "solution_config": {
         "type": "reach_target",
         "itemGoals": {
-          "crystal": 3
+          "crystal": 2
         }
       }
     }

@@ -94,22 +94,6 @@
       {
         "modelKey": "stone.stone02",
         "position": {
-          "x": 0,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 0,
-          "y": 0,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
           "x": 1,
           "y": 0,
           "z": 0
@@ -193,22 +177,6 @@
           "x": 1,
           "y": 0,
           "z": 10
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 12
         }
       },
       {
@@ -302,22 +270,6 @@
       {
         "modelKey": "stone.stone02",
         "position": {
-          "x": 2,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 2,
-          "y": 0,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
           "x": 3,
           "y": 0,
           "z": 0
@@ -401,22 +353,6 @@
           "x": 3,
           "y": 0,
           "z": 10
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 12
         }
       },
       {
@@ -510,22 +446,6 @@
       {
         "modelKey": "stone.stone02",
         "position": {
-          "x": 4,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
           "x": 5,
           "y": 0,
           "z": 0
@@ -609,22 +529,6 @@
           "x": 5,
           "y": 0,
           "z": 10
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 5,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 5,
-          "y": 0,
-          "z": 12
         }
       },
       {
@@ -718,22 +622,6 @@
       {
         "modelKey": "stone.stone02",
         "position": {
-          "x": 6,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 6,
-          "y": 0,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
           "x": 7,
           "y": 0,
           "z": 0
@@ -817,22 +705,6 @@
           "x": 7,
           "y": 0,
           "z": 10
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 12
         }
       },
       {
@@ -924,22 +796,6 @@
         }
       },
       {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "stone.stone02",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 12
-        }
-      },
-      {
         "modelKey": "wall.stone01",
         "position": {
           "x": 0,
@@ -1025,22 +881,6 @@
           "x": 0,
           "y": 1,
           "z": 10
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 0,
-          "y": 1,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 0,
-          "y": 1,
-          "z": 12
         }
       },
       {
@@ -1056,78 +896,6 @@
         "position": {
           "x": 1,
           "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 1,
-          "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 1,
-          "y": 1,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 1,
-          "y": 1,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 2,
-          "y": 1,
-          "z": 0
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 2,
-          "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 2,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 2,
-          "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 2,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 2,
-          "y": 1,
           "z": 10
         }
       },
@@ -1136,21 +904,13 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 3,
-          "y": 1,
           "z": 0
         }
       },
       {
         "modelKey": "wall.stone01",
         "position": {
-          "x": 3,
+          "x": 2,
           "y": 1,
           "z": 2
         }
@@ -1158,159 +918,7 @@
       {
         "modelKey": "wall.stone01",
         "position": {
-          "x": 3,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 3,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 3,
-          "y": 1,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 0
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 5,
-          "y": 1,
-          "z": 0
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 5,
-          "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 5,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 5,
-          "y": 1,
-          "z": 12
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 0
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
+          "x": 2,
           "y": 1,
           "z": 3
         }
@@ -1318,6 +926,190 @@
       {
         "modelKey": "wall.stone01",
         "position": {
+          "x": 2,
+          "y": 1,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 2,
+          "y": 1,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 2,
+          "y": 1,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 2,
+          "y": 1,
+          "z": 7
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 2,
+          "y": 1,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 2,
+          "y": 1,
+          "z": 10
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 3,
+          "y": 1,
+          "z": 0
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 3,
+          "y": 1,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 3,
+          "y": 1,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 3,
+          "y": 1,
+          "z": 10
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 4,
+          "y": 1,
+          "z": 0
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 4,
+          "y": 1,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 4,
+          "y": 1,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 4,
+          "y": 1,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 4,
+          "y": 1,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 4,
+          "y": 1,
+          "z": 10
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 5,
+          "y": 1,
+          "z": 0
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 5,
+          "y": 1,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 5,
+          "y": 1,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 5,
+          "y": 1,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 5,
+          "y": 1,
+          "z": 10
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 0
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
           "x": 6,
           "y": 1,
           "z": 4
@@ -1360,23 +1152,15 @@
         "position": {
           "x": 6,
           "y": 1,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 6,
+          "y": 1,
           "z": 10
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 12
         }
       },
       {
@@ -1392,7 +1176,15 @@
         "position": {
           "x": 7,
           "y": 1,
-          "z": 12
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 7,
+          "y": 1,
+          "z": 10
         }
       },
       {
@@ -1481,22 +1273,6 @@
           "x": 8,
           "y": 1,
           "z": 10
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 12
         }
       }
     ],
@@ -1518,7 +1294,7 @@
         "position": {
           "x": 5,
           "y": 1,
-          "z": 7
+          "z": 5
         }
       }
     ],
@@ -1526,7 +1302,7 @@
     "finish": {
       "x": 7,
       "y": 1,
-      "z": 11
+      "z": 9
     },
     "obstacles": [
       {
@@ -1644,9 +1420,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 0,
+          "x": 1,
           "y": 1,
-          "z": 11
+          "z": 0
         }
       },
       {
@@ -1654,9 +1430,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 0,
+          "x": 1,
           "y": 1,
-          "z": 12
+          "z": 10
         }
       },
       {
@@ -1664,7 +1440,7 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 1,
+          "x": 2,
           "y": 1,
           "z": 0
         }
@@ -1674,7 +1450,7 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 1,
+          "x": 2,
           "y": 1,
           "z": 2
         }
@@ -1684,9 +1460,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 1,
+          "x": 2,
           "y": 1,
-          "z": 6
+          "z": 3
         }
       },
       {
@@ -1694,9 +1470,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 1,
+          "x": 2,
           "y": 1,
-          "z": 10
+          "z": 4
         }
       },
       {
@@ -1704,9 +1480,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 1,
+          "x": 2,
           "y": 1,
-          "z": 12
+          "z": 5
         }
       },
       {
@@ -1716,7 +1492,7 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 0
+          "z": 6
         }
       },
       {
@@ -1726,7 +1502,7 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 2
+          "z": 7
         }
       },
       {
@@ -1736,7 +1512,7 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 4
+          "z": 8
         }
       },
       {
@@ -1746,7 +1522,7 @@
         "position": {
           "x": 2,
           "y": 1,
-          "z": 6
+          "z": 10
         }
       },
       {
@@ -1754,9 +1530,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 2,
+          "x": 3,
           "y": 1,
-          "z": 8
+          "z": 0
         }
       },
       {
@@ -1764,9 +1540,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 2,
+          "x": 3,
           "y": 1,
-          "z": 10
+          "z": 4
         }
       },
       {
@@ -1774,9 +1550,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 2,
+          "x": 3,
           "y": 1,
-          "z": 12
+          "z": 8
         }
       },
       {
@@ -1786,7 +1562,7 @@
         "position": {
           "x": 3,
           "y": 1,
-          "z": 0
+          "z": 10
         }
       },
       {
@@ -1794,9 +1570,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 1,
-          "z": 2
+          "z": 0
         }
       },
       {
@@ -1804,9 +1580,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 1,
-          "z": 4
+          "z": 2
         }
       },
       {
@@ -1814,9 +1590,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 1,
-          "z": 8
+          "z": 4
         }
       },
       {
@@ -1824,9 +1600,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 1,
-          "z": 12
+          "z": 6
         }
       },
       {
@@ -1836,7 +1612,7 @@
         "position": {
           "x": 4,
           "y": 1,
-          "z": 0
+          "z": 8
         }
       },
       {
@@ -1846,91 +1622,11 @@
         "position": {
           "x": 4,
           "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "id": "o33",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "id": "o34",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "id": "o35",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "id": "o36",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 7
-        }
-      },
-      {
-        "id": "o37",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "id": "o38",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 9
-        }
-      },
-      {
-        "id": "o39",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
           "z": 10
         }
       },
       {
-        "id": "o40",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 4,
-          "y": 1,
-          "z": 12
-        }
-      },
-      {
-        "id": "o41",
+        "id": "o33",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -1940,7 +1636,7 @@
         }
       },
       {
-        "id": "o42",
+        "id": "o34",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -1950,13 +1646,93 @@
         }
       },
       {
-        "id": "o43",
+        "id": "o35",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
           "x": 5,
           "y": 1,
-          "z": 8
+          "z": 4
+        }
+      },
+      {
+        "id": "o36",
+        "type": "obstacle",
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 5,
+          "y": 1,
+          "z": 6
+        }
+      },
+      {
+        "id": "o37",
+        "type": "obstacle",
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 5,
+          "y": 1,
+          "z": 10
+        }
+      },
+      {
+        "id": "o38",
+        "type": "obstacle",
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 0
+        }
+      },
+      {
+        "id": "o39",
+        "type": "obstacle",
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 2
+        }
+      },
+      {
+        "id": "o40",
+        "type": "obstacle",
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 4
+        }
+      },
+      {
+        "id": "o41",
+        "type": "obstacle",
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 5
+        }
+      },
+      {
+        "id": "o42",
+        "type": "obstacle",
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 6
+        }
+      },
+      {
+        "id": "o43",
+        "type": "obstacle",
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 6,
+          "y": 1,
+          "z": 7
         }
       },
       {
@@ -1964,9 +1740,9 @@
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
-          "x": 5,
+          "x": 6,
           "y": 1,
-          "z": 12
+          "z": 8
         }
       },
       {
@@ -1976,7 +1752,7 @@
         "position": {
           "x": 6,
           "y": 1,
-          "z": 0
+          "z": 9
         }
       },
       {
@@ -1986,101 +1762,11 @@
         "position": {
           "x": 6,
           "y": 1,
-          "z": 2
-        }
-      },
-      {
-        "id": "o47",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 3
-        }
-      },
-      {
-        "id": "o48",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 4
-        }
-      },
-      {
-        "id": "o49",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 5
-        }
-      },
-      {
-        "id": "o50",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 6
-        }
-      },
-      {
-        "id": "o51",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 7
-        }
-      },
-      {
-        "id": "o52",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 8
-        }
-      },
-      {
-        "id": "o53",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
           "z": 10
         }
       },
       {
-        "id": "o54",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 11
-        }
-      },
-      {
-        "id": "o55",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 6,
-          "y": 1,
-          "z": 12
-        }
-      },
-      {
-        "id": "o56",
+        "id": "o47",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2090,17 +1776,27 @@
         }
       },
       {
-        "id": "o57",
+        "id": "o48",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
           "x": 7,
           "y": 1,
-          "z": 12
+          "z": 2
         }
       },
       {
-        "id": "o58",
+        "id": "o49",
+        "type": "obstacle",
+        "modelKey": "wall.stone01",
+        "position": {
+          "x": 7,
+          "y": 1,
+          "z": 10
+        }
+      },
+      {
+        "id": "o50",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2110,7 +1806,7 @@
         }
       },
       {
-        "id": "o59",
+        "id": "o51",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2120,7 +1816,7 @@
         }
       },
       {
-        "id": "o60",
+        "id": "o52",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2130,7 +1826,7 @@
         }
       },
       {
-        "id": "o61",
+        "id": "o53",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2140,7 +1836,7 @@
         }
       },
       {
-        "id": "o62",
+        "id": "o54",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2150,7 +1846,7 @@
         }
       },
       {
-        "id": "o63",
+        "id": "o55",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2160,7 +1856,7 @@
         }
       },
       {
-        "id": "o64",
+        "id": "o56",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2170,7 +1866,7 @@
         }
       },
       {
-        "id": "o65",
+        "id": "o57",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2180,7 +1876,7 @@
         }
       },
       {
-        "id": "o66",
+        "id": "o58",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2190,7 +1886,7 @@
         }
       },
       {
-        "id": "o67",
+        "id": "o59",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
@@ -2200,33 +1896,13 @@
         }
       },
       {
-        "id": "o68",
+        "id": "o60",
         "type": "obstacle",
         "modelKey": "wall.stone01",
         "position": {
           "x": 8,
           "y": 1,
           "z": 10
-        }
-      },
-      {
-        "id": "o69",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 11
-        }
-      },
-      {
-        "id": "o70",
-        "type": "obstacle",
-        "modelKey": "wall.stone01",
-        "position": {
-          "x": 8,
-          "y": 1,
-          "z": 12
         }
       }
     ]

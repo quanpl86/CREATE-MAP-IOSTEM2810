@@ -58,7 +58,7 @@
       },
       "generation_config": {
         "map_type": "symmetrical_islands",
-        "logic_type": "algorithm_design",
+        "logic_type": "random_item_placement",
         "num_variants": 2,
         "params": {
           "num_islands": 3,

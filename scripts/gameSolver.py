@@ -51,6 +51,8 @@ class GameWorld:
         self.solution_config: Dict[str, Any] = json_data.get('solution', {})
         self.world_map: Dict[str, str] = {
             f"{block['position']['x']}-{block['position']['y']}-{block['position']['z']}": block['modelKey']
+            # [SỬA LỖI] Đảm bảo đọc cả obstacles vào world_map để solver nhận diện
+            # và thêm các khối nền (ground) vào danh sách có thể đi được.
             for block in config.get('blocks', [])
         }
         # [REFACTORED] Gán modelKey chính xác cho từng loại vật cản vào world_map
@@ -73,6 +75,10 @@ class GameWorld:
         self.collectibles_by_id: Dict[str, Dict] = {
             c['id']: c for c in config.get('collectibles', [])
         }
+        # [SỬA LỖI] Thêm một map để tra cứu type gốc của item từ ID.
+        # Điều này cực kỳ quan trọng để solver có thể đếm chính xác các loại item khác nhau
+        # (ví dụ: crystal, gem, key) khi itemGoals yêu cầu.
+        self.item_type_map: Dict[str, str] = self.solution_config.get('item_id_to_type_map', {})
 
         self.switches: Dict[str, Dict] = {}
         self.portals: Dict[str, Dict] = {}
@@ -292,8 +298,11 @@ def solve_level(world: GameWorld, is_sub_problem=False) -> Optional[List[Action]
                     # Logic này sẽ được cải tiến sau để đếm số lần 'jump'.
                     pass
                 else: # Mặc định là các vật phẩm có thể thu thập (collectibles)
-                    # [SỬA LỖI] Đếm số lượng vật phẩm đã thu thập khớp với loại mục tiêu.
-                    collected_count = sum(1 for item_id in state.collected_items if world.collectibles_by_id.get(item_id, {}).get('type') == goal_type)
+                    # [SỬA LỖI CHÍ MẠNG] Đếm số lượng vật phẩm đã thu thập dựa trên type GỐC, không phải type của game engine.
+                    # Sử dụng item_type_map đã được truyền vào từ generate_all_maps.py.
+                    collected_count = sum(
+                        1 for item_id in state.collected_items if world.item_type_map.get(item_id) == goal_type
+                    )
                     
                     # [SỬA LỖI] Xử lý trường hợp required_count là "all"
                     if isinstance(required_count, str) and required_count.lower() == 'all':

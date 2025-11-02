@@ -117,7 +117,7 @@
       {
         "modelKey": "ice.ice01",
         "position": {
-          "x": 5,
+          "x": 2,
           "y": 1,
           "z": 1
         }
@@ -139,7 +139,7 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 3,
+          "x": 5,
           "y": 1,
           "z": 1
         }
@@ -157,7 +157,7 @@
         "type": "obstacle",
         "modelKey": "ice.ice01",
         "position": {
-          "x": 5,
+          "x": 2,
           "y": 1,
           "z": 1
         }
@@ -170,32 +170,33 @@
     "optimalBlocks": 6,
     "optimalLines": 5,
     "rawActions": [
-      "moveForward",
-      "moveForward",
-      "moveForward",
       "jump",
-      "jump"
+      "jump",
+      "moveForward",
+      "moveForward",
+      "moveForward"
     ],
     "structuredSolution": {
       "main": [
         {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
           "type": "maze_jump"
         },
         {
           "type": "maze_jump"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
         }
       ],
       "procedures": {}
-    }
+    },
+    "item_id_to_type_map": {}
   },
   "sounds": {
     "win": "/assets/maze/win.mp3",

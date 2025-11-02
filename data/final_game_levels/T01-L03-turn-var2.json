@@ -55,7 +55,7 @@
         }
       ]
     },
-    "maxBlocks": 16,
+    "maxBlocks": 18,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -65,73 +65,81 @@
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": -3,
+          "x": 2,
           "y": 0,
-          "z": 12
+          "z": -3
         }
       },
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": -2,
+          "x": 2,
           "y": 0,
-          "z": 12
+          "z": -2
         }
       },
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": -1,
+          "x": 2,
           "y": 0,
-          "z": 12
+          "z": -1
         }
       },
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": 0,
+          "x": 2,
           "y": 0,
-          "z": 12
+          "z": 0
         }
       },
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": 1,
+          "x": 2,
           "y": 0,
-          "z": 8
+          "z": 1
         }
       },
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": 1,
+          "x": 2,
           "y": 0,
-          "z": 9
+          "z": 2
         }
       },
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": 1,
+          "x": 3,
           "y": 0,
-          "z": 10
+          "z": 2
         }
       },
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": 1,
+          "x": 4,
           "y": 0,
-          "z": 11
+          "z": 2
         }
       },
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": 1,
+          "x": 5,
           "y": 0,
-          "z": 12
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 2
         }
       }
     ],
@@ -139,9 +147,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 1,
+          "x": 6,
           "y": 1,
-          "z": 8,
+          "z": 2,
           "direction": 1
         }
       }
@@ -151,31 +159,33 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 1,
+          "x": 4,
           "y": 1,
-          "z": 10
+          "z": 2
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": -3,
+      "x": 2,
       "y": 1,
-      "z": 12
+      "z": -3
     }
   },
   "solution": {
     "type": "reach_target",
     "itemGoals": {},
-    "optimalBlocks": 11,
-    "optimalLines": 10,
+    "optimalBlocks": 13,
+    "optimalLines": 12,
     "rawActions": [
-      "turnRight",
+      "turnLeft",
+      "turnLeft",
       "moveForward",
       "moveForward",
       "moveForward",
       "moveForward",
       "turnRight",
+      "moveForward",
       "moveForward",
       "moveForward",
       "moveForward",
@@ -185,7 +195,11 @@
       "main": [
         {
           "type": "maze_turn",
-          "direction": "turnRight"
+          "direction": "turnLeft"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnLeft"
         },
         {
           "type": "maze_moveForward"
@@ -202,6 +216,9 @@
         {
           "type": "maze_turn",
           "direction": "turnRight"
+        },
+        {
+          "type": "maze_moveForward"
         },
         {
           "type": "maze_moveForward"
@@ -217,7 +234,8 @@
         }
       ],
       "procedures": {}
-    }
+    },
+    "item_id_to_type_map": {}
   },
   "sounds": {
     "win": "/assets/maze/win.mp3",

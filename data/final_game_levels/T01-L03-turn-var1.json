@@ -55,7 +55,7 @@
         }
       ]
     },
-    "maxBlocks": 17,
+    "maxBlocks": 15,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -65,57 +65,9 @@
       {
         "modelKey": "ground.earth",
         "position": {
-          "x": 1,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
-          "x": 2,
-          "y": 0,
-          "z": 8
-        }
-      },
-      {
-        "modelKey": "ground.earth",
-        "position": {
           "x": 3,
           "y": 0,
-          "z": 8
+          "z": 1
         }
       },
       {
@@ -123,7 +75,7 @@
         "position": {
           "x": 4,
           "y": 0,
-          "z": 8
+          "z": 1
         }
       },
       {
@@ -131,7 +83,7 @@
         "position": {
           "x": 5,
           "y": 0,
-          "z": 8
+          "z": 1
         }
       },
       {
@@ -139,7 +91,47 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 8
+          "z": 1
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 2
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.earth",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 6
         }
       }
     ],
@@ -147,9 +139,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 1,
+          "x": 3,
           "y": 1,
-          "z": 4,
+          "z": 1,
           "direction": 1
         }
       }
@@ -159,7 +151,7 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 1,
+          "x": 6,
           "y": 1,
           "z": 5
         }
@@ -169,21 +161,19 @@
     "finish": {
       "x": 6,
       "y": 1,
-      "z": 8
+      "z": 6
     }
   },
   "solution": {
     "type": "reach_target",
     "itemGoals": {},
-    "optimalBlocks": 12,
-    "optimalLines": 11,
+    "optimalBlocks": 10,
+    "optimalLines": 9,
     "rawActions": [
+      "moveForward",
+      "moveForward",
+      "moveForward",
       "turnRight",
-      "moveForward",
-      "moveForward",
-      "moveForward",
-      "moveForward",
-      "turnLeft",
       "moveForward",
       "moveForward",
       "moveForward",
@@ -193,13 +183,6 @@
     "structuredSolution": {
       "main": [
         {
-          "type": "maze_turn",
-          "direction": "turnRight"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
           "type": "maze_moveForward"
         },
         {
@@ -210,7 +193,7 @@
         },
         {
           "type": "maze_turn",
-          "direction": "turnLeft"
+          "direction": "turnRight"
         },
         {
           "type": "maze_moveForward"
@@ -229,7 +212,8 @@
         }
       ],
       "procedures": {}
-    }
+    },
+    "item_id_to_type_map": {}
   },
   "sounds": {
     "win": "/assets/maze/win.mp3",

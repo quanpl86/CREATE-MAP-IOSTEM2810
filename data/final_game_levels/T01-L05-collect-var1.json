@@ -66,7 +66,7 @@
         }
       ]
     },
-    "maxBlocks": 12,
+    "maxBlocks": 99,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -76,9 +76,17 @@
       {
         "modelKey": "stone.stone01",
         "position": {
+          "x": 2,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "stone.stone01",
+        "position": {
           "x": 3,
           "y": 0,
-          "z": 5
+          "z": 3
         }
       },
       {
@@ -86,7 +94,7 @@
         "position": {
           "x": 4,
           "y": 0,
-          "z": 5
+          "z": 3
         }
       },
       {
@@ -94,7 +102,7 @@
         "position": {
           "x": 5,
           "y": 0,
-          "z": 5
+          "z": 3
         }
       },
       {
@@ -102,7 +110,7 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 5
+          "z": 3
         }
       },
       {
@@ -110,15 +118,7 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 5
-        }
-      },
-      {
-        "modelKey": "stone.stone01",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 5
+          "z": 3
         }
       }
     ],
@@ -126,9 +126,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 3,
+          "x": 2,
           "y": 1,
-          "z": 5,
+          "z": 3,
           "direction": 1
         }
       }
@@ -138,57 +138,35 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 3,
           "y": 1,
-          "z": 5
+          "z": 3
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 8,
+      "x": 7,
       "y": 1,
-      "z": 5
+      "z": 3
     }
   },
   "solution": {
     "type": "reach_target",
     "itemGoals": {
-      "crystal": 1
+      "c": 1,
+      "r": 1,
+      "y": 1,
+      "s": 1,
+      "t": 1,
+      "a": 1,
+      "l": 1
     },
-    "optimalBlocks": 7,
-    "optimalLines": 6,
-    "rawActions": [
-      "moveForward",
-      "moveForward",
-      "moveForward",
-      "collect",
-      "moveForward",
-      "moveForward"
-    ],
-    "structuredSolution": {
-      "main": [
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_collect"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        }
-      ],
-      "procedures": {}
-    }
+    "optimalBlocks": 0,
+    "optimalLines": 0,
+    "rawActions": [],
+    "structuredSolution": {},
+    "item_id_to_type_map": {}
   },
   "sounds": {
     "win": "/assets/maze/win.mp3",

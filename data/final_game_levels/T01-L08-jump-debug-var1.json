@@ -60,7 +60,7 @@
       ]
     },
     "maxBlocks": 11,
-    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_jump\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></next></block></next></block></next></block></statement></block></xml>"
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_jump\"><next><block type=\"maze_moveForward\" /></next></block></next></block></next></block></next></block></statement></block></xml>"
   },
   "gameConfig": {
     "type": "maze",
@@ -69,9 +69,41 @@
       {
         "modelKey": "ground.normal",
         "position": {
+          "x": 1,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 3
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
           "x": 5,
           "y": 0,
-          "z": 7
+          "z": 3
         }
       },
       {
@@ -79,47 +111,15 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 7,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 8,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 9,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 10,
-          "y": 0,
-          "z": 7
+          "z": 3
         }
       },
       {
         "modelKey": "wall.brick01",
         "position": {
-          "x": 6,
+          "x": 5,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       }
     ],
@@ -127,9 +127,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 5,
+          "x": 1,
           "y": 1,
-          "z": 7,
+          "z": 3,
           "direction": 1
         }
       }
@@ -139,17 +139,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 4,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 10,
+      "x": 6,
       "y": 1,
-      "z": 7
+      "z": 3
     },
     "obstacles": [
       {
@@ -157,9 +157,9 @@
         "type": "obstacle",
         "modelKey": "wall.brick01",
         "position": {
-          "x": 6,
+          "x": 5,
           "y": 1,
-          "z": 7
+          "z": 3
         }
       }
     ]
@@ -170,45 +170,46 @@
     "optimalBlocks": 6,
     "optimalLines": 5,
     "rawActions": [
-      "jump",
-      "jump",
       "moveForward",
       "moveForward",
-      "moveForward"
+      "moveForward",
+      "jump",
+      "jump"
     ],
     "structuredSolution": {
       "main": [
         {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
           "type": "maze_jump"
         },
         {
           "type": "maze_jump"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
         }
       ],
       "procedures": {}
     },
+    "item_id_to_type_map": {},
     "structuredSolution_fixbug_version": {
       "main": [
         {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
           "type": "maze_jump"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
         },
         {
           "type": "maze_moveForward"

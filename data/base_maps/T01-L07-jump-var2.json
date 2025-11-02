@@ -6,17 +6,9 @@
       {
         "modelKey": "ground.snow",
         "position": {
-          "x": 2,
-          "y": 0,
-          "z": 1
-        }
-      },
-      {
-        "modelKey": "ground.snow",
-        "position": {
           "x": 3,
           "y": 0,
-          "z": 1
+          "z": 4
         }
       },
       {
@@ -24,7 +16,7 @@
         "position": {
           "x": 4,
           "y": 0,
-          "z": 1
+          "z": 4
         }
       },
       {
@@ -32,7 +24,7 @@
         "position": {
           "x": 5,
           "y": 0,
-          "z": 1
+          "z": 4
         }
       },
       {
@@ -40,7 +32,7 @@
         "position": {
           "x": 6,
           "y": 0,
-          "z": 1
+          "z": 4
         }
       },
       {
@@ -48,7 +40,7 @@
         "position": {
           "x": 7,
           "y": 0,
-          "z": 1
+          "z": 4
         }
       },
       {
@@ -56,7 +48,7 @@
         "position": {
           "x": 8,
           "y": 0,
-          "z": 1
+          "z": 4
         }
       },
       {
@@ -64,7 +56,7 @@
         "position": {
           "x": 9,
           "y": 0,
-          "z": 1
+          "z": 4
         }
       },
       {
@@ -72,7 +64,7 @@
         "position": {
           "x": 10,
           "y": 0,
-          "z": 1
+          "z": 4
         }
       },
       {
@@ -80,23 +72,31 @@
         "position": {
           "x": 11,
           "y": 0,
-          "z": 1
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.snow",
+        "position": {
+          "x": 12,
+          "y": 0,
+          "z": 4
         }
       },
       {
         "modelKey": "ice.ice01",
         "position": {
-          "x": 3,
+          "x": 11,
           "y": 1,
-          "z": 1
+          "z": 4
         }
       },
       {
         "modelKey": "ice.ice01",
         "position": {
-          "x": 8,
+          "x": 9,
           "y": 1,
-          "z": 1
+          "z": 4
         }
       }
     ],
@@ -104,9 +104,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 2,
+          "x": 3,
           "y": 1,
-          "z": 1,
+          "z": 4,
           "direction": 1
         }
       }
@@ -116,17 +116,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 5,
           "y": 1,
-          "z": 1
+          "z": 4
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 11,
+      "x": 12,
       "y": 1,
-      "z": 1
+      "z": 4
     },
     "obstacles": [
       {
@@ -134,9 +134,9 @@
         "type": "obstacle",
         "modelKey": "ice.ice01",
         "position": {
-          "x": 3,
+          "x": 11,
           "y": 1,
-          "z": 1
+          "z": 4
         }
       },
       {
@@ -144,9 +144,9 @@
         "type": "obstacle",
         "modelKey": "ice.ice01",
         "position": {
-          "x": 8,
+          "x": 9,
           "y": 1,
-          "z": 1
+          "z": 4
         }
       }
     ]

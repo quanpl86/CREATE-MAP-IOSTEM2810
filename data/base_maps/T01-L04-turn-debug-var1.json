@@ -6,9 +6,41 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 2,
+          "x": 1,
           "y": 0,
-          "z": 7
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 9
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 10
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 11
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 12
         }
       },
       {
@@ -22,33 +54,9 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 2,
-          "y": 0,
-          "z": 9
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 2,
-          "y": 0,
-          "z": 10
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 2,
-          "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
           "x": 3,
           "y": 0,
-          "z": 11
+          "z": 8
         }
       },
       {
@@ -56,15 +64,7 @@
         "position": {
           "x": 4,
           "y": 0,
-          "z": 11
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 5,
-          "y": 0,
-          "z": 11
+          "z": 8
         }
       }
     ],
@@ -72,9 +72,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 2,
+          "x": 4,
           "y": 1,
-          "z": 7,
+          "z": 8,
           "direction": 1
         }
       }
@@ -84,17 +84,17 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 3,
+          "x": 2,
           "y": 1,
-          "z": 11
+          "z": 8
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 5,
+      "x": 1,
       "y": 1,
-      "z": 11
+      "z": 12
     }
   }
 }

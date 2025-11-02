@@ -55,8 +55,8 @@
         }
       ]
     },
-    "maxBlocks": 14,
-    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_turn\"><field name=\"DIR\">turnLeft</field><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_turn\"><field name=\"DIR\">turnRight</field><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block></xml>"
+    "maxBlocks": 17,
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_turn\"><field name=\"DIR\">turnRight</field><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_turn\"><field name=\"DIR\">turnRight</field><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\" /></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block></xml>"
   },
   "gameConfig": {
     "type": "maze",
@@ -65,57 +65,81 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 3,
+          "x": 7,
           "y": 0,
-          "z": 7
+          "z": -4
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 4,
+          "x": 7,
           "y": 0,
-          "z": 7
+          "z": -3
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 5,
+          "x": 7,
           "y": 0,
-          "z": 7
+          "z": -2
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 6,
+          "x": 7,
           "y": 0,
-          "z": 4
+          "z": -1
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 6,
+          "x": 7,
           "y": 0,
-          "z": 5
+          "z": 0
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 6,
+          "x": 7,
           "y": 0,
-          "z": 6
+          "z": 1
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 6,
+          "x": 8,
           "y": 0,
-          "z": 7
+          "z": -4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 9,
+          "y": 0,
+          "z": -4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 10,
+          "y": 0,
+          "z": -4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 11,
+          "y": 0,
+          "z": -4
         }
       }
     ],
@@ -123,9 +147,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 6,
+          "x": 7,
           "y": 1,
-          "z": 4,
+          "z": 1,
           "direction": 1
         }
       }
@@ -135,66 +159,38 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 6,
+          "x": 7,
           "y": 1,
-          "z": 6
+          "z": 0
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 3,
+      "x": 11,
       "y": 1,
-      "z": 7
+      "z": -4
     }
   },
   "solution": {
     "type": "reach_target",
     "itemGoals": {},
-    "optimalBlocks": 9,
-    "optimalLines": 8,
+    "optimalBlocks": 12,
+    "optimalLines": 11,
     "rawActions": [
+      "turnLeft",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
+      "moveForward",
       "turnRight",
       "moveForward",
-      "moveForward",
-      "moveForward",
-      "turnRight",
       "moveForward",
       "moveForward",
       "moveForward"
     ],
     "structuredSolution": {
-      "main": [
-        {
-          "type": "maze_turn",
-          "direction": "turnRight"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_turn",
-          "direction": "turnRight"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        }
-      ],
-      "procedures": {}
-    },
-    "structuredSolution_fixbug_version": {
       "main": [
         {
           "type": "maze_turn",
@@ -210,8 +206,58 @@
           "type": "maze_moveForward"
         },
         {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
           "type": "maze_turn",
           "direction": "turnRight"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        }
+      ],
+      "procedures": {}
+    },
+    "item_id_to_type_map": {},
+    "structuredSolution_fixbug_version": {
+      "main": [
+        {
+          "type": "maze_turn",
+          "direction": "turnRight"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_turn",
+          "direction": "turnRight"
+        },
+        {
+          "type": "maze_moveForward"
         },
         {
           "type": "maze_moveForward"

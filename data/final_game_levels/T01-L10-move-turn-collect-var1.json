@@ -84,54 +84,6 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 1,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 1,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 2,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 2,
-          "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 2,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
           "x": 3,
           "y": 0,
           "z": 5
@@ -142,23 +94,7 @@
         "position": {
           "x": 3,
           "y": 0,
-          "z": 6
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 3,
-          "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 4,
-          "y": 0,
-          "z": 4
+          "z": 8
         }
       },
       {
@@ -175,6 +111,70 @@
           "x": 4,
           "y": 0,
           "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 4,
+          "y": 0,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 7
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 8
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 8
         }
       }
     ],
@@ -182,9 +182,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 1,
+          "x": 3,
           "y": 1,
-          "z": 4,
+          "z": 5,
           "direction": 1
         }
       }
@@ -194,28 +194,35 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 3,
+          "x": 4,
           "y": 1,
-          "z": 5
+          "z": 8
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 4,
+      "x": 6,
       "y": 1,
-      "z": 7
+      "z": 8
     }
   },
   "solution": {
     "type": "reach_target",
     "itemGoals": {
-      "crystal": 2
+      "c": 1,
+      "r": 1,
+      "y": 1,
+      "s": 1,
+      "t": 1,
+      "a": 1,
+      "l": 1
     },
     "optimalBlocks": 0,
     "optimalLines": 0,
     "rawActions": [],
-    "structuredSolution": {}
+    "structuredSolution": {},
+    "item_id_to_type_map": {}
   },
   "sounds": {
     "win": "/assets/maze/win.mp3",

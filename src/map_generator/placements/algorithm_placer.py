@@ -35,6 +35,14 @@ class AlgorithmPlacer(BasePlacer):
         if not isinstance(items_to_place, list): # Đảm bảo nó luôn là một list
             items_to_place = [items_to_place]
 
+        # [REFACTORED] Placer này chỉ được thiết kế cho mê cung. Nếu không phải, cảnh báo và không đặt gì.
+        map_type = params.get('map_type', '')
+        if map_type not in ['complex_maze', 'complex_maze_2d']:
+            print(f"   - ⛔ LỖI CẤU HÌNH: AlgorithmPlacer không nên được sử dụng cho map type '{map_type}'.")
+            print("     Gợi ý: Hãy sử dụng 'random_item_placement' hoặc một placer phù hợp khác trong curriculum.")
+            # Trả về map rỗng, không có vật phẩm
+            return {"start_pos": path_info.start_pos, "target_pos": path_info.target_pos, "items": items, "obstacles": obstacles}
+
         # [SỬA LỖI] Logic tìm ngõ cụt (dead ends) được viết lại hoàn toàn.
         path_coords_set = set(path_info.path_coords)
         dead_ends = []
@@ -69,17 +77,23 @@ class AlgorithmPlacer(BasePlacer):
             # trên đường đi (trừ start/target và các vị trí đã chọn).
             if len(placement_coords) < len(items_to_place):
                 print(f"   - ⚠️ Cảnh báo: Số ngõ cụt ({len(dead_ends)}) ít hơn số vật phẩm yêu cầu ({len(items_to_place)}). Sẽ đặt ở các vị trí ngẫu nhiên khác.")
-                
+
                 # Lấy tất cả các ô đường đi có thể đặt
                 other_possible_coords = list(path_coords_set - set(placement_coords) - {path_info.start_pos, path_info.target_pos})
                 random.shuffle(other_possible_coords)
-                
+
                 # Bổ sung vào danh sách các vị trí có thể đặt
                 needed_more = len(items_to_place) - len(placement_coords)
                 placement_coords.extend(other_possible_coords[:needed_more])
-            
-            # 3. Đặt vật phẩm vào các vị trí đã chọn (tối đa bằng số vị trí tìm được)
-            for i in range(min(len(items_to_place), len(placement_coords))):
+
+            # 3. [SỬA LỖI] Đảm bảo đặt đủ số lượng vật phẩm nếu có đủ vị trí.
+            num_items_to_place = len(items_to_place)
+            num_coords_available = len(placement_coords)
+
+            if num_coords_available < num_items_to_place:
+                print(f"   - ⛔ LỖI: Không tìm đủ vị trí ({num_coords_available}) để đặt {num_items_to_place} vật phẩm. Sẽ chỉ đặt {num_coords_available} vật phẩm.")
+
+            for i in range(min(num_items_to_place, num_coords_available)):
                 item_type = items_to_place[i]
                 pos = placement_coords[i]
                 items.append({"type": item_type, "pos": pos})

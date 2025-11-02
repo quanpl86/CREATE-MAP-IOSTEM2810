@@ -56,6 +56,7 @@ from .placements.arrow_shape_placer import ArrowShapePlacer
 from .placements.algorithm_placer import AlgorithmPlacer
 from .placements.island_tour_placer import IslandTourPlacer # [MỚI] Import placer mới
 from .placements.zigzag_placer import ZigzagPlacer # [MỚI] Import ZigzagPlacer
+from .placements.random_item_placer import RandomItemPlacer # [MỚI] Import placer đặt item ngẫu nhiên
 from .placements.swift_playground_placer import SwiftPlaygroundPlacer # [MỚI] Import placer Swift Playground
 
 class MapGeneratorService:
@@ -145,6 +146,7 @@ class MapGeneratorService:
             'while_loop': WhileIfPlacer(),
             'algorithm_design': AlgorithmPlacer(),
             'advanced_algorithm': AlgorithmPlacer(),
+            'random_item_placement': RandomItemPlacer(), # [MỚI] Đăng ký placer mới
             'island_tour': IslandTourPlacer(), # [MỚI] Đăng ký placer mới
             'zigzag': ZigzagPlacer(), # [MỚI] Đăng ký ZigzagPlacer
             'swift_playground_placer': SwiftPlaygroundPlacer(), # [SỬA LỖI] Đồng bộ tên đăng ký
@@ -172,6 +174,9 @@ class MapGeneratorService:
         topology_params.pop('map_type', None) # Xóa 'map_type' nếu có
         path_info: PathInfo = topology_strategy.generate_path_info(grid_size=grid_size, params=topology_params)
         
+        # [SỬA LỖI] Đảm bảo 'map_type' luôn có trong params để các Placer có thể sử dụng.
+        params['map_type'] = map_type
+
         placement_strategy = self.placements.get(logic_type)
         if not placement_strategy:
             raise ValueError(f"Không tìm thấy chiến lược placement nào có tên '{logic_type}' đã được đăng ký.")

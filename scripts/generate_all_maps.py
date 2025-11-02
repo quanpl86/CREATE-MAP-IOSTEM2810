@@ -435,18 +435,27 @@ def main():
                             "structuredSolution": program_dict
                         }
 
-                    # [CẢI TIẾN] Tự động tính toán itemGoals thay vì dùng giá trị "all"
+                    # [SỬA LỖI] Logic tính toán itemGoals và tạo map ánh xạ item_id -> type gốc
                     original_item_goals = map_request.get('solution_config', {}).get('itemGoals', {})
                     final_item_goals = {}
-                    for item_type, required_count in original_item_goals.items():
-                        if required_count == "all":
-                            # Đếm số lượng item thực tế có trên map
-                            actual_count = sum(1 for item in generated_map.items if item.get('type') == item_type)
-                            final_item_goals[item_type] = actual_count
-                            print(f"    LOG: Đã tính toán itemGoals cho '{item_type}': 'all' -> {actual_count}")
-                        else:
-                            # Giữ nguyên giá trị số nếu nó không phải là "all"
-                            final_item_goals[item_type] = required_count
+                    item_id_to_type_map = {}
+
+                    # Đếm số lượng yêu cầu cho mỗi loại item từ curriculum
+                    from collections import Counter
+                    required_item_counts = Counter(params_for_generation.get('items_to_place', []))
+
+                    # Tạo map ánh xạ và tính toán final_item_goals
+                    for item_obj in generated_map.items:
+                        item_id = item_obj.get('id')
+                        item_type = item_obj.get('type') # Đây là type gốc (crystal, gem, key)
+                        if item_id and item_type:
+                            item_id_to_type_map[item_id] = item_type
+
+                    # Cập nhật final_item_goals dựa trên số lượng yêu cầu
+                    for item_type, count in required_item_counts.items():
+                        final_item_goals[item_type] = count
+                        print(f"    LOG: Đã tính toán itemGoals cho '{item_type}': {count}")
+
 
                     # --- [MỚI] Bước 6.5: Tính toán Optimal Lines of Code cho JavaScript ---
                     optimal_lloc = 0
@@ -575,6 +584,7 @@ def main():
                             "optimalLines": optimal_lloc, # Lời giải đúng
                             "rawActions": solution_result['raw_actions'] if solution_result else [],
                             "structuredSolution": solution_result.get('program_solution_dict', {}) if solution_result else {}, # Lời giải đúng
+                            "item_id_to_type_map": item_id_to_type_map # [SỬA LỖI] Thêm map ánh xạ
                         },
                         "sounds": { "win": "/assets/maze/win.mp3", "fail": "/assets/maze/fail_pegman.mp3" }
                     }

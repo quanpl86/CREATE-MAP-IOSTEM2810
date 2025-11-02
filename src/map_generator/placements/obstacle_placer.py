@@ -56,16 +56,8 @@ class ObstaclePlacer(BasePlacer):
                 obstacles.append({"type": "obstacle", "modelKey": "wall.brick01", "pos": pos})
 
         # 2. [MỞ RỘNG] Đặt các vật phẩm và công tắc khác vào các vị trí còn lại
-        # [SỬA LỖI] Hỗ trợ cả hai cách định nghĩa item:
-        # 1. items_to_place: ["crystal", "switch"]
-        # 2. item_type: "crystal", item_count: 2
+        # [CHUẨN HÓA] Chỉ sử dụng chuẩn 'items_to_place'
         items_to_place = params.get('items_to_place', []) # Cách mới, linh hoạt
-        if not items_to_place:
-            # Nếu không có, thử đọc theo cách cũ
-            item_type = params.get('item_type')
-            item_count = params.get('item_count', 0)
-            if item_type and item_count > 0:
-                items_to_place = [item_type] * item_count
 
         for item_type in items_to_place:
             if not possible_coords:

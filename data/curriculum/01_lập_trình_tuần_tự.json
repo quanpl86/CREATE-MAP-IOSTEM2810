@@ -3,18 +3,151 @@
   "topic_name": "Lập trình Tuần tự",
   "suggested_maps": [
     {
-      "id": "topic01-req01-simple",
+      "id": "T01-L01-move",
       "level": 1,
-      "titleKey": "Challenge.topic01-req01-simple.Title",
-      "descriptionKey": "Challenge.topic01-req01-simple.Description",
+      "titleKey": "Challenge.T01-L01-move.Title",
+      "descriptionKey": "Challenge.T01-L01-move.Description",
       "translations": {
         "vi": {
-          "Challenge.topic01-req01-simple.Title": "Đi thẳng và Thu thập",
-          "Challenge.topic01-req01-simple.Description": "Nhân vật đang ở đầu một con đường thẳng. Hãy viết code để nhân vật đi đến cuối đường và lấy viên pha lê."
+          "Challenge.T01-L01-move.Title": "Bước đi đầu tiên",
+          "Challenge.T01-L01-move.Description": "Sử dụng khối moveForward để giúp nhân vật đi thẳng về phía trước."
         },
         "en": {
-          "Challenge.topic01-req01-simple.Title": "Go Straight and Collect",
-          "Challenge.topic01-req01-simple.Description": "The character is at the start of a straight path. Write code to make the character move to the end and collect the crystal."
+          "Challenge.T01-L01-move.Title": "First Step",
+          "Challenge.T01-L01-move.Description": "Use the moveForward block to make the character go straight."
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "path_length": 3
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_only"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "T01-L02-move-refactor",
+      "level": 2,
+      "titleKey": "Challenge.T01-L02-move-refactor.Title",
+      "descriptionKey": "Challenge.T01-L02-move-refactor.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L02-move-refactor.Title": "Tối ưu quãng đường",
+          "Challenge.T01-L02-move-refactor.Description": "Chương trình có 4 khối moveForward. Hãy dùng vòng lặp repeat để làm nó ngắn gọn hơn."
+        },
+        "en": {
+          "Challenge.T01-L02-move-refactor.Title": "Optimize the Path",
+          "Challenge.T01-L02-move-refactor.Description": "This program has 4 moveForward blocks. Use a repeat loop to make it shorter."
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "for_loop_simple",
+        "num_variants": 1,
+        "params": {
+          "path_length": 4,
+          "start_blocks_type": "unrefactored_solution"
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "loops_basic"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "T01-L03-turn",
+      "level": 3,
+      "titleKey": "Challenge.T01-L03-turn.Title",
+      "descriptionKey": "Challenge.T01-L03-turn.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L03-turn.Title": "Ngã rẽ",
+          "Challenge.T01-L03-turn.Description": "Sử dụng các khối moveForward và turnLeft/turnRight để đi theo con đường hình chữ L."
+        },
+        "en": {
+          "Challenge.T01-L03-turn.Title": "Making a Turn",
+          "Challenge.T01-L03-turn.Description": "Use moveForward and turnLeft/turnRight blocks to follow the L-shaped path."
+        }
+      },
+      "generation_config": {
+        "map_type": "l_shape",
+        "logic_type": "sequencing",
+        "num_variants": 2,
+        "params": {
+          "path_length": 3,
+          "asset_theme": {
+            "ground": "ground.earth"
+          }
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_turn"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "T01-L04-turn-debug",
+      "level": 4,
+      "titleKey": "Challenge.T01-L04-turn-debug.Title",
+      "descriptionKey": "Challenge.T01-L04-turn-debug.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L04-turn-debug.Title": "Sửa lỗi: Rẽ sai hướng",
+          "Challenge.T01-L04-turn-debug.Description": "Nhân vật cần rẽ phải nhưng chương trình lại rẽ trái. Hãy tìm và sửa lại khối lệnh turnLeft thành turnRight."
+        },
+        "en": {
+          "Challenge.T01-L04-turn-debug.Title": "Debug: Wrong Turn",
+          "Challenge.T01-L04-turn-debug.Description": "The character needs to turn right, but the program turns left. Find and fix the turnLeft block to turnRight."
+        }
+      },
+      "generation_config": {
+        "map_type": "l_shape",
+        "logic_type": "sequencing",
+        "num_variants": 2,
+        "params": {
+          "path_length": 3,
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "incorrect_parameter",
+          "bug_config": {
+            "target": "main"
+          }
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_turn"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "T01-L05-collect",
+      "level": 5,
+      "titleKey": "Challenge.T01-L05-collect.Title",
+      "descriptionKey": "Challenge.T01-L05-collect.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L05-collect.Title": "Thu thập kho báu",
+          "Challenge.T01-L05-collect.Description": "Di chuyển tới và sử dụng khối collect để thu thập viên pha lê."
+        },
+        "en": {
+          "Challenge.T01-L05-collect.Title": "Collect the Treasure",
+          "Challenge.T01-L05-collect.Description": "Move to the crystal and use the collect block to get it."
         }
       },
       "generation_config": {
@@ -23,7 +156,163 @@
         "num_variants": 1,
         "params": {
           "path_length": 4,
-          "items_to_place": "crystal"
+          "items_to_place": "crystal",
+          "asset_theme": {
+            "ground": "stone.stone01"
+          }
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_collect"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": 1
+        }
+      }
+    },
+    {
+      "id": "T01-L06-collect-debug",
+      "level": 6,
+      "titleKey": "Challenge.T01-L06-collect-debug.Title",
+      "descriptionKey": "Challenge.T01-L06-collect-debug.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L06-collect-debug.Title": "Sửa lỗi: Thu thập quá sớm",
+          "Challenge.T01-L06-collect-debug.Description": "Nhân vật đang cố thu thập pha lê trước khi di chuyển tới vị trí của nó. Hãy sắp xếp lại các khối lệnh!"
+        },
+        "en": {
+          "Challenge.T01-L06-collect-debug.Title": "Debug: Collect Too Soon",
+          "Challenge.T01-L06-collect-debug.Description": "The character is trying to collect the crystal before moving to its location. Reorder the blocks!"
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "path_length": 3,
+          "items_to_place": "crystal",
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "sequence_error"
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_collect"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": 1
+        }
+      }
+    },
+    {
+      "id": "T01-L07-jump",
+      "level": 7,
+      "titleKey": "Challenge.T01-L07-jump.Title",
+      "descriptionKey": "Challenge.T01-L07-jump.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L07-jump.Title": "Vượt chướng ngại vật",
+          "Challenge.T01-L07-jump.Description": "Sử dụng khối jump để nhảy qua bức tường và đi tiếp."
+        },
+        "en": {
+          "Challenge.T01-L07-jump.Title": "Over the Obstacle",
+          "Challenge.T01-L07-jump.Description": "Use the jump block to jump over the wall and continue."
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "sequencing",
+        "num_variants": 2,
+        "params": {
+          "path_length": [
+            4,
+            8
+          ],
+          "obstacle_count": [
+            1,
+            2
+          ],
+          "asset_theme": {
+            "ground": "ground.snow",
+            "obstacle": "ice.ice01"
+          }
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_jump"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "T01-L08-jump-debug",
+      "level": 8,
+      "titleKey": "Challenge.T01-L08-jump-debug.Title",
+      "descriptionKey": "Challenge.T01-L08-jump-debug.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L08-jump-debug.Title": "Sửa lỗi: Đâm vào tường",
+          "Challenge.T01-L08-jump-debug.Description": "Nhân vật đang cố đi xuyên tường thay vì nhảy qua. Hãy thay thế khối moveForward sai bằng khối jump."
+        },
+        "en": {
+          "Challenge.T01-L08-jump-debug.Title": "Debug: Hitting the Wall",
+          "Challenge.T01-L08-jump-debug.Description": "The character is trying to walk through the wall instead of jumping over it. Replace the wrong moveForward block with a jump block."
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "path_length": 4,
+          "obstacle_count": 1,
+          "start_blocks_type": "buggy_solution",
+          "bug_type": "incorrect_block",
+          "bug_config": {
+            "target": "main",
+            "options": {
+              "from": "jump",
+              "to": "moveForward"
+            }
+          }
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_jump"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {}
+      }
+    },
+    {
+      "id": "T01-L09-switch",
+      "level": 9,
+      "titleKey": "Challenge.T01-L09-switch.Title",
+      "descriptionKey": "Challenge.T01-L09-switch.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L09-switch.Title": "Bật công tắc",
+          "Challenge.T01-L09-switch.Description": "Di chuyển tới và sử dụng khối toggleSwitch để bật công tắc."
+        },
+        "en": {
+          "Challenge.T01-L09-switch.Title": "Toggle the Switch",
+          "Challenge.T01-L09-switch.Description": "Move to the switch and use the toggleSwitch block to activate it."
+        }
+      },
+      "generation_config": {
+        "map_type": "simple_path",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "path_length": 3,
+          "items_to_place": "switch"
         }
       },
       "blockly_config": {
@@ -32,7 +321,165 @@
       "solution_config": {
         "type": "reach_target",
         "itemGoals": {
-          "crystal": 1
+          "switch": 1
+        }
+      }
+    },
+    {
+      "id": "T01-L10-move-turn-collect",
+      "level": 10,
+      "titleKey": "Challenge.T01-L10-move-turn-collect.Title",
+      "descriptionKey": "Challenge.T01-L10-move-turn-collect.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L10-move-turn-collect.Title": "Thử thách tổng hợp 1",
+          "Challenge.T01-L10-move-turn-collect.Description": "Kết hợp di chuyển, rẽ và thu thập để hoàn thành mê cung zíc-zắc và lấy tất cả pha lê."
+        },
+        "en": {
+          "Challenge.T01-L10-move-turn-collect.Title": "Combo Challenge 1",
+          "Challenge.T01-L10-move-turn-collect.Description": "Combine moving, turning, and collecting to complete the zigzag maze and get all crystals."
+        }
+      },
+      "generation_config": {
+        "map_type": "z_shape",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "leg1_length": 3,
+          "leg2_length": 3,
+          "leg3_length": 3,
+          "items_to_place": [
+            "crystal",
+            "crystal"
+          ]
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_actions"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": 2
+        }
+      }
+    },
+    {
+      "id": "T01-L11-move-jump-switch",
+      "level": 11,
+      "titleKey": "Challenge.T01-L11-move-jump-switch.Title",
+      "descriptionKey": "Challenge.T01-L11-move-jump-switch.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L11-move-jump-switch.Title": "Thử thách tổng hợp 2",
+          "Challenge.T01-L11-move-jump-switch.Description": "Vượt qua các hòn đảo tách biệt bằng cách nhảy và bật các công tắc trên đường đi."
+        },
+        "en": {
+          "Challenge.T01-L11-move-jump-switch.Title": "Combo Challenge 2",
+          "Challenge.T01-L11-move-jump-switch.Description": "Cross the separate islands by jumping and toggling switches along the way."
+        }
+      },
+      "generation_config": {
+        "map_type": "interspersed_path",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "num_islands": 3,
+          "island_spacing": 1,
+          "items_to_place": [
+            "switch",
+            "switch"
+          ]
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_actions"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "switch": 2
+        }
+      }
+    },
+    {
+      "id": "T01-L12-complex-debug",
+      "level": 12,
+      "titleKey": "Challenge.T01-L12-complex-debug.Title",
+      "descriptionKey": "Challenge.T01-L12-complex-debug.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L12-complex-debug.Title": "Sửa lỗi: Mê cung hỗn loạn",
+          "Challenge.T01-L12-complex-debug.Description": "Các lệnh để giải mê cung đều đúng, nhưng chúng đang ở sai vị trí! Hãy sắp xếp lại để nhân vật về đích."
+        },
+        "en": {
+          "Challenge.T01-L12-complex-debug.Title": "Debug: Chaotic Maze",
+          "Challenge.T01-L12-complex-debug.Description": "The commands to solve the maze are correct, but they are in the wrong order! Rearrange them to get the character to the finish."
+        }
+      },
+      "generation_config": {
+        "map_type": "complex_maze_2d",
+        "logic_type": "algorithm_design",
+        "num_variants": 1,
+        "params": {
+          "maze_width": 9,
+          "items_to_place": [
+            "crystal",
+            "crystal"
+          ],
+          "asset_theme": {
+            "ground": "stone.stone02"
+          }
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_actions"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": 2
+        }
+      }
+    },
+    {
+      "id": "T01-L13-final-challenge",
+      "level": 13,
+      "titleKey": "Challenge.T01-L13-final-challenge.Title",
+      "descriptionKey": "Challenge.T01-L13-final-challenge.Description",
+      "translations": {
+        "vi": {
+          "Challenge.T01-L13-final-challenge.Title": "Thử thách cuối cùng",
+          "Challenge.T01-L13-final-challenge.Description": "Áp dụng tất cả các lệnh đã học: di chuyển, rẽ, nhảy, thu thập và bật công tắc để chinh phục mê cung cuối cùng này!"
+        },
+        "en": {
+          "Challenge.T01-L13-final-challenge.Title": "The Final Challenge",
+          "Challenge.T01-L13-final-challenge.Description": "Apply all learned commands: move, turn, jump, collect, and toggle to conquer this final maze!"
+        }
+      },
+      "generation_config": {
+        "map_type": "hub_with_branches",
+        "logic_type": "sequencing",
+        "num_variants": 1,
+        "params": {
+          "num_branches": 3,
+          "branch_length": 4,
+          "items_to_place": [
+            "crystal",
+            "switch",
+            "crystal"
+          ],
+          "obstacle_count": 2
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "movement_actions"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": 2,
+          "switch": 1
         }
       }
     }

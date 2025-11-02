@@ -1,0 +1,47 @@
+{
+  "topic_code": "TOPIC_09_ALGORITHMS",
+  "topic_name": "Thuật toán1",
+  "suggested_maps": [
+    {
+      "id": "topic09-req05-complex",
+      "level": 2,
+      "titleKey": "Challenge.topic09-req05-complex.Title",
+      "descriptionKey": "Challenge.topic09-req05-complex.Description",
+      "translations": {
+        "vi": {
+          "Challenge.topic09-req05-complex.Title": "Thử thách Người giao hàng",
+          "Challenge.topic09-req05-complex.Description": "ALL Thu thập tất cả các loại kho báu khác nhau (pha lê, đá quý, chìa khóa) trong mê cung trước khi đến đích."
+        },
+        "en": {
+          "Challenge.topic09-req05-complex.Title": "The Delivery Challenge",
+          "Challenge.topic09-req05-complex.Description": "Collect all different types of treasures (crystal, gem, key) in the maze before reaching the destination."
+        }
+      },
+      "generation_config": {
+        "map_type": "complex_maze_2d",
+        "logic_type": "algorithm_design",
+        "num_variants": 1,
+        "params": {
+          "maze_width": 14,
+          "items_to_place": [
+            "crystal",
+            "crystal",
+            "crystal"
+          ],
+          "asset_theme": {
+            "ground": "stone.stone04"
+          }
+        }
+      },
+      "blockly_config": {
+        "toolbox_preset": "full_toolbox"
+      },
+      "solution_config": {
+        "type": "reach_target",
+        "itemGoals": {
+          "crystal": 3
+        }
+      }
+    }
+  ]
+}

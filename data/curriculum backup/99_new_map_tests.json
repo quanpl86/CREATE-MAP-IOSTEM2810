@@ -280,7 +280,7 @@
       "translations": { "vi": { "Challenge.test_spiral_3d_01.Title": "Test Xoắn Ốc 3D", "Challenge.test_spiral_3d_01.Description": "Kiểm tra map xoắn ốc 3D đi lên." } },
       "generation_config": {
         "map_type": "spiral_3d",
-        "logic_type": "spiral_3d",
+        "logic_type": "spiral_3d_placer",
         "num_variants": 1,
         "params": { "width": 7, "height": 2, "item_count": 8 }
       },

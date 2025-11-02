@@ -1,22 +1,22 @@
 {
-  "id": "topic02-req04-debug-seq-var1",
+  "id": "T01-L05-collect-var1",
   "gameType": "maze",
   "grade": 4,
-  "topic": "topic-title-topic_02_actions",
-  "level": 4,
-  "titleKey": "Challenge.topic02-req04-debug-seq.Title",
-  "questTitleKey": "Challenge.topic02-req04-debug-seq.Description",
-  "descriptionKey": "Challenge.topic02-req04-debug-seq.Description",
+  "topic": "topic-title-topic_01_sequencing",
+  "level": 5,
+  "titleKey": "Challenge.T01-L05-collect.Title",
+  "questTitleKey": "Challenge.T01-L05-collect.Description",
+  "descriptionKey": "Challenge.T01-L05-collect.Description",
   "translations": {
     "vi": {
-      "Challenge.topic02-req04-debug-seq.Title": "Sửa lỗi: Thu thập quá sớm",
-      "Challenge.topic02-req04-debug-seq.Description": "Các lệnh đều đúng, nhưng nhân vật đang cố thu thập pha lê trước khi di chuyển tới vị trí của nó. Hãy sắp xếp lại!",
-      "topic-title-topic_02_actions": "Hành động"
+      "Challenge.T01-L05-collect.Title": "Thu thập kho báu",
+      "Challenge.T01-L05-collect.Description": "Di chuyển tới và sử dụng khối collect để thu thập viên pha lê.",
+      "topic-title-topic_01_sequencing": "Lập trình Tuần tự"
     },
     "en": {
-      "Challenge.topic02-req04-debug-seq.Title": "Debug: Collect Too Soon",
-      "Challenge.topic02-req04-debug-seq.Description": "All the commands are correct, but the character is trying to collect the crystal before moving to its location. Reorder them!",
-      "topic-title-topic_02_actions": "Hành động"
+      "Challenge.T01-L05-collect.Title": "Collect the Treasure",
+      "Challenge.T01-L05-collect.Description": "Move to the crystal and use the collect block to get it.",
+      "topic-title-topic_01_sequencing": "Lập trình Tuần tự"
     }
   },
   "supportedEditors": [
@@ -49,10 +49,6 @@
             },
             {
               "kind": "block",
-              "type": "maze_jump"
-            },
-            {
-              "kind": "block",
               "type": "maze_turn"
             }
           ]
@@ -65,60 +61,64 @@
             {
               "kind": "block",
               "type": "maze_collect"
-            },
-            {
-              "kind": "block",
-              "type": "maze_toggle_switch"
             }
           ]
         }
       ]
     },
-    "maxBlocks": 11,
-    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_moveForward\"><next><block type=\"maze_collect\" /></next></block></next></block></next></block></next></block></statement></block></xml>"
+    "maxBlocks": 12,
+    "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
     "type": "maze",
     "renderer": "3d",
     "blocks": [
       {
-        "modelKey": "ground.normal",
+        "modelKey": "stone.stone01",
+        "position": {
+          "x": 5,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "stone.stone01",
+        "position": {
+          "x": 6,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "stone.stone01",
         "position": {
           "x": 7,
           "y": 0,
-          "z": 7
+          "z": 6
         }
       },
       {
-        "modelKey": "ground.normal",
+        "modelKey": "stone.stone01",
         "position": {
           "x": 8,
           "y": 0,
-          "z": 7
+          "z": 6
         }
       },
       {
-        "modelKey": "ground.normal",
+        "modelKey": "stone.stone01",
         "position": {
           "x": 9,
           "y": 0,
-          "z": 7
+          "z": 6
         }
       },
       {
-        "modelKey": "ground.normal",
+        "modelKey": "stone.stone01",
         "position": {
           "x": 10,
           "y": 0,
-          "z": 7
-        }
-      },
-      {
-        "modelKey": "ground.normal",
-        "position": {
-          "x": 11,
-          "y": 0,
-          "z": 7
+          "z": 6
         }
       }
     ],
@@ -126,9 +126,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 7,
+          "x": 5,
           "y": 1,
-          "z": 7,
+          "z": 6,
           "direction": 1
         }
       }
@@ -140,15 +140,15 @@
         "position": {
           "x": 8,
           "y": 1,
-          "z": 7
+          "z": 6
         }
       }
     ],
     "interactibles": [],
     "finish": {
-      "x": 11,
+      "x": 10,
       "y": 1,
-      "z": 7
+      "z": 6
     }
   },
   "solution": {
@@ -156,12 +156,13 @@
     "itemGoals": {
       "crystal": 1
     },
-    "optimalBlocks": 6,
-    "optimalLines": 5,
+    "optimalBlocks": 7,
+    "optimalLines": 6,
     "rawActions": [
       "moveForward",
-      "collect",
       "moveForward",
+      "moveForward",
+      "collect",
       "moveForward",
       "moveForward"
     ],
@@ -171,29 +172,6 @@
           "type": "maze_moveForward"
         },
         {
-          "type": "maze_collect"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        }
-      ],
-      "procedures": {}
-    },
-    "structuredSolution_fixbug_version": {
-      "main": [
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
           "type": "maze_moveForward"
         },
         {
@@ -201,6 +179,12 @@
         },
         {
           "type": "maze_collect"
+        },
+        {
+          "type": "maze_moveForward"
+        },
+        {
+          "type": "maze_moveForward"
         }
       ],
       "procedures": {}

@@ -18,23 +18,24 @@ class GameWorld:
     
     # Các khối nền có thể đi bộ trên đó.
     WALKABLE_GROUNDS: Set[str] = {
-        'ground.checker', 'ground.earth', 'ground.earthChecker', 'ground.mud', 
-        'ground.normal', 'ground.snow',
-        'water.water01',
-        'ice.ice01'
+        'wall.brick01', 'wall.brick02', 'wall.brick03', 'wall.brick04', 'wall.brick05', 'wall.brick06',
+        'ground.checker', 'ground.earth', 'ground.earthChecker', 'ground.mud', 'ground.normal', 'ground.snow',
+        'stone.stone01', 'stone.stone02', 'stone.stone03', 'stone.stone04', 'stone.stone05', 'stone.stone06', 'stone.stone07', 'ice.ice01'
     }
     
     # Các vật cản có thể nhảy LÊN trên đỉnh.
     JUMPABLE_OBSTACLES: Set[str] = {
         'wall.brick01', 'wall.brick02', 'wall.brick03', 'wall.brick04', 'wall.brick05', 'wall.brick06',
         'ground.checker', 'ground.earth', 'ground.earthChecker', 'ground.mud', 'ground.normal', 'ground.snow',
-        'stone.stone01', 'stone.stone02', 'stone.stone03', 'stone.stone04', 'stone.stone05', 'stone.stone06', 'stone.stone07'
+        'stone.stone01', 'stone.stone02', 'stone.stone03', 'stone.stone04', 'stone.stone05', 'stone.stone06', 'stone.stone07', 'ice.ice01'
     }
 
     # Các vật cản KHÔNG thể nhảy lên (tường cao, dung nham, v.v.).
     UNJUMPABLE_OBSTACLES: Set[str] = {
         'wall.stone01', # Ví dụ: tường đá cao
-        'lava.lava01'
+        'lava.lava01',
+        'water.water01',
+        'ice.ice01'
     }
     DEADLY_OBSTACLES: Set[str] = {
         'lava.lava01'
@@ -315,8 +316,12 @@ def solve_level(world: GameWorld, is_sub_problem=False) -> Optional[List[Action]
     # --- [CẢI TIẾN] Logic điều phối ---
     # Nếu đây là bài toán phức tạp (nhiều mục tiêu), sử dụng meta-solver
     required_goals = world.solution_config.get("itemGoals", {})
-    num_collectible_goals = sum(1 for k, v in required_goals.items() if k != 'switch')
-    if not is_sub_problem and num_collectible_goals > 1:
+    # [SỬA LỖI] Kích hoạt meta-solver cho BẤT KỲ bài toán mê cung nào có itemGoals,
+    # kể cả khi chỉ có 1 vật phẩm. Điều này giải quyết vấn đề solver không tìm được
+    # lời giải khi vật phẩm và đích ở hai vị trí khác nhau.
+    is_maze_with_items = world.solution_config.get('logic_type') == 'algorithm_design' and any(k != 'switch' for k in required_goals)
+
+    if not is_sub_problem and is_maze_with_items:
         return _solve_multi_goal_tsp(world)
 
     start_node.h_cost = heuristic(start_state)

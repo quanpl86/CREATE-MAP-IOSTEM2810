@@ -1,21 +1,21 @@
 {
-  "id": "topic01-req01-simple-var1",
+  "id": "T01-L10-move-turn-collect-var1",
   "gameType": "maze",
   "grade": 4,
   "topic": "topic-title-topic_01_sequencing",
-  "level": 1,
-  "titleKey": "Challenge.topic01-req01-simple.Title",
-  "questTitleKey": "Challenge.topic01-req01-simple.Description",
-  "descriptionKey": "Challenge.topic01-req01-simple.Description",
+  "level": 10,
+  "titleKey": "Challenge.T01-L10-move-turn-collect.Title",
+  "questTitleKey": "Challenge.T01-L10-move-turn-collect.Description",
+  "descriptionKey": "Challenge.T01-L10-move-turn-collect.Description",
   "translations": {
     "vi": {
-      "Challenge.topic01-req01-simple.Title": "Đi thẳng và Thu thập",
-      "Challenge.topic01-req01-simple.Description": "Nhân vật đang ở đầu một con đường thẳng. Hãy viết code để nhân vật đi đến cuối đường và lấy viên pha lê.",
+      "Challenge.T01-L10-move-turn-collect.Title": "Thử thách tổng hợp 1",
+      "Challenge.T01-L10-move-turn-collect.Description": "Kết hợp di chuyển, rẽ và thu thập để hoàn thành mê cung zíc-zắc và lấy tất cả pha lê.",
       "topic-title-topic_01_sequencing": "Lập trình Tuần tự"
     },
     "en": {
-      "Challenge.topic01-req01-simple.Title": "Go Straight and Collect",
-      "Challenge.topic01-req01-simple.Description": "The character is at the start of a straight path. Write code to make the character move to the end and collect the crystal.",
+      "Challenge.T01-L10-move-turn-collect.Title": "Combo Challenge 1",
+      "Challenge.T01-L10-move-turn-collect.Description": "Combine moving, turning, and collecting to complete the zigzag maze and get all crystals.",
       "topic-title-topic_01_sequencing": "Lập trình Tuần tự"
     }
   },
@@ -74,7 +74,7 @@
         }
       ]
     },
-    "maxBlocks": 12,
+    "maxBlocks": 99,
     "startBlocks": "<xml><block type=\"maze_start\" deletable=\"false\" movable=\"false\"><statement name=\"DO\"></statement></block></xml>"
   },
   "gameConfig": {
@@ -84,7 +84,15 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 7,
+          "x": 1,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 1,
           "y": 0,
           "z": 7
         }
@@ -92,7 +100,23 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 8,
+          "x": 2,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 2,
           "y": 0,
           "z": 7
         }
@@ -100,7 +124,31 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 9,
+          "x": 3,
+          "y": 0,
+          "z": 4
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 5
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 6
+        }
+      },
+      {
+        "modelKey": "ground.normal",
+        "position": {
+          "x": 3,
           "y": 0,
           "z": 7
         }
@@ -108,23 +156,23 @@
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 10,
+          "x": 4,
           "y": 0,
-          "z": 7
+          "z": 4
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 11,
+          "x": 4,
           "y": 0,
-          "z": 7
+          "z": 5
         }
       },
       {
         "modelKey": "ground.normal",
         "position": {
-          "x": 12,
+          "x": 4,
           "y": 0,
           "z": 7
         }
@@ -134,9 +182,9 @@
       {
         "id": "player1",
         "start": {
-          "x": 7,
+          "x": 1,
           "y": 1,
-          "z": 7,
+          "z": 4,
           "direction": 1
         }
       }
@@ -146,7 +194,7 @@
         "id": "c1",
         "type": "crystal",
         "position": {
-          "x": 9,
+          "x": 2,
           "y": 1,
           "z": 7
         }
@@ -154,7 +202,7 @@
     ],
     "interactibles": [],
     "finish": {
-      "x": 12,
+      "x": 4,
       "y": 1,
       "z": 7
     }
@@ -162,41 +210,12 @@
   "solution": {
     "type": "reach_target",
     "itemGoals": {
-      "crystal": 1
+      "crystal": 2
     },
-    "optimalBlocks": 7,
-    "optimalLines": 6,
-    "rawActions": [
-      "moveForward",
-      "moveForward",
-      "collect",
-      "moveForward",
-      "moveForward",
-      "moveForward"
-    ],
-    "structuredSolution": {
-      "main": [
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_collect"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        },
-        {
-          "type": "maze_moveForward"
-        }
-      ],
-      "procedures": {}
-    }
+    "optimalBlocks": 0,
+    "optimalLines": 0,
+    "rawActions": [],
+    "structuredSolution": {}
   },
   "sounds": {
     "win": "/assets/maze/win.mp3",

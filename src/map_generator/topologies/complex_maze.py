@@ -92,9 +92,17 @@ class ComplexMazeTopology(BaseTopology):
         # (Hiếm khi cần thiết với thuật toán này, nhưng là một bước an toàn).
         obstacles = [obs for obs in obstacles if obs["pos"] not in [start_pos, target_pos]]
 
+        # [SỬA LỖI] Tạo danh sách các ô đường đi để Placer có thể đặt vật phẩm.
+        # Đây là bước quan trọng bị thiếu trước đây.
+        path_coords = []
+        for x in range(width):
+            for z in range(depth):
+                if grid[x][z] == 0: # '0' là đường đi
+                    path_coords.append((x, 0, z))
+
         return PathInfo(
             start_pos=start_pos,
             target_pos=target_pos,
-            path_coords=[],  # Không có đường đi định trước cho mê cung, người chơi phải tự tìm.
+            path_coords=path_coords,  # [FIX] Cung cấp tất cả các ô đường đi hợp lệ.
             obstacles=obstacles
         )

@@ -23,7 +23,8 @@
         "num_variants": 1,
         "params": {
           "path_length": 4,
-          "items_to_place": "crystal"
+          "items_to_place": "crystal",
+          "obstacle_count": 2
         }
       },
       "blockly_config": {

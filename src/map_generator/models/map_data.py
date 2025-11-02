@@ -21,6 +21,7 @@ class MapData:
                  items: List[Item] = None,
                  obstacles: List[Obstacle] = None,
                  path_coords: List[Coord] = None,
+                 params: Dict[str, Any] = None, # [THÊM MỚI]
                  placement_coords: List[Coord] = None, # [THÊM MỚI]
                  map_type: str = 'unknown',
                  logic_type: str = 'unknown'):
@@ -34,6 +35,7 @@ class MapData:
             items (List[Item], optional): Danh sách các vật phẩm. Mặc định là None.
             obstacles (List[Obstacle], optional): Danh sách các chướng ngại vật. Mặc định là None.
             path_coords (List[Coord], optional): Danh sách tọa độ của các ô trên đường đi.
+            params (Dict, optional): Các tham số gốc từ curriculum, chứa thông tin theme.
             placement_coords (List[Coord], optional): Danh sách tọa độ để đặt vật phẩm.
             map_type (str, optional): Tên của dạng map (topology) đã tạo ra nó.
             logic_type (str, optional): Tên của logic (placer) đã được áp dụng.
@@ -47,6 +49,7 @@ class MapData:
         self.placement_coords = placement_coords if placement_coords is not None else [] # [THÊM MỚI]
         self.path_coords = path_coords if path_coords is not None else []
         self.obstacles = obstacles if obstacles is not None else []
+        self.params = params if params is not None else {} # [THÊM MỚI]
         
         # Metadata để dễ dàng truy vết và gỡ lỗi
         self.map_type = map_type
@@ -64,7 +67,8 @@ class MapData:
             "metadata": {
                 "grid_size": self.grid_size,
                 "map_type_source": self.map_type,
-                "logic_type_source": self.logic_type
+                "logic_type_source": self.logic_type,
+                "params_source": self.params
             },
             "player": {
                 "start_position": self.start_pos
@@ -116,6 +120,11 @@ class MapData:
         def coord_to_obj(coord: Coord, y_offset: int = 0) -> Dict[str, int]:
             """Chuyển tuple (x,y,z) thành object {"x":x, "y":y, "z":z} và áp dụng offset y."""
             return {"x": coord[0], "y": coord[1] + y_offset, "z": coord[2]}
+
+        # --- [CẢI TIẾN] Đọc theme từ params ---
+        asset_theme = self.params.get('asset_theme', {})
+        ground_model = asset_theme.get('ground', 'ground.normal') # Mặc định là 'ground.normal'
+        stair_model = asset_theme.get('stair', 'ground.checker') # Mặc định cho bậc thang
         
         # --- Bước 1: Tạo mặt đất (ground) ---
         # [SỬA LỖI] Logic tạo nền đất được viết lại hoàn toàn.
@@ -194,7 +203,7 @@ class MapData:
                 game_blocks.append({"modelKey": item['modelKey'], "position": coord_to_obj(item['pos'], y_offset=0)})
                 processed_coords.add(item['pos'])
         
-        game_blocks.extend([{"modelKey": "ground.normal", "position": coord_to_obj(pos, y_offset=0)} for pos in sorted(list(final_ground_coords)) if pos not in processed_coords])
+        game_blocks.extend([{"modelKey": ground_model, "position": coord_to_obj(pos, y_offset=0)} for pos in sorted(list(final_ground_coords)) if pos not in processed_coords])
 
         # --- Bước 2: Đặt các đối tượng lên trên mặt đất ---
         collectibles = []

@@ -111,7 +111,7 @@ class MapGeneratorService:
             'star_shape': StarShapePlacer(),
             'z_shape': ZShapePlacer(),
             'staircase_3d': Staircase3DPlacer(),
-            'spiral_3d': Spiral3DPlacer(),
+            'spiral_3d_placer': Spiral3DPlacer(), # [SỬA LỖI] Đồng bộ tên đăng ký
             'circle': CirclePlacer(),
             'spiral_path': SpiralPlacer(),
             'triangle': TrianglePlacer(),
@@ -185,6 +185,7 @@ class MapGeneratorService:
             items=final_layout.get('items', []),
             obstacles=final_layout.get('obstacles', []),
             path_coords=path_info.path_coords, # (SỬA LỖI) Truyền path_coords vào MapData
+            params=params, # [THÊM MỚI] Truyền params vào MapData để xử lý theme
             placement_coords=path_info.placement_coords, # [SỬA LỖI] Truyền placement_coords
             map_type=map_type,
             logic_type=logic_type

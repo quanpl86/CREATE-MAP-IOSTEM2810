@@ -315,7 +315,22 @@ def main():
             for variant_index in range(num_variants):
                 try:
                     # --- Bước 4: Sinh map và tạo gameConfig ---
-                    params_for_generation = generation_config.get('params', {})
+                    base_params = generation_config.get('params', {})
+                    params_for_generation = copy.deepcopy(base_params)
+
+                    # [CẢI TIẾN] Xử lý params động cho các biến thể.
+                    # Nếu một giá trị trong params là một mảng, hãy chọn giá trị
+                    # tương ứng với chỉ số của biến thể hiện tại.
+                    for key, value in base_params.items():
+                        if isinstance(value, list):
+                            # Đảm bảo index không vượt quá độ dài của mảng
+                            if variant_index < len(value):
+                                params_for_generation[key] = value[variant_index]
+                                print(f"    LOG: Biến thể {variant_index + 1}, sử dụng '{key}': {value[variant_index]}")
+                            else:
+                                # Nếu index vượt quá, dùng giá trị cuối cùng của mảng
+                                params_for_generation[key] = value[-1]
+                                print(f"    LOG: Biến thể {variant_index + 1}, index vượt quá, sử dụng giá trị cuối của '{key}': {value[-1]}")
                     
                     generated_map = map_generator.generate_map(
                         map_type=map_type,
@@ -327,18 +342,24 @@ def main():
 
                     game_config = generated_map.to_game_engine_dict()
 
+                    # [CẢI TIẾN] Đọc theme từ params để sử dụng cho vật cản
+                    asset_theme = params_for_generation.get('asset_theme', {})
+                    default_obstacle_model = asset_theme.get('obstacle', 'wall.brick01')
+                    stair_model = asset_theme.get('stair', 'ground.checker')
+
                     # [REFACTORED] Bổ sung danh sách obstacles vào gameConfig.
                     # Bước này đảm bảo solver có thể nhận diện được chúng.
                     if generated_map.obstacles:
                         # [REFACTORED] Thống nhất type là "obstacle" và truyền modelKey nếu có.
-                        game_config['gameConfig']['obstacles'] = [{"id": f"o{i+1}", "type": "obstacle", "modelKey": obs.get('modelKey', 'wall.brick01'), "position": {"x": obs['pos'][0], "y": obs['pos'][1]+1, "z": obs['pos'][2]}} for i, obs in enumerate(generated_map.obstacles)]
+                        # [CẢI TIẾN] Sử dụng modelKey từ theme làm mặc định.
+                        game_config['gameConfig']['obstacles'] = [{"id": f"o{i+1}", "type": "obstacle", "modelKey": obs.get('modelKey', default_obstacle_model), "position": {"x": obs['pos'][0], "y": obs['pos'][1]+1, "z": obs['pos'][2]}} for i, obs in enumerate(generated_map.obstacles)]
 
                     # Bổ sung các khối vật lý của vật cản vào `blocks`
                     # để solver có thể nhận diện chúng là các khối vật lý có thể đứng lên được.
                     if generated_map.obstacles:
                          for obs in generated_map.obstacles:
                             y_offset = 0 if map_type in ['stepped_island_clusters', 'hub_with_stepped_islands'] else 1
-                            model_key = obs.get('modelKey', 'wall.brick01') # Mặc định là tường gạch nếu không có modelKey
+                            model_key = obs.get('modelKey', default_obstacle_model) # Sử dụng modelKey từ theme
                             game_config['gameConfig']['blocks'].append({ "modelKey": model_key, "position": {"x": obs['pos'][0], "y": obs['pos'][1] + y_offset, "z": obs['pos'][2]} })
 
                     # --- [MỚI] Lưu file gameConfig vào base_maps để test ---
@@ -469,12 +490,16 @@ def main():
                             # [FIX] Kiểm tra xem create_bug có trả về dict hợp lệ không.
                             # Một số hàm bug cũ có thể trả về string (XML) khi thất bại.
                             if isinstance(buggy_program_dict, dict):
-                                # [FIX] Tạo XML cho startBlocks, truyền cả raw_actions để xử lý turn.
-                                final_inner_blocks = _create_xml_from_structured_solution(buggy_program_dict, solution_result.get("raw_actions", []))
+                                # [FIX] Tạo XML cho startBlocks.
+                                # Đối với lỗi incorrect_block, raw_actions của lời giải gốc vẫn có thể
+                                # được dùng để xác định hướng rẽ cho các khối 'turn' không bị thay đổi.
+                                raw_actions_for_bug = solution_result.get("raw_actions", []) if bug_type in ['incorrect_block', 'incorrect_parameter'] else None
+                                final_inner_blocks = _create_xml_from_structured_solution(buggy_program_dict, raw_actions_for_bug)
                                 # Tạo phiên bản text của lời giải lỗi
                                 structured_solution_fixbug = buggy_program_dict
                                 print("    LOG: Đã tạo thành công phiên bản lỗi của lời giải.")
                             else:
+                                # [SỬA LỖI] Xử lý khi create_bug không trả về dict
                                 # Nếu create_bug trả về string hoặc None, nghĩa là đã có lỗi xảy ra.
                                 # In cảnh báo và sử dụng lại XML của lời giải đúng để không làm gián đoạn.
                                 print(f"   - ⚠️ Cảnh báo: Hàm tạo lỗi cho bug_type '{bug_type}' không trả về dictionary. Có thể lỗi đã không được tạo.")

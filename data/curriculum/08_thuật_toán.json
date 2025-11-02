@@ -23,6 +23,7 @@
         "num_variants": 1,
         "params": {
           "maze_width": 9,
+          "maze_depth": 9,
           "items_to_place": [
             "crystal"
           ]

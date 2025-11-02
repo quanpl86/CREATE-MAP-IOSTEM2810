@@ -21,13 +21,36 @@ class MisplacedBlocksBug(BaseBugStrategy):
     """
     def apply(self, program_dict: Dict[str, Any], config: Dict) -> Dict[str, Any]:
         main_body = program_dict.get("main", [])
-        if len(main_body) >= 2:
-            # Chỉ hoán đổi các khối ở cấp cao nhất của chương trình chính
-            idx1, idx2 = random.sample(range(len(main_body)), 2)
-            main_body[idx1], main_body[idx2] = main_body[idx2], main_body[idx1]
-            print(f"      -> Bug 'sequence_error': Hoán đổi khối lệnh ở vị trí {idx1} và {idx2} trong main.")
-        else:
+        if len(main_body) < 2:
             print("   - ⚠️ Không đủ khối lệnh trong main để tạo lỗi 'sequence_error'.")
+            return program_dict
+
+        # [CẢI TIẾN] Ưu tiên hoán đổi hai khối có loại khác nhau để tạo lỗi rõ ràng.
+        # 1. Tìm tất cả các cặp chỉ số (index) của các khối có loại khác nhau.
+        different_type_pairs = []
+        for i in range(len(main_body)):
+            for j in range(i + 1, len(main_body)):
+                if main_body[i].get('type') != main_body[j].get('type'):
+                    different_type_pairs.append((i, j))
+
+        idx1, idx2 = -1, -1
+        if different_type_pairs:
+            # 2. Nếu có các cặp khác loại, chọn ngẫu nhiên một cặp để hoán đổi.
+            # Đặc biệt ưu tiên hoán đổi khối đầu tiên với một khối khác loại.
+            first_block_pairs = [pair for pair in different_type_pairs if pair[0] == 0]
+            if first_block_pairs:
+                idx1, idx2 = random.choice(first_block_pairs)
+                print("      -> Bug 'sequence_error': Ưu tiên hoán đổi khối đầu tiên với khối khác loại.")
+            else:
+                idx1, idx2 = random.choice(different_type_pairs)
+        else:
+            # 3. Nếu tất cả các khối đều cùng loại (ví dụ: toàn moveForward),
+            # thì quay lại logic hoán đổi ngẫu nhiên như cũ.
+            idx1, idx2 = random.sample(range(len(main_body)), 2)
+
+        # Thực hiện hoán đổi
+        main_body[idx1], main_body[idx2] = main_body[idx2], main_body[idx1]
+        print(f"      -> Bug 'sequence_error': Hoán đổi khối lệnh ở vị trí {idx1} và {idx2} trong main.")
         return program_dict
 
 class MissingBlockBug(BaseBugStrategy):
@@ -98,25 +121,59 @@ class IncorrectParameterBug(BaseBugStrategy):
     Ví dụ: rẽ sai hướng.
     """
     def apply(self, program_dict: Dict[str, Any], config: Dict) -> Dict[str, Any]:
-        # Tìm tất cả các khối rẽ
-        all_turns = _find_blocks_recursively(
-            program_dict.get("main", []),
-            lambda block: block.get("type") == "maze_turn"
-        )
-        for proc_body in program_dict.get("procedures", {}).values():
-            all_turns.extend(_find_blocks_recursively(
-                proc_body,
-                lambda block: block.get("type") == "maze_turn"
-            ))
+        # [CẢI TIẾN] Logic này giờ xử lý 2 trường hợp:
+        # 1. Thay đổi tham số của một khối (ví dụ: direction của maze_turn).
+        # 2. Thay thế hoàn toàn một khối bằng khối khác (ví dụ: jump -> moveForward).
+        
+        bug_options = config.get("options", {})
+        from_block_type = bug_options.get("from")
+        to_block_type = bug_options.get("to")
+ 
+        if from_block_type and to_block_type:
+            # Trường hợp 2: Thay thế khối
+            possible_blocks = _find_blocks_recursively(
+                program_dict.get("main", []),
+                lambda block: block.get("type") == f"maze_{from_block_type}"
+            )
+            # [FIX] Mở rộng tìm kiếm vào trong các hàm (procedures)
+            for proc_body in program_dict.get("procedures", {}).values():
+                possible_blocks.extend(_find_blocks_recursively(
+                    proc_body,
+                    lambda block: block.get("type") == f"maze_{from_block_type}"
+                ))
 
-        if all_turns:
-            target_turn = random.choice(all_turns)
-            original_dir = target_turn.get("direction", "turnRight") # Giả định mặc định là Right
-            bugged_dir = "turnLeft" if original_dir == "turnRight" else "turnRight"
-            target_turn["direction"] = bugged_dir
-            print(f"      -> Bug 'incorrect_parameter': Thay đổi hướng rẽ từ {original_dir} thành {bugged_dir}.")
+            if possible_blocks:
+                target_block = random.choice(possible_blocks)
+                original_type = target_block.get("type")
+                target_block["type"] = f"maze_{to_block_type}"
+                # Xóa các thuộc tính không còn liên quan (ví dụ: direction)
+                if "direction" in target_block:
+                    del target_block["direction"]
+                print(f"      -> Bug 'incorrect_block': Thay thế khối '{original_type}' bằng '{target_block['type']}'.")
+            else:
+                print(f"   - ⚠️ Không tìm thấy khối loại 'maze_{from_block_type}' để tạo lỗi incorrect_block.")
         else:
-            print("   - ⚠️ Không tìm thấy khối 'maze_turn' để tạo lỗi incorrect_parameter.")
+            # Trường hợp 1: Thay đổi tham số (logic cũ cho maze_turn)
+            all_turns = _find_blocks_recursively(
+                program_dict.get("main", []),
+                lambda block: block.get("type") == "maze_turn"
+            )
+            # (Có thể mở rộng để tìm trong procedures nếu cần)
+            for proc_body in program_dict.get("procedures", {}).values():
+                all_turns.extend(_find_blocks_recursively(
+                    proc_body,
+                    lambda block: block.get("type") == "maze_turn"
+                ))
+            
+            if all_turns:
+                target_turn = random.choice(all_turns)
+                original_dir = target_turn.get("direction", "turnRight")
+                bugged_dir = "turnLeft" if original_dir == "turnRight" else "turnRight"
+                target_turn["direction"] = bugged_dir
+                print(f"      -> Bug 'incorrect_parameter': Thay đổi hướng rẽ từ {original_dir} thành {bugged_dir}.")
+            else:
+                print("   - ⚠️ Không tìm thấy khối 'maze_turn' để tạo lỗi incorrect_parameter.")
+ 
         return program_dict
 
 class IncorrectMathExpressionBug(BaseBugStrategy):

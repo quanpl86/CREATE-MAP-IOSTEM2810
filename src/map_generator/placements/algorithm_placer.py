@@ -29,51 +29,61 @@ class AlgorithmPlacer(BasePlacer):
         """
         print("    LOG: Placing items with 'algorithm' logic...")
         
-        items_to_place = params.get('items_to_place', [])
-        items = []
-        obstacles = path_info.obstacles
-        
-        # [SỬA LỖI] Xử lý hai trường hợp:
-        # 1. Có chướng ngại vật (dành cho map mê cung): Tìm ngõ cụt để đặt.
-        # 2. Không có chướng ngại vật (dành cho map đường thẳng): Đặt ngẫu nhiên trên đường đi.
-        if items_to_place and obstacles:
-            # --- Tìm các vị trí có thể đặt vật phẩm (ngõ cụt) ---
-            wall_coords = {obs['pos'] for obs in obstacles}
-            possible_placements = []
+        items = [] # Danh sách vật phẩm sẽ được tạo
+        obstacles = path_info.obstacles.copy() # Kế thừa các chướng ngại vật (tường) từ topology
+        items_to_place = params.get('items_to_place', []) # Lấy danh sách item cần đặt từ curriculum
+        if not isinstance(items_to_place, list): # Đảm bảo nó luôn là một list
+            items_to_place = [items_to_place]
+
+        # [SỬA LỖI] Logic tìm ngõ cụt (dead ends) được viết lại hoàn toàn.
+        path_coords_set = set(path_info.path_coords)
+        dead_ends = []
+
+        # Duyệt qua tất cả các ô đường đi để tìm ngõ cụt
+        for coord in path_info.path_coords:
+            # Bỏ qua điểm bắt đầu và kết thúc
+            if coord == path_info.start_pos or coord == path_info.target_pos:
+                continue
+
+            x, y, z = coord
+            neighbor_count = 0
+            # Kiểm tra 4 hàng xóm trên mặt phẳng XZ
+            for dx, dz in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                neighbor = (x + dx, y, z + dz)
+                if neighbor in path_coords_set:
+                    neighbor_count += 1
             
-            # Chỉ chạy logic này nếu có tường, tránh lỗi max() trên list rỗng
-            if wall_coords:
-                # Duyệt qua các ô không phải là tường
-                grid_width = max(c[0] for c in wall_coords) + 1
-                grid_depth = max(c[2] for c in wall_coords) + 1
-    
-                for x in range(1, grid_width, 2):
-                    for z in range(1, grid_depth, 2):
-                        pos = (x, 0, z)
-                        if pos not in wall_coords and pos != path_info.start_pos and pos != path_info.target_pos:
-                            # Đếm số lượng tường xung quanh
-                            neighbor_walls = 0
-                            for dx, _, dz in [(1,0,0), (-1,0,0), (0,0,1), (0,0,-1)]:
-                                if (pos[0] + dx, 0, pos[2] + dz) in wall_coords:
-                                    neighbor_walls += 1
-                            # Nếu có 3 bức tường xung quanh, đó là ngõ cụt
-                            if neighbor_walls == 3:
-                                possible_placements.append(pos)
+            # Một ô là ngõ cụt nếu nó chỉ có 1 hàng xóm là đường đi
+            if neighbor_count == 1:
+                dead_ends.append(coord)
+
+        print(f"    LOG: (AlgorithmPlacer) Tìm thấy {len(dead_ends)} vị trí ngõ cụt.")
+
+        # [CẢI TIẾN] Logic đặt vật phẩm mới để đảm bảo đặt đủ số lượng
+        if items_to_place:
+            # 1. Tạo danh sách các vị trí có thể đặt, ưu tiên ngõ cụt
+            random.shuffle(dead_ends)
+            placement_coords = dead_ends
+
+            # 2. Nếu số ngõ cụt không đủ, lấy thêm các vị trí ngẫu nhiên
+            # trên đường đi (trừ start/target và các vị trí đã chọn).
+            if len(placement_coords) < len(items_to_place):
+                print(f"   - ⚠️ Cảnh báo: Số ngõ cụt ({len(dead_ends)}) ít hơn số vật phẩm yêu cầu ({len(items_to_place)}). Sẽ đặt ở các vị trí ngẫu nhiên khác.")
                 
-                # Xáo trộn các vị trí và đặt vật phẩm
-                shuffled_placements = shuffle_list(possible_placements)
-                for item_type in items_to_place:
-                    if shuffled_placements:
-                        item_pos = shuffled_placements.pop()
-                        items.append({"type": item_type, "pos": item_pos})
-        elif items_to_place and not obstacles:
-            # Logic dự phòng: Nếu không có tường, đặt vật phẩm ngẫu nhiên trên đường đi
-            print("    LOG: (AlgorithmPlacer) No obstacles found. Placing items randomly on path.")
-            available_slots = shuffle_list([p for p in path_info.path_coords if p != path_info.start_pos and p != path_info.target_pos])
-            for item_type in items_to_place:
-                if available_slots:
-                    pos = available_slots.pop()
-                    items.append({"type": item_type, "pos": pos})
+                # Lấy tất cả các ô đường đi có thể đặt
+                other_possible_coords = list(path_coords_set - set(placement_coords) - {path_info.start_pos, path_info.target_pos})
+                random.shuffle(other_possible_coords)
+                
+                # Bổ sung vào danh sách các vị trí có thể đặt
+                needed_more = len(items_to_place) - len(placement_coords)
+                placement_coords.extend(other_possible_coords[:needed_more])
+            
+            # 3. Đặt vật phẩm vào các vị trí đã chọn (tối đa bằng số vị trí tìm được)
+            for i in range(min(len(items_to_place), len(placement_coords))):
+                item_type = items_to_place[i]
+                pos = placement_coords[i]
+                items.append({"type": item_type, "pos": pos})
+                print(f"      -> Đã đặt '{item_type}' tại vị trí {pos}")
 
         return {
             "start_pos": path_info.start_pos,

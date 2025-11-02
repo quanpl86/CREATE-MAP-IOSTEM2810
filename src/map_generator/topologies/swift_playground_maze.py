@@ -90,7 +90,9 @@ class SwiftPlaygroundMazeTopology(BaseTopology):
             landing_pos = add_vectors(stair_base_pos, UP_Y)
 
             # Thêm các khối cần thiết để vẽ và để solver xử lý.
-            obstacles.append({"modelKey": "ground.checker", "pos": stair_base_pos})
+            # [CẢI TIẾN] Xóa modelKey cứng. Việc gán modelKey sẽ do generate_all_maps.py
+            # xử lý dựa trên asset_theme.
+            obstacles.append({"type": "obstacle", "pos": stair_base_pos})
             placement_coords.add(stair_base_pos)
             placement_coords.add(landing_pos)
 
@@ -102,7 +104,7 @@ class SwiftPlaygroundMazeTopology(BaseTopology):
             stair_base_pos_2 = add_vectors(current_pos, horizontal_dir)
             landing_pos_2 = add_vectors(stair_base_pos_2, UP_Y)
 
-            obstacles.append({"modelKey": "ground.checker", "pos": stair_base_pos_2})
+            obstacles.append({"type": "obstacle", "pos": stair_base_pos_2})
             placement_coords.add(stair_base_pos_2)
             placement_coords.add(landing_pos_2)
             path_coords.append(landing_pos_2)

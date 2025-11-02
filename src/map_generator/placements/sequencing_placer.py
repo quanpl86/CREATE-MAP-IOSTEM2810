@@ -22,37 +22,36 @@ class SequencingPlacer(BasePlacer):
         # Một số curriculum có thể định nghĩa nó là một string đơn lẻ (ví dụ: "crystal").
         items_to_place = items_to_place_param if isinstance(items_to_place_param, list) else [items_to_place_param]
         
-        # `obstacles_to_place` là danh sách các loại chướng ngại vật
-        obstacles_to_place_param = params.get('obstacles_to_place', [])
-        # [SỬA LỖI] Tương tự, đảm bảo obstacles_to_place cũng là một list.
-        obstacles_to_place = obstacles_to_place_param if isinstance(obstacles_to_place_param, list) else [obstacles_to_place_param]
+        # [CẢI TIẾN] Đọc số lượng vật cản từ `obstacle_count`
+        obstacle_count = params.get('obstacle_count', 0)
 
         # Lấy tất cả các vị trí có thể đặt đối tượng và xáo trộn chúng
         # [SỬA LỖI] Loại bỏ vị trí bắt đầu và kết thúc khỏi danh sách các ô có thể đặt.
         possible_coords = [p for p in path_info.path_coords if p != path_info.start_pos and p != path_info.target_pos]
         available_slots = shuffle_list(possible_coords)
 
-        # Kiểm tra để đảm bảo có đủ chỗ
-        total_objects = len(items_to_place) + len(obstacles_to_place)
+        # Kiểm tra để đảm bảo có đủ chỗ cho cả vật phẩm và vật cản
+        total_objects = len(items_to_place) + obstacle_count
         if len(available_slots) < total_objects:
             print(f"   ⚠️ Cảnh báo: Đường đi không đủ dài để đặt {total_objects} đối tượng.")
             # Cắt bớt danh sách nếu không đủ chỗ
-            while len(available_slots) < len(items_to_place) + len(obstacles_to_place):
-                if obstacles_to_place:
-                    obstacles_to_place.pop()
+            while len(available_slots) < len(items_to_place) + obstacle_count:
+                if obstacle_count > 0:
+                    obstacle_count -= 1
                 elif items_to_place:
                     items_to_place.pop()
 
         items = []
         obstacles = []
         
-        # Đặt chướng ngại vật
-        for obs_type in obstacles_to_place:
+        # Đặt chướng ngại vật trước
+        for _ in range(obstacle_count):
             if available_slots:
                 pos = available_slots.pop()
-                obstacles.append({"type": "obstacle", "modelKey": obs_type, "pos": pos})
+                # modelKey sẽ được gán ở bước cuối cùng bởi generate_all_maps.py
+                obstacles.append({"type": "obstacle", "pos": pos})
         
-        # Đặt vật phẩm
+        # Đặt vật phẩm vào các vị trí còn lại
         for item_type in items_to_place:
             if available_slots:
                 pos = available_slots.pop()
